@@ -2,7 +2,9 @@ import "./App.css";
 import styled from "styled-components";
 import Header from "./Components/Header";
 import AboutMe from "./Components/AboutMe";
-import { useMediaQuery } from "react-responsive";
+import Skills from "./Components/Skills";
+import Projects from "./Components/Projects";
+import Contact from "./Components/Contact";
 
 const MainContainer = styled.div`
   display: flex;
@@ -12,20 +14,13 @@ const MainContainer = styled.div`
 `;
 
 function App() {
-  const isPc = useMediaQuery({
-    query: "(min-width:1024px)",
-  });
-  const isTablet = useMediaQuery({
-    query: "(min-width:768px) and (max-width:1023px)",
-  });
-  const isMobile = useMediaQuery({
-    query: "(max-width:767px)",
-  });
-
   return (
     <MainContainer>
       <Header />
       <AboutMe />
+      <Skills />
+      <Projects />
+      <Contact />
     </MainContainer>
   );
 }

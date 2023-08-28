@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
+import { Link } from "react-scroll";
 
 const HeaderContainer = styled.div`
   width: 100%;
@@ -8,6 +9,9 @@ const HeaderContainer = styled.div`
   min-width: 375px;
   position: fixed;
   top: 0;
+  background-color: white;
+  z-index: 50;
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 
   .navi {
     height: 100px;
@@ -109,7 +113,6 @@ function Header() {
 
   function setAboutMe() {
     setNaviValue(0);
-    window.scrollTo(0, 0);
   }
 
   function setSkills() {
@@ -127,34 +130,46 @@ function Header() {
   return (
     <HeaderContainer $ismobile={isMobile}>
       <ul className="navi">
-        <AboutMe
-          onClick={setAboutMe}
-          $naviValue={naviValue}
-          $ismobile={isMobile}
-        >
-          About Me
-          <div className="lineBox"></div>
-        </AboutMe>
-        <Skills onClick={setSkills} $naviValue={naviValue} $ismobile={isMobile}>
-          Skills
-          <div className="lineBox"></div>
-        </Skills>
-        <Projects
-          onClick={setProjects}
-          $naviValue={naviValue}
-          $ismobile={isMobile}
-        >
-          Projects
-          <div className="lineBox"></div>
-        </Projects>
-        <Contact
-          onClick={setContact}
-          $naviValue={naviValue}
-          $ismobile={isMobile}
-        >
-          Contact
-          <div className="lineBox"></div>
-        </Contact>
+        <Link to="aboutMe" spy={true} smooth={true}>
+          <AboutMe
+            onClick={setAboutMe}
+            $naviValue={naviValue}
+            $ismobile={isMobile}
+          >
+            About Me
+            <div className="lineBox"></div>
+          </AboutMe>
+        </Link>
+        <Link to="skills" spy={true} smooth={true}>
+          <Skills
+            onClick={setSkills}
+            $naviValue={naviValue}
+            $ismobile={isMobile}
+          >
+            Skills
+            <div className="lineBox"></div>
+          </Skills>
+        </Link>
+        <Link to="projects" spy={true} smooth={true}>
+          <Projects
+            onClick={setProjects}
+            $naviValue={naviValue}
+            $ismobile={isMobile}
+          >
+            Projects
+            <div className="lineBox"></div>
+          </Projects>
+        </Link>
+        <Link to="contact" spy={true} smooth={true}>
+          <Contact
+            onClick={setContact}
+            $naviValue={naviValue}
+            $ismobile={isMobile}
+          >
+            Contact
+            <div className="lineBox"></div>
+          </Contact>
+        </Link>
       </ul>
     </HeaderContainer>
   );

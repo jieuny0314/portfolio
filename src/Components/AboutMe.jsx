@@ -11,7 +11,6 @@ const AboutMeContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid green;
 
   @keyframes move {
     0% {
@@ -102,7 +101,23 @@ const AboutMeContainer = styled.div`
     }
 
     .title {
-      font-size: ${(props) => (props.$ismobile ? "1.5rem" : "2rem")};
+      position: relative;
+
+      .text {
+        margin: 0;
+        font-size: ${(props) => (props.$ismobile ? "1.5rem" : "2rem")};
+        position: relative;
+        z-index: 10;
+      }
+
+      .borderBox {
+        position: absolute;
+        bottom: 5px;
+        z-index: 5;
+        background-color: #d9d9d9;
+        height: ${(props) => (props.$ismobile ? "13px" : "20px")};
+        width: ${(props) => (props.$ismobile ? "220px" : "295px")};
+      }
     }
 
     .contents {
@@ -160,48 +175,53 @@ function AboutMe() {
   };
 
   return (
-    <AboutMeContainer $ismobile={isMobile}>
-      <div
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-        onClick={handleMouseOver}
-        className="logoImgContainer"
-      >
-        <div className="clickMe">
-          {!isHover ? (
-            <>
-              <img className="curveImg" src={Curve} alt="CurveImage" />
-              <p className="hoverText">
-                {!isMobile
-                  ? "로고에 마우스를 올려보세요."
-                  : "로고를 클릭해보세요."}
+    <div id="aboutMe">
+      <AboutMeContainer $ismobile={isMobile} id="AboutMe">
+        <div
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+          onClick={handleMouseOver}
+          className="logoImgContainer"
+        >
+          <div className="clickMe">
+            {!isHover ? (
+              <>
+                <img className="curveImg" src={Curve} alt="CurveImage" />
+                <p className="hoverText">
+                  {!isMobile
+                    ? "로고에 마우스를 올려보세요."
+                    : "로고를 클릭해보세요."}
+                </p>
+              </>
+            ) : (
+              ""
+            )}
+          </div>
+          <img className="logoImg" src={Logo} alt="LogoImage" />
+          <div className="detailContainer" ismobile={isMobile}>
+            <div className="outerBox">
+              <div className="title">
+                <h2 className="text">기록하는 개발자 김지은</h2>
+                <div className="borderBox"></div>
+              </div>
+              <p className="contents">
+                알아가는 걸 기록하고,<br></br>프로젝트로 구현하고,<br></br>
+                이후 회고를 통해 내 것으로 만드는,
               </p>
-            </>
-          ) : (
-            ""
-          )}
-        </div>
-        <img className="logoImg" src={Logo} alt="LogoImage" />
-        <div className="detailContainer" ismobile={isMobile}>
-          <div className="outerBox">
-            <h2 className="title">기록하는 개발자 김지은</h2>
-            <p className="contents">
-              알아가는 걸 기록하고,<br></br>프로젝트로 구현하고,<br></br>
-              이후 회고를 통해 내 것으로 만드는,
-            </p>
-            <p className="contents">
-              같은 걸 두 번 물어보는 게 아닌 기록한 걸 읽고 적용할 수 있는
-              개발자입니다.<br></br> 개인 학습 및 회고 블로그를 운영하고 있으며
-              약 330개의 포스팅을 남겼습니다.<br></br>
-            </p>
-            <p className="contents"> 제 기록이 궁금하신가요?</p>
-            <a className="blogLink" href="https://jieunny.tistory.com/">
-              <h2 className="text">Click Me!</h2>
-            </a>
+              <p className="contents">
+                같은 걸 두 번 물어보는 게 아닌 기록한 걸 읽고 적용할 수 있는
+                개발자입니다.<br></br> 개인 학습 및 회고 블로그를 운영하고
+                있으며 약 330개의 포스팅을 남겼습니다.<br></br>
+              </p>
+              <p className="contents"> 제 기록이 궁금하신가요?</p>
+              <a className="blogLink" href="https://jieunny.tistory.com/">
+                <h2 className="text">Click Me!</h2>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </AboutMeContainer>
+      </AboutMeContainer>
+    </div>
   );
 }
 
