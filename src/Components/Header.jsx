@@ -11,7 +11,7 @@ const HeaderContainer = styled.div`
   top: 0;
   background-color: white;
   z-index: 50;
-  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+  /* box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px; */
 
   .navi {
     height: 100px;

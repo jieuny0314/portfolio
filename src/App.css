@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Inter", sans-serif;

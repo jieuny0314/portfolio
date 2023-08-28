@@ -5,9 +5,9 @@ import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 
 const AboutMeContainer = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  padding-top: 80px;
+  padding-top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,6 +53,7 @@ const AboutMeContainer = styled.div`
     width: ${(props) => (props.$ismobile ? "150px" : "350px")};
     position: relative;
     height: 125px;
+    /* background-color: red; */
   }
 
   .logoImg {

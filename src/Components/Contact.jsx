@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const ContactContainer = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   padding-top: 80px;
   display: flex;
