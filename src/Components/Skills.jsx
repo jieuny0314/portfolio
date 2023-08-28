@@ -20,7 +20,6 @@ const StackBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
   border-radius: 50%;
   cursor: pointer;
   position: relative;
@@ -45,6 +44,7 @@ const StackBox = styled.div`
   }
 
   .text {
+    font-size: ${(props) => (props.$ismobile ? "1.1rem" : "1.5rem")};
     z-index: 10;
     font-family: "Sriracha", cursive;
     animation: move 2s infinite linear;
@@ -61,11 +61,12 @@ const StackBox = styled.div`
     align-items: center;
     justify-content: center;
     z-index: -5;
-    transition: all 1s;
-    /* border: 1px solid #d9d9d9; */
+    transition-property: left, top, z-index;
+    transition-duration: 1s, 1s, 0.3s;
 
     img {
       width: ${(props) => (props.$ismobile ? "60px" : "110px")};
+      cursor: pointer;
     }
   }
 
@@ -75,39 +76,93 @@ const StackBox = styled.div`
 
   .htmlMove {
     left: 100%;
-    transition: all 1s;
+    z-index: 10;
+    transition-property: left, top, z-index, transform;
+    transition-duration: 1s, 1s, 3s, 2s;
+
+    &:hover {
+      transform: rotateY(360deg);
+    }
   }
 
   .cssMove {
     left: -63%;
+    z-index: 10;
+    transition-property: left, top, z-index, transform;
+    transition-duration: 1s, 1s, 3s, 2s;
+
+    &:hover {
+      transform: rotateY(360deg);
+    }
   }
 
   .javaScriptMove {
     top: 100%;
+    z-index: 10;
+    transition-property: left, top, z-index, transform;
+    transition-duration: 1s, 1s, 3s, 2s;
+
+    &:hover {
+      transform: rotateY(360deg);
+    }
   }
 
   .gitMove {
     top: -37%;
     left: 78%;
+    z-index: 10;
+    transition-property: left, top, z-index, transform;
+    transition-duration: 1s, 1s, 3s, 2s;
+    &:hover {
+      transform: rotateY(360deg);
+    }
   }
 
   .figmaMove {
     top: 77%;
     left: 77%;
+    z-index: 10;
+    transition-property: left, top, z-index, transform;
+    transition-duration: 1s, 1s, 3s, 2s;
+
+    &:hover {
+      transform: rotateY(360deg);
+    }
   }
 
   .reactMove {
     top: -63%;
+    z-index: 10;
+    transition-property: left, top, z-index, transform;
+    transition-duration: 1s, 1s, 3s, 2s;
+
+    &:hover {
+      transform: rotateY(360deg);
+    }
   }
 
   .reduxMove {
     top: -39%;
     left: -39%;
+    z-index: 10;
+    transition-property: left, top, z-index, transform;
+    transition-duration: 1s, 1s, 3s, 2s;
+
+    &:hover {
+      transform: rotateY(360deg);
+    }
   }
 
   .styledComponentMove {
     top: 78%;
     left: -38%;
+    z-index: 10;
+    transition-property: left, top, z-index, transform;
+    transition-duration: 1s, 1s, 3s, 2s;
+
+    &:hover {
+      transform: rotateY(360deg);
+    }
   }
 `;
 
@@ -124,7 +179,7 @@ function Skills() {
   return (
     <div id="skills">
       <SkillsContainer $ismobile={isMobile}>
-        <StackBox $ismobile={isMobile}>
+        <StackBox $ismobile={isMobile} $isclicked={isClicked}>
           <div onClick={clickedOn} className="text">
             Click Here!
           </div>
@@ -187,27 +242,6 @@ function Skills() {
             ></img>
           </div>
         </StackBox>
-        {/* 
-        <ThreeStack $ismobile={isMobile}>
-          <div className="skill react">
-            <img
-              src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566557331/noticon/d5hqar2idkoefh6fjtpu.png"
-              alt="react"
-            ></img>
-          </div>
-          <div className="skill redux">
-            <img
-              src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1567749614/noticon/zgdaxpaif5ojeduonygb.png"
-              alt="redux"
-            ></img>
-          </div>
-          <div className="skill styledComponent">
-            <img
-              src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1568851518/noticon/lwj3hr9v1yoheimtwc1w.png"
-              alt="styledComponent"
-            ></img>
-          </div>
-        </ThreeStack> */}
       </SkillsContainer>
     </div>
   );
