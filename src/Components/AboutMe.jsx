@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Logo from "../Images/Logo_big.png";
 import Curve from "../Images/curve.png";
-import { HiOutlineArrowUp } from "react-icons/hi";
 import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 
@@ -14,12 +13,31 @@ const AboutMeContainer = styled.div`
   justify-content: center;
   border: 1px solid green;
 
+  @keyframes move {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
   .clickMe {
     position: absolute;
     width: ${(props) => (props.$ismobile ? "160px" : "300px")};
     top: ${(props) => (props.$ismobile ? "-60%" : "-80%")};
     left: 50%;
     display: flex;
+    animation: move 2s infinite linear;
 
     .curveImg {
       margin-top: ${(props) => (props.$ismobile ? "20px" : "40px")};
@@ -65,6 +83,24 @@ const AboutMeContainer = styled.div`
     font-family: "Nanum Gothic", sans-serif;
     opacity: 0;
 
+    @keyframes change {
+      0% {
+        font-size: scale(1);
+      }
+      25% {
+        transform: scale(1.1);
+      }
+      50% {
+        transform: scale(1);
+      }
+      75% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
     .title {
       font-size: ${(props) => (props.$ismobile ? "1.5rem" : "2rem")};
     }
@@ -76,8 +112,13 @@ const AboutMeContainer = styled.div`
     .blogLink {
       color: black;
       text-decoration-line: none;
-      font-family: "Sriracha", cursive;
-      font-size: ${(props) => (props.$ismobile ? "1.2rem" : "1.5rem")};
+
+      .text {
+        font-family: "Sriracha", cursive;
+        font-size: ${(props) => (props.$ismobile ? "1.2rem" : "1.5rem")};
+        animation: change 1.5s infinite linear;
+        display: inline-block;
+      }
     }
   }
 
@@ -118,10 +159,6 @@ function AboutMe() {
     setIsHover(false);
   };
 
-  const handleClickOut = () => {
-    handleMouseOut();
-  };
-
   return (
     <AboutMeContainer $ismobile={isMobile}>
       <div
@@ -159,7 +196,7 @@ function AboutMe() {
             </p>
             <p className="contents"> 제 기록이 궁금하신가요?</p>
             <a className="blogLink" href="https://jieunny.tistory.com/">
-              Click Me!
+              <h2 className="text">Click Me!</h2>
             </a>
           </div>
         </div>

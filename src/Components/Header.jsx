@@ -109,6 +109,7 @@ function Header() {
 
   function setAboutMe() {
     setNaviValue(0);
+    window.scrollTo(0, 0);
   }
 
   function setSkills() {
