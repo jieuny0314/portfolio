@@ -36,6 +36,7 @@ const AboutMeContainer = styled.div`
     top: ${(props) => (props.$ismobile ? "-60%" : "-80%")};
     left: 50%;
     display: flex;
+    z-index: -10;
     animation: move 2s infinite linear;
 
     .curveImg {
@@ -199,7 +200,7 @@ function AboutMe() {
             )}
           </div>
           <img className="logoImg" src={Logo} alt="LogoImage" />
-          <div className="detailContainer" ismobile={isMobile}>
+          <div className="detailContainer">
             <div className="outerBox">
               <div className="title">
                 <h2 className="text">기록하는 개발자 김지은</h2>

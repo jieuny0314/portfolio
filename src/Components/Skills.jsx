@@ -50,6 +50,17 @@ const StackBox = styled.div`
     animation: move 2s infinite linear;
   }
 
+  .text::before {
+    background-color: #d9d9d9;
+    position: absolute;
+    z-index: -1;
+    left: -3px;
+    bottom: 10px;
+    width: ${(props) => (props.$ismobile ? "90px" : "120px")};
+    height: ${(props) => (props.$ismobile ? "5px" : "10px")};
+    content: "";
+  }
+
   .skill {
     width: ${(props) => (props.$ismobile ? "100px" : "180px")};
     height: ${(props) => (props.$ismobile ? "100px" : "180px")};
