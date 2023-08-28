@@ -1,10 +1,12 @@
 import "./App.css";
 import styled from "styled-components";
 import Header from "./Components/Header";
+import AboutMe from "./Components/AboutMe";
 import { useMediaQuery } from "react-responsive";
 
 const MainContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
@@ -23,6 +25,7 @@ function App() {
   return (
     <MainContainer>
       <Header />
+      <AboutMe />
     </MainContainer>
   );
 }

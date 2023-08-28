@@ -3,18 +3,26 @@ import { useMediaQuery } from "react-responsive";
 
 const HeaderContainer = styled.div`
   width: 100%;
+  height: 100px;
   min-width: 375px;
-  border: 1px solid red;
+  position: fixed;
+  top: 0;
+  //border: 1px solid red;
 
   .navi {
-    border: 1px solid blue;
+    height: 100px;
+    //border: 1px solid blue;
     display: flex;
     list-style: none;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px 0 20px;
     font-size: ${(props) => (props.$ismobile ? "1rem" : "1.5rem")};
-    margin: ${(props) => (props.$ismobile ? "24px 0" : "24px 100px")};
+    margin: ${(props) => (props.$ismobile ? "0 15px" : "0 100px")};
+
+    .li {
+      cursor: pointer;
+    }
   }
 `;
 

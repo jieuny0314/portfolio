@@ -1,7 +1,13 @@
-function Contact() {
-  return (
-    
-  );
-}
+// import styled from "styled-components";
 
-export default Contact;
+// const ContactContainer = styled.div`
+
+// `
+
+// function Contact() {
+//   return (
+
+//   );
+// }
+
+// export default Contact;
