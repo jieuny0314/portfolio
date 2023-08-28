@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Logo from "../Images/Logo_big.png";
+import Curve from "../Images/curve.png";
+import { HiOutlineArrowUp } from "react-icons/hi";
 import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 
@@ -11,6 +13,24 @@ const AboutMeContainer = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px solid green;
+
+  .clickMe {
+    position: absolute;
+    width: ${(props) => (props.$ismobile ? "160px" : "300px")};
+    top: ${(props) => (props.$ismobile ? "-60%" : "-80%")};
+    left: 50%;
+    display: flex;
+
+    .curveImg {
+      margin-top: ${(props) => (props.$ismobile ? "20px" : "40px")};
+      transform: scale(0.5);
+    }
+
+    .hoverText {
+      font-family: "Nanum Pen Script", cursive;
+      font-size: ${(props) => (props.$ismobile ? "1.3rem" : "2rem")};
+    }
+  }
 
   .logoImgContainer {
     width: ${(props) => (props.$ismobile ? "150px" : "350px")};
@@ -35,7 +55,6 @@ const AboutMeContainer = styled.div`
 
   .detailContainer {
     width: ${(props) => (props.$ismobile ? "300px" : "690px")};
-    border: 1px solid black;
     position: absolute;
     transition: all 1s;
     height: ${(props) => (props.$ismobile ? "60px" : "125px")};
@@ -44,7 +63,7 @@ const AboutMeContainer = styled.div`
     left: ${(props) => (props.$ismobile ? "-50%" : "0")};
     padding: 20px;
     font-family: "Nanum Gothic", sans-serif;
-    /* opacity: 0; */
+    opacity: 0;
 
     .title {
       font-size: ${(props) => (props.$ismobile ? "1.5rem" : "2rem")};
@@ -69,6 +88,17 @@ const AboutMeContainer = styled.div`
     opacity: 1;
     transition: all 1s;
   }
+
+  .fold {
+    position: absolute;
+    bottom: 17%;
+    right: 10%;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+  }
 `;
 
 function AboutMe() {
@@ -77,13 +107,19 @@ function AboutMe() {
   });
 
   const [isHover, setIsHover] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
   const handleMouseOver = () => {
     setIsHover(true);
+    setIsClicked(true);
   };
 
   const handleMouseOut = () => {
     setIsHover(false);
+  };
+
+  const handleClickOut = () => {
+    handleMouseOut();
   };
 
   return (
@@ -91,8 +127,23 @@ function AboutMe() {
       <div
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
+        onClick={handleMouseOver}
         className="logoImgContainer"
       >
+        <div className="clickMe">
+          {!isHover ? (
+            <>
+              <img className="curveImg" src={Curve} alt="CurveImage" />
+              <p className="hoverText">
+                {!isMobile
+                  ? "로고에 마우스를 올려보세요."
+                  : "로고를 클릭해보세요."}
+              </p>
+            </>
+          ) : (
+            ""
+          )}
+        </div>
         <img className="logoImg" src={Logo} alt="LogoImage" />
         <div className="detailContainer" ismobile={isMobile}>
           <div className="outerBox">
