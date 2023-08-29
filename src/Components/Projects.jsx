@@ -5,9 +5,8 @@ const ProjectsContainer = styled.div`
   width: 100vw;
   height: 100vh;
   padding-top: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   border: 1px solid green;
 `;
 
@@ -71,7 +70,7 @@ function Projects() {
     <div id="projects">
       <ProjectsContainer>
         {projects.map((el, i) => {
-          return <ProjectCard project={projects[i]} key={el.id} />;
+          return <ProjectCard project={projects[i]} key={el.id} index={i} />;
         })}
       </ProjectsContainer>
     </div>

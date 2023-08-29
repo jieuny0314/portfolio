@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const ProjectCardContainer = styled.div`
   width: 22vw;
+  min-width: 300px;
   height: 60vh;
   display: flex;
   flex-direction: column;
@@ -64,10 +65,32 @@ const ProjectCardContainer = styled.div`
 
   .title {
     height: 15%;
+    position: relative;
+    z-index: 10;
 
     h2 {
       margin: 0;
     }
+  }
+
+  .title::before {
+    content: "";
+    width: 45%;
+    height: 25%;
+    background-color: ${(props) =>
+      props.$index === 0
+        ? "#ffcd4a"
+        : (props) =>
+            props.$index === 1
+              ? "#bfb0de"
+              : (props) =>
+                  props.$index === 2
+                    ? "#f9a698"
+                    : (props) => (props.$index === 3 ? "#d9d9d9" : "#fffff")};
+    position: absolute;
+    top: 15px;
+    opacity: 0.8;
+    z-index: -1;
   }
 
   .contents {
@@ -91,17 +114,18 @@ const ProjectCardContainer = styled.div`
     .stackBadge {
       margin-right: 10px;
     }
-    .title {
+    .stackTitle {
       display: inline-block;
+      width: 100%;
       margin-bottom: 10px;
     }
   }
 `;
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, index }) {
   return (
     <div id="projects">
-      <ProjectCardContainer $backImg={project.backgroundImg}>
+      <ProjectCardContainer $backImg={project.backgroundImg} $index={index}>
         <div className="background" />
         <div className="contentsBox">
           <div className="title">
@@ -116,7 +140,7 @@ function ProjectCard({ project }) {
             <p>{project.period}</p>
           </div>
           <div className="stacks">
-            <h3 className="title">사용한 기술 스택</h3>
+            <h3 className="stackTitle">사용한 기술 스택</h3>
             {project.stacks.map((el, i) => {
               return (
                 <img
