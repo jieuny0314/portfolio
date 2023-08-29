@@ -6,11 +6,47 @@ const ProjectCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid green;
   padding: 20px;
   border-radius: 10px;
+  background-image: url(${(props) => props.$backImg});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 48% 0%;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  z-index: 2;
 
-  &:hover {
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #f6f6f6;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    z-index: 3;
+  }
+
+  &:hover .background {
+    opacity: 0.95;
+    transition: all 0.5s;
+  }
+
+  &:hover .contentsBox {
+    opacity: 1;
+    transition: all 0.5s;
+  }
+
+  .contentsBox {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: relative;
+    z-index: 5;
+    padding: 10px;
   }
 
   h3 {
@@ -23,7 +59,6 @@ const ProjectCardContainer = styled.div`
   .period,
   .stacks {
     width: 100%;
-    /* border: 1px solid black; */
     display: flex;
   }
 
@@ -49,7 +84,7 @@ const ProjectCardContainer = styled.div`
   }
 
   .stacks {
-    height: 30%;
+    height: 35%;
     /* border: 1px solid black; */
     align-items: center;
     flex-wrap: wrap;
@@ -58,6 +93,7 @@ const ProjectCardContainer = styled.div`
     }
     .title {
       display: inline-block;
+      margin-bottom: 10px;
     }
   }
 `;
@@ -65,31 +101,34 @@ const ProjectCardContainer = styled.div`
 function ProjectCard({ project }) {
   return (
     <div id="projects">
-      <ProjectCardContainer>
-        {/* <div className="title">
-          <h2>{project.title}</h2>
+      <ProjectCardContainer $backImg={project.backgroundImg}>
+        <div className="background" />
+        <div className="contentsBox">
+          <div className="title">
+            <h2>{project.title}</h2>
+          </div>
+          <div className="contents">
+            <h3>서비스 소개</h3>
+            <p>{project.service}</p>
+          </div>
+          <div className="period">
+            <h3>기간</h3>
+            <p>{project.period}</p>
+          </div>
+          <div className="stacks">
+            <h3 className="title">사용한 기술 스택</h3>
+            {project.stacks.map((el, i) => {
+              return (
+                <img
+                  className="stackBadge"
+                  src={project.stacks[i]}
+                  key={i}
+                  alt="skillBadge"
+                />
+              );
+            })}
+          </div>
         </div>
-        <div className="contents">
-          <h3>서비스 소개</h3>
-          <p>{project.service}</p>
-        </div>
-        <div className="period">
-          <h3>기간</h3>
-          <p>{project.period}</p>
-        </div>
-        <div className="stacks">
-          <h3 className="title">사용한 기술 스택</h3>
-          {project.stacks.map((el, i) => {
-            return (
-              <img
-                className="stackBadge"
-                src={project.stacks[i]}
-                key={i}
-                alt="skillBadge"
-              />
-            );
-          })}
-        </div> */}
       </ProjectCardContainer>
     </div>
   );

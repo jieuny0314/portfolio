@@ -25,7 +25,7 @@ function Projects() {
         "https://img.shields.io/badge/tailwind%20css-06B6D4?style=for-the-badge&logo=tailwind%20css&logoColor=black",
         "https://img.shields.io/badge/redux%20toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=black",
       ],
-      backgroundImg: "../Images/Perpett.png",
+      backgroundImg: "/Perpett.png",
     },
     {
       id: 2,
@@ -38,7 +38,7 @@ function Projects() {
         "https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white",
         "https://img.shields.io/badge/chart.js-FF6384?style=for-the-badge&logo=chart.js&logoColor=black",
       ],
-      backgroundImg: "portfolio/src/Images/Perpett.png",
+      backgroundImg: "/Usum.png",
     },
     {
       id: 3,
@@ -51,7 +51,7 @@ function Projects() {
         "https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=black",
         "https://img.shields.io/badge/styled%20components-DB7093?style=for-the-badge&logo=styled%20components&logoColor=black",
       ],
-      backgroundImg: "portfolio/src/Images/Perpett.png",
+      backgroundImg: "/TodoList.png",
     },
     {
       id: 4,
@@ -63,7 +63,7 @@ function Projects() {
         "https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black",
         "https://img.shields.io/badge/styled%20components-DB7093?style=for-the-badge&logo=styled%20components&logoColor=black",
       ],
-      backgroundImg: "portfolio/src/Images/Perpett.png",
+      backgroundImg: "/Portfolio.png",
     },
   ];
 
