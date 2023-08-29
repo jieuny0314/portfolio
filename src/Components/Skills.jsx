@@ -44,7 +44,7 @@ const StackBox = styled.div`
   }
 
   .text {
-    font-size: ${(props) => (props.$ismobile ? "1.1rem" : "1.5rem")};
+    font-size: ${(props) => (props.$ismobile ? "1.3rem" : "1.8rem")};
     z-index: 10;
     font-family: "Sriracha", cursive;
     animation: move 2s infinite linear;
@@ -79,10 +79,6 @@ const StackBox = styled.div`
       width: ${(props) => (props.$ismobile ? "60px" : "110px")};
       cursor: pointer;
     }
-  }
-
-  .javaScript img {
-    width: ${(props) => (props.$ismobile ? "60px" : "80px")};
   }
 
   .htmlMove {
