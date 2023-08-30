@@ -107,7 +107,7 @@ const ProjectCardContainer = styled.div`
   .title::before {
     content: "";
     width: 40%;
-    height: 25%;
+    height: 22%;
     background-color: ${(props) =>
       props.$index === 0
         ? "#ffcd4a"

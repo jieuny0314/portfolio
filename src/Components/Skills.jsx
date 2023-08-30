@@ -10,7 +10,6 @@ const SkillsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid green;
   z-index: 100;
 `;
 
@@ -56,7 +55,7 @@ const StackBox = styled.div`
     z-index: -1;
     left: -3px;
     bottom: 10px;
-    width: ${(props) => (props.$ismobile ? "90px" : "120px")};
+    width: ${(props) => (props.$ismobile ? "90px" : "145px")};
     height: ${(props) => (props.$ismobile ? "5px" : "10px")};
     content: "";
   }

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Background = styled.div`
   width: 100vw;
@@ -14,6 +16,7 @@ const ProjectDetailContainer = styled.div`
   width: ${(props) => (props.$ismobile ? "100%" : "55%")};
   padding: ${(props) => (props.$ismobile ? "30px" : "10px")};
   overflow-x: hidden;
+  margin-top: 20px;
   min-width: ${(props) => (props.$ismobile ? "375px" : "600px")};
 
   ul {
@@ -49,6 +52,25 @@ const ProjectDetailContainer = styled.div`
   .previewBox {
     height: 300px;
     border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .arrow {
+      color: #7d7d7d;
+      cursor: pointer;
+
+      &:hover {
+        color: black;
+      }
+    }
+
+    .imgBox {
+      width: 85%;
+      height: 100%;
+      border: 1px solid black;
+      margin: 0 10px;
+    }
   }
 
   .title,
@@ -72,7 +94,7 @@ const ProjectDetailContainer = styled.div`
     &:first-child {
       list-style: none;
       font-weight: bold;
-      margin-left: 15px;
+      margin-left: 0;
     }
   }
 
@@ -100,6 +122,10 @@ const ProjectDetailContainer = styled.div`
       text-decoration: none;
       border-bottom: 1px solid black;
       padding-bottom: 1px;
+
+      &:hover {
+        font-weight: bold;
+      }
     }
   }
 `;
@@ -215,65 +241,75 @@ function ProjectDetail() {
   const projectNum = useLocation().pathname.split("/")[2];
 
   return (
-    <Background>
-      <ProjectDetailContainer $ismobile={isMobile}>
-        <div className="titleBox">
-          <h2 className="title">{projectsDetail[projectNum].title}</h2>
-        </div>
-        <div className="divisionLine" />
-        <div className="previewBox"></div>
-        <div className="roleBox">
-          <h3 className="roleTitle">맡은 역할</h3>
-          <ul>
-            {projectsDetail[projectNum].role.map((el, i) => {
-              return (
-                <li className="role" key={i}>
-                  {el}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className="functionBox">
-          <h3 className="functionTitle">구현 기능 설명</h3>
-          <ul>
-            {projectsDetail[projectNum].function.map((el, i) => {
-              return (
-                <li className="function" key={i}>
-                  {el}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className="reviewBox">
-          <h3 className="reviewTitle">회고</h3>
-          <ul>
-            {projectsDetail[projectNum].review.map((el, i) => {
-              return (
-                <li className="review" key={i}>
-                  {el}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        <div className="linkBox">
-          <h3 className="linkTitle">관련 링크</h3>
-          <ul>
-            {projectsDetail[projectNum].link.map((el, i) => {
-              return (
-                <li className="linkList" key={i}>
-                  <a href={el[1]} className="linkA">
-                    {el[0]}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </ProjectDetailContainer>
-    </Background>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <Background>
+        <ProjectDetailContainer $ismobile={isMobile}>
+          <div className="titleBox">
+            <h2 className="title">{projectsDetail[projectNum].title}</h2>
+          </div>
+          <div className="divisionLine" />
+          <div className="previewBox">
+            <FaAngleLeft size="36" className="arrow prev" />
+            <div className="imgBox"></div>
+            <FaAngleRight size="36" className="arrow next" />
+          </div>
+          <div className="roleBox">
+            <h3 className="roleTitle">맡은 역할</h3>
+            <ul>
+              {projectsDetail[projectNum].role.map((el, i) => {
+                return (
+                  <li className="role" key={i}>
+                    {el}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="functionBox">
+            <h3 className="functionTitle">구현 기능 설명</h3>
+            <ul>
+              {projectsDetail[projectNum].function.map((el, i) => {
+                return (
+                  <li className="function" key={i}>
+                    {el}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="reviewBox">
+            <h3 className="reviewTitle">회고</h3>
+            <ul>
+              {projectsDetail[projectNum].review.map((el, i) => {
+                return (
+                  <li className="review" key={i}>
+                    {el}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="linkBox">
+            <h3 className="linkTitle">관련 링크</h3>
+            <ul>
+              {projectsDetail[projectNum].link.map((el, i) => {
+                return (
+                  <li className="linkList" key={i}>
+                    <a href={el[1]} className="linkA">
+                      {el[0]}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </ProjectDetailContainer>
+      </Background>
+    </motion.div>
   );
 }
 
