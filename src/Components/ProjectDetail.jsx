@@ -2,23 +2,61 @@ import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { LiaHandPaperSolid } from "react-icons/lia";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useState } from "react";
+import {
+  AiOutlinePaperClip,
+  AiOutlineBulb,
+  AiOutlineFunction,
+} from "react-icons/ai";
 
 const Background = styled.div`
   width: 100vw;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
 `;
 
 const ProjectDetailContainer = styled.div`
-  width: ${(props) => (props.$ismobile ? "100%" : "50%")};
+  width: ${(props) => (props.$ismobile ? "" : "45%")};
   padding: ${(props) => (props.$ismobile ? "30px" : "10px")};
   overflow-x: hidden;
-  margin-top: 20px;
-  min-width: ${(props) => (props.$ismobile ? "375px" : "600px")};
+  min-width: ${(props) => (props.$ismobile ? "350px" : "600px")};
+  padding-top: 80px;
+
+  .fixed {
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+
+  .titleBox {
+    background-color: white;
+    padding: 0 15px;
+    width: ${(props) => (props.$ismobile ? "100%" : "45%")};
+    min-width: ${(props) => (props.$ismobile ? "350px" : "600px")};
+    border-bottom: 0.5px solid #d9d9d9;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    box-shadow: 0 4px 4px -5px #d9d9d9;
+
+    .title {
+      font-size: 2rem;
+      font-family: "Sriracha", cursive;
+      margin: 0;
+    }
+  }
 
   ul {
     margin: 0;
@@ -50,6 +88,12 @@ const ProjectDetailContainer = styled.div`
     min-width: ${(props) => (props.$ismobile ? "" : "600px")};
   }
 
+  .flex {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
   .previewBox {
     width: 100%;
     height: ${(props) => (props.$ismobile ? "175px" : "350px")};
@@ -74,22 +118,13 @@ const ProjectDetailContainer = styled.div`
       overflow-x: hidden;
     }
   }
-
-  .title,
   .roleTitle,
   .functionTitle,
   .reviewTitle,
   .linkTitle {
     margin: 0;
-    margin-bottom: 20px;
     margin-left: 10px;
     padding: 0;
-  }
-
-  .title {
-    margin-bottom: 10px;
-    font-size: 2rem;
-    font-family: "Sriracha", cursive;
   }
 
   .role {
@@ -154,6 +189,15 @@ const PreviewImg = styled.div`
   transition: all 1s ease-in-out;
 `;
 
+const MainBtn = styled.button`
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  padding-right: 5px;
+  cursor: pointer;
+`;
+
 function ProjectDetail() {
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
@@ -211,6 +255,7 @@ function ProjectDetail() {
     },
     {
       title: "Usum",
+      preview: ["/Usum1.png", "/Usum2.png", "/Usum3.png", "/Usum4.png"],
       role: [
         "[ 서비스 기획, 디자인 & UI ]",
         "각 페이지 디자인 설계 및 UI 구현",
@@ -262,6 +307,12 @@ function ProjectDetail() {
     },
     {
       title: "Portfolio",
+      preview: [
+        "/Perpett1.png",
+        "/Perpett2.png",
+        "/Perpett3.png",
+        "/Perpett4.png",
+      ],
       role: [
         "[ 서비스 기획 및 디자인, 프론트엔드 ]",
         "각 페이지 디자인 및 구현",
@@ -296,10 +347,13 @@ function ProjectDetail() {
     >
       <Background>
         <ProjectDetailContainer $ismobile={isMobile}>
-          <div className="titleBox">
-            <h2 className="title">{projectsDetail[projectNum].title}</h2>
+          <div className="fixed">
+            <div className="titleBox">
+              <h2 className="title">{projectsDetail[projectNum].title}</h2>
+              <MainBtn>Go Main</MainBtn>
+            </div>
           </div>
-          <div className="divisionLine" />
+          {/* <div className="divisionLine" /> */}
           <div className="previewBox">
             <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
             <div className="imgBox">
@@ -317,7 +371,10 @@ function ProjectDetail() {
             <FaAngleRight size="36" className="arrow next" onClick={next} />
           </div>
           <div className="roleBox">
-            <h3 className="roleTitle">맡은 역할</h3>
+            <div className="flex">
+              <LiaHandPaperSolid className="icon" size="24" color="#eecb9a" />
+              <h3 className="roleTitle">맡은 역할</h3>
+            </div>
             <ul>
               {projectsDetail[projectNum].role.map((el, i) => {
                 return (
@@ -329,7 +386,10 @@ function ProjectDetail() {
             </ul>
           </div>
           <div className="functionBox">
-            <h3 className="functionTitle">구현 기능 설명</h3>
+            <div className="flex">
+              <AiOutlineFunction className="icon" size="24" />
+              <h3 className="functionTitle">구현 기능 설명</h3>
+            </div>
             <ul>
               {projectsDetail[projectNum].function.map((el, i) => {
                 return (
@@ -341,7 +401,10 @@ function ProjectDetail() {
             </ul>
           </div>
           <div className="reviewBox">
-            <h3 className="reviewTitle">회고</h3>
+            <div className="flex">
+              <AiOutlineBulb className="icon" size="24" color="#ffcd4a" />
+              <h3 className="reviewTitle">회고</h3>
+            </div>
             <ul>
               {projectsDetail[projectNum].review.map((el, i) => {
                 return (
@@ -353,7 +416,10 @@ function ProjectDetail() {
             </ul>
           </div>
           <div className="linkBox">
-            <h3 className="linkTitle">관련 링크</h3>
+            <div className="flex">
+              <AiOutlinePaperClip className="icon" size="24" color="#b4b4b4" />
+              <h3 className="linkTitle">관련 링크</h3>
+            </div>
             <ul>
               {projectsDetail[projectNum].link.map((el, i) => {
                 return (

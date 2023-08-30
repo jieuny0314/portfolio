@@ -11,7 +11,6 @@ const ProjectsContainer = styled.div`
   display: grid;
   place-items: center;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  border: 1px solid green;
   position: relative;
 `;
 

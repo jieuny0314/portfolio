@@ -20,7 +20,7 @@ const HeaderContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0 20px 0 20px;
-    font-size: ${(props) => (props.$ismobile ? "1rem" : "1.5rem")};
+    font-size: ${(props) => (props.$ismobile ? "1rem" : "1.7rem")};
     margin: ${(props) => (props.$ismobile ? "0 15px" : "0 100px")};
   }
 `;
@@ -31,7 +31,7 @@ const AboutMe = styled.li`
   .lineBox {
     position: absolute;
     bottom: -10px;
-    left: ${(props) => (props.$ismobile ? "-1px" : "-20px")};
+    left: ${(props) => (props.$ismobile ? "-1px" : "-13px")};
     height: 5px;
     background-color: #d9d9d9;
     width: ${(props) =>

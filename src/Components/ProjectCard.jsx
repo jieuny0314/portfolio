@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
 
 const ProjectCardContainer = styled.div`
   width: 22vw;
@@ -126,20 +125,17 @@ const ProjectCardContainer = styled.div`
 
   .contents {
     height: 30%;
-    /* border: 1px solid black; */
     flex-direction: column;
     justify-content: center;
   }
 
   .period {
     height: 20%;
-    /* border: 1px solid black; */
     flex-direction: column;
   }
 
   .stacks {
     height: 35%;
-    /* border: 1px solid black; */
     align-items: center;
     flex-wrap: wrap;
     .stackBadge {
