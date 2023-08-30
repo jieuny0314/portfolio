@@ -68,7 +68,7 @@ const AboutMeContainer = styled.div`
 
   .logoImgContainer:hover .logoImg {
     left: ${(props) => (props.$ismobile ? "0" : "-70%")};
-    top: ${(props) => (props.$ismobile ? "-120%" : "0")};
+    top: ${(props) => (props.$ismobile ? "-150%" : "0")};
     transition: all 1s ease;
   }
 
@@ -81,7 +81,7 @@ const AboutMeContainer = styled.div`
     top: 0;
     left: ${(props) => (props.$ismobile ? "-50%" : "0")};
     padding: 20px;
-    font-family: "Nanum Gothic", sans-serif;
+    /* font-family: "Nanum Gothic", sans-serif; */
     opacity: 0;
 
     @keyframes change {
@@ -129,6 +129,12 @@ const AboutMeContainer = styled.div`
     .blogLink {
       color: black;
       text-decoration-line: none;
+
+      &:active,
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
 
       .text {
         font-family: "Sriracha", cursive;

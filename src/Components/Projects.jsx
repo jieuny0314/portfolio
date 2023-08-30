@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import ProjectCard from "./ProjectCard";
-import ProjectDetail from "./ProjectDetail";
 import { useState } from "react";
 
 const ProjectsContainer = styled.div`
@@ -88,11 +87,6 @@ function Projects() {
             />
           );
         })}
-        {/* {popUp.includes(true) ? (
-          <ProjectDetail projectNum={popUp.indexOf("true")} />
-        ) : (
-          ""
-        )} */}
       </ProjectsContainer>
     </div>
   );

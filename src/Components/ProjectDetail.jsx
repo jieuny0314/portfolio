@@ -1,17 +1,116 @@
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
-const ProjectDetailContainer = styled.div`
+const Background = styled.div`
   width: 100vw;
-  height: 100vh;
-  background-color: blue;
-  position: absolute;
-  top: 100px;
-  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
 `;
 
-function ProjectDetail({ projectNum }) {
+const ProjectDetailContainer = styled.div`
+  width: ${(props) => (props.$ismobile ? "100%" : "55%")};
+  padding: ${(props) => (props.$ismobile ? "30px" : "10px")};
+  overflow-x: hidden;
+  min-width: ${(props) => (props.$ismobile ? "375px" : "600px")};
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    padding: 0;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    line-height: 1.5rem;
+    padding: 0 10px;
+  }
+
+  .divisionLine {
+    width: 100%;
+    height: 0.5px;
+    background-color: #d9d9d9;
+  }
+
+  .divisionLine,
+  .previewBox,
+  .roleBox,
+  .functionBox,
+  .reviewBox,
+  .linkBox {
+    width: 100%;
+    margin-bottom: 50px;
+    min-width: ${(props) => (props.$ismobile ? "" : "600px")};
+  }
+
+  .previewBox {
+    height: 300px;
+    border: 1px solid red;
+  }
+
+  .title,
+  .roleTitle,
+  .functionTitle,
+  .reviewTitle,
+  .linkTitle {
+    margin: 0;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    padding: 0;
+  }
+
+  .title {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-family: "Sriracha", cursive;
+  }
+
+  .role {
+    &:first-child {
+      list-style: none;
+      font-weight: bold;
+      margin-left: 15px;
+    }
+  }
+
+  .linkBox {
+    ul {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+    }
+    .linkList {
+      margin: 0;
+      margin-left: 10px;
+      margin-right: 20px;
+      padding: 0;
+    }
+
+    .linkKind {
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    .linkA {
+      color: black;
+      text-decoration: none;
+      border-bottom: 1px solid black;
+      padding-bottom: 1px;
+    }
+  }
+`;
+
+function ProjectDetail() {
+  const isMobile = useMediaQuery({
+    query: "(max-width:767px)",
+  });
   const projectsDetail = [
     {
+      title: "Perpett",
       role: [
         "[ 팀장, 프론트엔드 ]",
         "EsLint 와 Prettier 설정",
@@ -25,21 +124,25 @@ function ProjectDetail({ projectNum }) {
         "axios를 통한 HTTP 비동기 통신으로 기본적인 CRUD 기능을 구현했고, 후기에 이미지를 업로드 하기 위해서 formdata 형식을 사용했습니다.",
       ],
       review: [
-        "- 지도페이지에서 상태 관련 오류를 겪었고, Redux를 사용하면서 해결했습니다. 이 경험을 통해 전역 상태관리의 대한 중요성을 느꼈습니다.",
+        "지도페이지에서 상태 관련 오류를 겪었고, Redux를 사용하면서 해결했습니다. 이 경험을 통해 전역 상태관리의 대한 중요성을 느꼈습니다.",
         "처음으로 Tailwind CSS를 사용하면서 styled-component와 비교해서 각 라이브러리의 장단점을 느꼈습니다.",
         "메인 페이지의 이미지 용량이 너무 커서 로딩이 늦어진다는 걸 깨달았고, 이미지 최적화의 중요성을 깨달았습니다.",
         "기획부터 개발까지 경험하며 전체적인 팀 프로젝트 과정에 대해 배우고, GIthub, Figma와 같은 협업 툴에 익숙해졌습니다.",
       ],
       link: [
         [
+          "배포링크",
           "http://testqjzlt.s3-website.ap-northeast-2.amazonaws.com/",
-          "https://github.com/codestates-seb/seb43_main_030",
+        ],
+        ["깃허브", "https://github.com/codestates-seb/seb43_main_030"],
+        [
+          "피그마",
           "https://www.figma.com/file/PFOgIanoWAdQqqgtEtRWUM/반려동물-유치원-기획-및-디자인?type=design&node-id=0-1&mode=design",
-          "",
         ],
       ],
     },
     {
+      title: "Usum",
       role: [
         "[ 서비스 기획, 디자인 & UI ]",
         "각 페이지 디자인 설계 및 UI 구현",
@@ -55,15 +158,12 @@ function ProjectDetail({ projectNum }) {
         "독학한 지식으로 하나의 서비스를 개발하면서 완벽하지는 않더라도 화면을 구현하는 것에 대한 재미와 보람을 느꼈습니다. 프론트엔드 분야에 대한 흥미를 깨닫고 적극적으로 공부하게 된 계기가 되었습니다.",
       ],
       link: [
-        [
-          "",
-          "https://github.com/jieuny0314/Usum",
-          "",
-          "https://youtu.be/qU5FdTcmIiM",
-        ],
+        ["깃허브", "https://github.com/jieuny0314/Usum"],
+        ["시연영상", "https://youtu.be/qU5FdTcmIiM"],
       ],
     },
     {
+      title: "TodoList",
       role: [
         "[ 서비스 기획 및 디자인, 프론트엔드 ]",
         "각 페이지 디자인 및 구현",
@@ -82,15 +182,12 @@ function ProjectDetail({ projectNum }) {
         "개선 하고싶은 부분은 리덕스 툴킷을 사용해서 좀 더 간결한 코드로 구현하고 싶습니다. 또, 완료한 일을 렌더링하는 부분의 코드가 개발한 제가 보기에도 너무 복잡해서 리팩토링이 필요할 것 같습니다.",
       ],
       link: [
-        [
-          "",
-          "https://github.com/jieuny0314/TodoList_react",
-          "",
-          "https://www.youtube.com/watch?v=vVqeEzGQMfw",
-        ],
+        ["깃허브", "https://github.com/jieuny0314/TodoList_react"],
+        ["시연영상", "https://www.youtube.com/watch?v=vVqeEzGQMfw"],
       ],
     },
     {
+      title: "Portfolio",
       role: [
         "[ 서비스 기획 및 디자인, 프론트엔드 ]",
         "각 페이지 디자인 및 구현",
@@ -109,17 +206,75 @@ function ProjectDetail({ projectNum }) {
         "개선 하고싶은 부분은 리덕스 툴킷을 사용해서 좀 더 간결한 코드로 구현하고 싶습니다. 또, 완료한 일을 렌더링하는 부분의 코드가 개발한 제가 보기에도 너무 복잡해서 리팩토링이 필요할 것 같습니다.",
       ],
       link: [
-        [
-          "",
-          "https://github.com/jieuny0314/TodoList_react",
-          "",
-          "https://www.youtube.com/watch?v=vVqeEzGQMfw",
-        ],
+        ["배포링크", "https://github.com/jieuny0314/TodoList_react"],
+        ["깃허브", "https://github.com/jieuny0314/TodoList_react"],
       ],
     },
   ];
 
-  return <ProjectDetailContainer>ddddddhjgjhgjkg</ProjectDetailContainer>;
+  const projectNum = useLocation().pathname.split("/")[2];
+
+  return (
+    <Background>
+      <ProjectDetailContainer $ismobile={isMobile}>
+        <div className="titleBox">
+          <h2 className="title">{projectsDetail[projectNum].title}</h2>
+        </div>
+        <div className="divisionLine" />
+        <div className="previewBox"></div>
+        <div className="roleBox">
+          <h3 className="roleTitle">맡은 역할</h3>
+          <ul>
+            {projectsDetail[projectNum].role.map((el, i) => {
+              return (
+                <li className="role" key={i}>
+                  {el}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="functionBox">
+          <h3 className="functionTitle">구현 기능 설명</h3>
+          <ul>
+            {projectsDetail[projectNum].function.map((el, i) => {
+              return (
+                <li className="function" key={i}>
+                  {el}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="reviewBox">
+          <h3 className="reviewTitle">회고</h3>
+          <ul>
+            {projectsDetail[projectNum].review.map((el, i) => {
+              return (
+                <li className="review" key={i}>
+                  {el}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="linkBox">
+          <h3 className="linkTitle">관련 링크</h3>
+          <ul>
+            {projectsDetail[projectNum].link.map((el, i) => {
+              return (
+                <li className="linkList" key={i}>
+                  <a href={el[1]} className="linkA">
+                    {el[0]}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </ProjectDetailContainer>
+    </Background>
+  );
 }
 
 export default ProjectDetail;

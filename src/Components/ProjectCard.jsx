@@ -46,6 +46,11 @@ const ProjectCardContainer = styled.div`
     transition: all 0.5s;
   }
 
+  &:hover .contentsBox .learnMore {
+    right: 10px;
+    transition: 0.5s all;
+  }
+
   .contentsBox {
     width: 100%;
     height: 100%;
@@ -54,10 +59,11 @@ const ProjectCardContainer = styled.div`
     z-index: 5;
     padding: 10px;
     font-family: "Nanum Gothic", sans-serif;
+    overflow-x: hidden;
 
     .learnMore {
       position: absolute;
-      right: 10px;
+      right: -60%;
       top: 5%;
       border: none;
       background-color: transparent;
@@ -148,10 +154,6 @@ const ProjectCardContainer = styled.div`
 `;
 
 function ProjectCard({ project, index, popUp, setPopUp }) {
-  const isMobile = useMediaQuery({
-    query: "(max-width:767px)",
-  });
-
   function onPopUp(index) {
     const copy = [...popUp];
     // copy[index] = true;
@@ -190,7 +192,7 @@ function ProjectCard({ project, index, popUp, setPopUp }) {
               );
             })}
           </div>
-          <Link to={`/product/${index}`}>
+          <Link to={`/project/${index}`}>
             <button className="learnMore" onClick={() => onPopUp(index)}>
               Learn More
             </button>
