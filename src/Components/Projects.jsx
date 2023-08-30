@@ -1,16 +1,24 @@
 import styled from "styled-components";
 import ProjectCard from "./ProjectCard";
+import ProjectDetail from "./ProjectDetail";
+import { useState } from "react";
 
 const ProjectsContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
   display: grid;
+  place-items: center;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   border: 1px solid green;
+  position: relative;
 `;
 
 function Projects() {
+  const [popUp, setPopUp] = useState([false, false, false, false]);
+
   const projects = [
     {
       id: 1,
@@ -70,8 +78,21 @@ function Projects() {
     <div id="projects">
       <ProjectsContainer>
         {projects.map((el, i) => {
-          return <ProjectCard project={projects[i]} key={el.id} index={i} />;
+          return (
+            <ProjectCard
+              project={projects[i]}
+              key={el.id}
+              index={i}
+              popUp={popUp}
+              setPopUp={setPopUp}
+            />
+          );
         })}
+        {/* {popUp.includes(true) ? (
+          <ProjectDetail projectNum={popUp.indexOf("true")} />
+        ) : (
+          ""
+        )} */}
       </ProjectsContainer>
     </div>
   );

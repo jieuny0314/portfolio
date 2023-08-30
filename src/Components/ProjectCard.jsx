@@ -1,21 +1,26 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 const ProjectCardContainer = styled.div`
   width: 22vw;
   min-width: 300px;
+  min-height: 500px;
   height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 20px;
+  margin-bottom: 30px;
   border-radius: 10px;
   background-image: url(${(props) => props.$backImg});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 48% 0%;
+  background-position: 50.5% 0%;
   position: relative;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   z-index: 2;
+  overflow-x: visible;
 
   .background {
     position: absolute;
@@ -48,10 +53,30 @@ const ProjectCardContainer = styled.div`
     position: relative;
     z-index: 5;
     padding: 10px;
+    font-family: "Nanum Gothic", sans-serif;
+
+    .learnMore {
+      position: absolute;
+      right: 10px;
+      top: 5%;
+      border: none;
+      background-color: transparent;
+      font-family: "Sriracha", cursive;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 20;
+      &:active,
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
   }
 
-  h3 {
+  h3,
+  p {
     margin: 0;
+    margin-bottom: 5px;
     padding: 0;
   }
 
@@ -75,7 +100,7 @@ const ProjectCardContainer = styled.div`
 
   .title::before {
     content: "";
-    width: 45%;
+    width: 40%;
     height: 25%;
     background-color: ${(props) =>
       props.$index === 0
@@ -94,7 +119,7 @@ const ProjectCardContainer = styled.div`
   }
 
   .contents {
-    height: 25%;
+    height: 30%;
     /* border: 1px solid black; */
     flex-direction: column;
     justify-content: center;
@@ -122,9 +147,22 @@ const ProjectCardContainer = styled.div`
   }
 `;
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, popUp, setPopUp }) {
+  const isMobile = useMediaQuery({
+    query: "(max-width:767px)",
+  });
+
+  function onPopUp(index) {
+    const copy = [...popUp];
+    // copy[index] = true;
+    copy[index] = !popUp[index];
+    setPopUp(copy);
+    console.log(index);
+    console.log(popUp);
+  }
+
   return (
-    <div id="projects">
+    <>
       <ProjectCardContainer $backImg={project.backgroundImg} $index={index}>
         <div className="background" />
         <div className="contentsBox">
@@ -152,9 +190,14 @@ function ProjectCard({ project, index }) {
               );
             })}
           </div>
+          <Link to={`/product/${index}`}>
+            <button className="learnMore" onClick={() => onPopUp(index)}>
+              Learn More
+            </button>
+          </Link>
         </div>
       </ProjectCardContainer>
-    </div>
+    </>
   );
 }
 

@@ -1,27 +1,26 @@
 import "./App.css";
 import styled from "styled-components";
-import Header from "./Components/Header";
-import AboutMe from "./Components/AboutMe";
-import Skills from "./Components/Skills";
-import Projects from "./Components/Projects";
-import Contact from "./Components/Contact";
+import Main from "./Components/Main";
+import ProjectDetail from "./Components/ProjectDetail";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const MainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
+// const MainContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+// `;
 
 function App() {
   return (
-    <MainContainer>
-      <Header />
-      <AboutMe />
-      <Skills />
-      <Projects />
-      <Contact />
-    </MainContainer>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/project:id" element={<ProjectDetail />}></Route>
+        </Routes>
+      </Router>
+    </>
   );
 }
 
