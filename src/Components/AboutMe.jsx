@@ -51,14 +51,14 @@ const AboutMeContainer = styled.div`
   }
 
   .logoImgContainer {
-    width: ${(props) => (props.$ismobile ? "150px" : "350px")};
+    width: ${(props) => (props.$ismobile ? "150px" : "30%")};
     position: relative;
     height: 125px;
     /* background-color: red; */
   }
 
   .logoImg {
-    width: ${(props) => (props.$ismobile ? "150px" : "350px")};
+    width: ${(props) => (props.$ismobile ? "150px" : "80%")};
     cursor: pointer;
     position: absolute;
     top: 0;
@@ -67,21 +67,20 @@ const AboutMeContainer = styled.div`
   }
 
   .logoImgContainer:hover .logoImg {
-    left: ${(props) => (props.$ismobile ? "0" : "-70%")};
+    left: ${(props) => (props.$ismobile ? "0" : "-60%")};
     top: ${(props) => (props.$ismobile ? "-150%" : "0")};
     transition: all 1s ease;
   }
 
   .detailContainer {
-    width: ${(props) => (props.$ismobile ? "300px" : "690px")};
+    width: ${(props) => (props.$ismobile ? "300px" : "160%")};
     position: absolute;
     transition: all 1s;
-    height: ${(props) => (props.$ismobile ? "60px" : "125px")};
+    height: ${(props) => (props.$ismobile ? "60px" : "120%")};
     overflow: hidden;
     top: 0;
     left: ${(props) => (props.$ismobile ? "-50%" : "0")};
     padding: 20px;
-    /* font-family: "Nanum Gothic", sans-serif; */
     opacity: 0;
 
     @keyframes change {
@@ -124,6 +123,11 @@ const AboutMeContainer = styled.div`
 
     .contents {
       font-size: ${(props) => (props.$ismobile ? "1rem" : "1.3rem")};
+      min-width: 350px;
+    }
+
+    .question {
+      margin: 0;
     }
 
     .blogLink {
@@ -146,8 +150,8 @@ const AboutMeContainer = styled.div`
   }
 
   .logoImgContainer:hover .detailContainer {
-    left: ${(props) => (props.$ismobile ? "-50%" : "55%")};
-    top: ${(props) => (props.$ismobile ? "-100px" : "-150px")};
+    left: ${(props) => (props.$ismobile ? "-50%" : "40%")};
+    top: ${(props) => (props.$ismobile ? "-100px" : "-130px")};
     height: ${(props) => (props.$ismobile ? "400px" : "400px")};
     opacity: 1;
     transition: all 1s;
@@ -221,7 +225,7 @@ function AboutMe() {
                 개발자입니다.<br></br> 개인 학습 및 회고 블로그를 운영하고
                 있으며 약 330개의 포스팅을 남겼습니다.<br></br>
               </p>
-              <p className="contents"> 제 기록이 궁금하신가요?</p>
+              <p className="contents question"> 제 기록이 궁금하신가요?</p>
               <a className="blogLink" href="https://jieunny.tistory.com/">
                 <h2 className="text">Click Me!</h2>
               </a>

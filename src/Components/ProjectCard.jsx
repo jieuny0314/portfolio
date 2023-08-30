@@ -10,7 +10,7 @@ const ProjectCardContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   border-radius: 10px;
   background-image: url(${(props) => props.$backImg});
   background-repeat: no-repeat;

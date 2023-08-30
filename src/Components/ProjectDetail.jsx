@@ -4,7 +4,6 @@ import { useMediaQuery } from "react-responsive";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { LiaHandPaperSolid } from "react-icons/lia";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import {
   AiOutlinePaperClip,
@@ -26,12 +25,12 @@ const ProjectDetailContainer = styled.div`
   padding: ${(props) => (props.$ismobile ? "30px" : "10px")};
   overflow-x: hidden;
   min-width: ${(props) => (props.$ismobile ? "350px" : "600px")};
-  padding-top: 80px;
+  padding-top: 90px;
 
   .fixed {
     position: fixed;
     background-color: white;
-    top: 0;
+    top: 10px;
     left: 0;
     width: 100%;
     display: flex;
@@ -195,7 +194,12 @@ const MainBtn = styled.button`
   font-size: 1rem;
   margin-bottom: 10px;
   padding-right: 5px;
+  color: #8f8f8f;
   cursor: pointer;
+
+  &:hover {
+    color: black;
+  }
 `;
 
 function ProjectDetail() {
@@ -212,6 +216,10 @@ function ProjectDetail() {
     if (currentImg > 0) {
       setCurrentImg((currentImg - 1) % 4);
     }
+  }
+
+  function goMain() {
+    window.history.back();
   }
 
   const projectsDetail = [
@@ -350,7 +358,7 @@ function ProjectDetail() {
           <div className="fixed">
             <div className="titleBox">
               <h2 className="title">{projectsDetail[projectNum].title}</h2>
-              <MainBtn>Go Main</MainBtn>
+              <MainBtn onClick={goMain}>Go Main</MainBtn>
             </div>
           </div>
           {/* <div className="divisionLine" /> */}
