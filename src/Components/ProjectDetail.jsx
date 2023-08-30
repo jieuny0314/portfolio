@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Background = styled.div`
   width: 100vw;
@@ -13,7 +14,7 @@ const Background = styled.div`
 `;
 
 const ProjectDetailContainer = styled.div`
-  width: ${(props) => (props.$ismobile ? "100%" : "55%")};
+  width: ${(props) => (props.$ismobile ? "100%" : "50%")};
   padding: ${(props) => (props.$ismobile ? "30px" : "10px")};
   overflow-x: hidden;
   margin-top: 20px;
@@ -50,8 +51,8 @@ const ProjectDetailContainer = styled.div`
   }
 
   .previewBox {
-    height: 300px;
-    border: 1px solid red;
+    width: 100%;
+    height: ${(props) => (props.$ismobile ? "175px" : "350px")};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,8 +69,9 @@ const ProjectDetailContainer = styled.div`
     .imgBox {
       width: 85%;
       height: 100%;
-      border: 1px solid black;
       margin: 0 10px;
+      display: flex;
+      overflow-x: hidden;
     }
   }
 
@@ -130,13 +132,53 @@ const ProjectDetailContainer = styled.div`
   }
 `;
 
+const PreviewImg = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+  background-image: url(${(props) => props.$url});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  right: ${(props) =>
+    props.$curimg === 0
+      ? "0%"
+      : props.$curimg === 1
+      ? "100%"
+      : props.$curimg === 2
+      ? "200%"
+      : props.$curimg === 3
+      ? "300%"
+      : ""};
+  transition: all 1s ease-in-out;
+`;
+
 function ProjectDetail() {
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
   });
+  const [currentImg, setCurrentImg] = useState(0);
+
+  function next() {
+    setCurrentImg((currentImg + 1) % 4);
+  }
+
+  function prev() {
+    if (currentImg > 0) {
+      setCurrentImg((currentImg - 1) % 4);
+    }
+  }
+
   const projectsDetail = [
     {
       title: "Perpett",
+      preview: [
+        "/Perpett1.png",
+        "/Perpett2.png",
+        "/Perpett3.png",
+        "/Perpett4.png",
+      ],
       role: [
         "[ 팀장, 프론트엔드 ]",
         "EsLint 와 Prettier 설정",
@@ -190,6 +232,12 @@ function ProjectDetail() {
     },
     {
       title: "TodoList",
+      preview: [
+        "/TodoList1.png",
+        "/TodoList2.png",
+        "/TodoList3.png",
+        "/TodoList4.png",
+      ],
       role: [
         "[ 서비스 기획 및 디자인, 프론트엔드 ]",
         "각 페이지 디자인 및 구현",
@@ -253,9 +301,20 @@ function ProjectDetail() {
           </div>
           <div className="divisionLine" />
           <div className="previewBox">
-            <FaAngleLeft size="36" className="arrow prev" />
-            <div className="imgBox"></div>
-            <FaAngleRight size="36" className="arrow next" />
+            <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
+            <div className="imgBox">
+              {projectsDetail[projectNum].preview.map((el, i) => {
+                return (
+                  <PreviewImg
+                    className="previewImg"
+                    $url={el}
+                    $curimg={currentImg}
+                    key={i}
+                  />
+                );
+              })}
+            </div>
+            <FaAngleRight size="36" className="arrow next" onClick={next} />
           </div>
           <div className="roleBox">
             <h3 className="roleTitle">맡은 역할</h3>

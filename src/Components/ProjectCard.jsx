@@ -119,7 +119,7 @@ const ProjectCardContainer = styled.div`
                     ? "#f9a698"
                     : (props) => (props.$index === 3 ? "#d9d9d9" : "#fffff")};
     position: absolute;
-    top: 15px;
+    top: 10px;
     opacity: 0.8;
     z-index: -1;
   }
