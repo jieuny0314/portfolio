@@ -48,6 +48,7 @@ const StackBox = styled.div`
     z-index: 10;
     font-family: "Sriracha", cursive;
     animation: move 2s infinite linear;
+    margin-bottom: ${(props) => (props.$ismobile ? "2.5px" : "10px")};
   }
 
   .text::before {
@@ -92,6 +93,7 @@ const StackBox = styled.div`
       position: absolute;
       display: flex;
       align-items: center;
+      font-size: ${(props) => (props.$ismobile ? "8px" : "16px")};
       justify-content: center;
       width: 100%;
       height: 100%;
@@ -100,6 +102,7 @@ const StackBox = styled.div`
       font-weight: bold;
       transition-property: transform, opacity;
       transition-duration: 1.5s, 1s;
+      border: 1px solid black;
     }
 
     .opacity {
@@ -215,6 +218,15 @@ const StackBox = styled.div`
   }
 `;
 
+const ClickSkill = styled.div`
+  width: ${(props) =>
+    props.$isclicked ? (props.$ismobile ? "59%" : "50%") : "0"};
+  font-size: ${(props) => (props.$ismobile ? "0.5rem" : "1rem")};
+  height: ${(props) => (props.$ismobile ? "8%" : "6%")};
+  transition: all 1s;
+  overflow: hidden;
+`;
+
 function Skills() {
   const [isClicked, setIsClicked] = useState(false);
   const [skillClicked, setSkillClicked] = useState([
@@ -233,17 +245,23 @@ function Skills() {
 
   function clickedOn() {
     setIsClicked(!isClicked);
+    const copy = [...skillClicked];
+    for (let i = 0; i < 8; i++) {
+      copy[i] = false;
+    }
+    setSkillClicked(copy);
   }
 
   function skillClickedOn(e) {
-    console.log(e.target.classList[e.target.classList.length - 1]);
-    console.log(e.target.classList);
     const index = e.target.classList[e.target.classList.length - 1];
     const copy = [...skillClicked];
-    // copy[index] = true;
     copy[index] = !skillClicked[index];
+    for (let i = 0; i < 8; i++) {
+      if (i !== Number(index)) {
+        copy[i] = false;
+      }
+    }
     setSkillClicked(copy);
-    console.log(skillClicked);
   }
 
   return (
@@ -253,6 +271,9 @@ function Skills() {
           <div onClick={clickedOn} className="text">
             Click Here!
           </div>
+          <ClickSkill $isclicked={isClicked} $ismobile={isMobile}>
+            이미지를 클릭해보세요.
+          </ClickSkill>
           <div
             className={
               isClicked
@@ -269,7 +290,7 @@ function Skills() {
             <div
               className={skillClicked[0] ? "contents rotate 0" : "contents 0"}
             >
-              안녕하세요
+              안녕하세요 안녕하ㅔ요 안녕하세요
             </div>
           </div>
           <div
