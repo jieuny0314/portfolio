@@ -1,21 +1,80 @@
 import styled from "styled-components";
 import ProjectCard from "./ProjectCard";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 const ProjectsContainer = styled.section`
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   padding-top: 100px;
   padding-left: 30px;
   padding-right: 30px;
-  display: grid;
-  place-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //place-items: center;
+  //grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   position: relative;
+
+  @keyframes right {
+    0% {
+      transform: translateX(10px);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(10px);
+    }
+  }
+
+  @keyframes left {
+    0% {
+      transform: translateX(-10px);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-10px);
+    }
+  }
+
+  .arrow {
+    color: #7d7d7d;
+    cursor: pointer;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  .next {
+    animation: right 2s infinite linear;
+  }
+
+  .prev {
+    animation: left 2s infinite linear;
+  }
+`;
+
+const ProjectSliderContainer = styled.div`
+  width: ${(props) => (props.$ismobile ? "100%" : "60%")};
+  height: ${(props) => (props.$ismobile ? "70%" : "85%")};
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: hidden;
+  margin: 0 10px;
+  border-radius: 10px;
 `;
 
 function Projects() {
   const [popUp, setPopUp] = useState([false, false, false, false]);
+  const isMobile = useMediaQuery({
+    query: "(max-width:767px)",
+  });
 
   const projects = [
     {
@@ -72,20 +131,37 @@ function Projects() {
     },
   ];
 
+  const [currentPr, setCurrentPr] = useState(0);
+
+  function next() {
+    setCurrentPr((currentPr + 1) % 4);
+  }
+
+  function prev() {
+    if (currentPr > 0) {
+      setCurrentPr((currentPr - 1) % 4);
+    }
+  }
+
   return (
     <div id="projects">
       <ProjectsContainer>
-        {projects.map((el, i) => {
-          return (
-            <ProjectCard
-              project={projects[i]}
-              key={el.id}
-              index={i}
-              popUp={popUp}
-              setPopUp={setPopUp}
-            />
-          );
-        })}
+        <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
+        <ProjectSliderContainer $ismobile={isMobile}>
+          {projects.map((el, i) => {
+            return (
+              <ProjectCard
+                project={projects[i]}
+                key={el.id}
+                index={i}
+                popUp={popUp}
+                setPopUp={setPopUp}
+                currentPr={currentPr}
+              />
+            );
+          })}
+        </ProjectSliderContainer>
+        <FaAngleRight size="36" className="arrow next" onClick={next} />
       </ProjectsContainer>
     </div>
   );

@@ -1,31 +1,41 @@
 import styled from "styled-components";
+import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
 const ProjectCardContainer = styled.article`
-  width: 22vw;
-  min-width: 300px;
-  min-height: 500px;
-  height: 60vh;
+  width: 100%;
+  flex-shrink: 0;
+  position: absolute;
+  right: ${(props) =>
+    props.$curpr === 0
+      ? "0%"
+      : props.$curpr === 1
+      ? "100%"
+      : props.$curpr === 2
+      ? "200%"
+      : props.$curpr === 3
+      ? "300%"
+      : ""};
+  transition: all 1s ease-in-out;
+  top: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
-  margin-bottom: 60px;
   border-radius: 10px;
   background-image: url(${(props) => props.$backImg});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50.5% 0%;
   position: relative;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   z-index: 2;
-  overflow-x: visible;
+  overflow-y: hidden;
 
   .background {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #f6f6f6;
+    background-color: #ffffff;
     width: 100%;
     height: 100%;
     border-radius: 10px;
@@ -36,7 +46,7 @@ const ProjectCardContainer = styled.article`
   }
 
   &:hover .background {
-    opacity: 0.95;
+    opacity: 0.8;
     transition: all 0.5s;
   }
 
@@ -56,14 +66,20 @@ const ProjectCardContainer = styled.article`
     opacity: 0;
     position: relative;
     z-index: 5;
-    padding: 10px;
+    padding: ${(props) => (props.$ismobile ? "10px" : "60px")};
     font-family: "Nanum Gothic", sans-serif;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
 
     .learnMore {
       position: absolute;
-      right: -60%;
-      top: 5%;
+      right: -100%;
+      bottom: ${(props) => (props.$ismobile ? "" : "2%")};
+      top: ${(props) => (props.$ismobile ? "5%" : "")};
+      font-size: ${(props) => (props.$ismobile ? "0.6rem" : "1rem")};
       border: none;
       background-color: transparent;
       font-family: "Sriracha", cursive;
@@ -81,22 +97,22 @@ const ProjectCardContainer = styled.article`
   h3,
   p {
     margin: 0;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     padding: 0;
   }
 
-  .title,
   .contents,
   .period,
   .stacks {
     width: 100%;
-    display: flex;
+    font-size: ${(props) => (props.$ismobile ? "0.8rem" : "")};
   }
 
   .title {
     height: 15%;
     position: relative;
     z-index: 10;
+    width: 100%;
 
     h2 {
       margin: 0;
@@ -135,21 +151,30 @@ const ProjectCardContainer = styled.article`
   }
 
   .stacks {
-    height: 35%;
+    height: 30%;
     align-items: center;
     flex-wrap: wrap;
+
+    .badgeBox {
+      transform: scale(${(props) => (props.$ismobile ? "0.8" : "")});
+      margin-left: ${(props) => (props.$ismobile ? "-10%" : "0%")};
+    }
+
     .stackBadge {
       margin-right: 10px;
     }
     .stackTitle {
       display: inline-block;
       width: 100%;
-      margin-bottom: 10px;
     }
   }
 `;
 
-function ProjectCard({ project, index, popUp, setPopUp }) {
+function ProjectCard({ project, index, popUp, setPopUp, currentPr }) {
+  const isMobile = useMediaQuery({
+    query: "(max-width:767px)",
+  });
+
   function onPopUp(index) {
     const copy = [...popUp];
     // copy[index] = true;
@@ -161,7 +186,12 @@ function ProjectCard({ project, index, popUp, setPopUp }) {
 
   return (
     <>
-      <ProjectCardContainer $backImg={project.backgroundImg} $index={index}>
+      <ProjectCardContainer
+        $backImg={project.backgroundImg}
+        $index={index}
+        $curpr={currentPr}
+        $ismobile={isMobile}
+      >
         <div className="background" />
         <div className="contentsBox">
           <div className="title">
@@ -177,16 +207,18 @@ function ProjectCard({ project, index, popUp, setPopUp }) {
           </div>
           <div className="stacks">
             <h3 className="stackTitle">사용한 기술 스택</h3>
-            {project.stacks.map((el, i) => {
-              return (
-                <img
-                  className="stackBadge"
-                  src={project.stacks[i]}
-                  key={i}
-                  alt="skillBadge"
-                />
-              );
-            })}
+            <div className="badgeBox">
+              {project.stacks.map((el, i) => {
+                return (
+                  <img
+                    className="stackBadge"
+                    src={project.stacks[i]}
+                    key={i}
+                    alt="skillBadge"
+                  />
+                );
+              })}
+            </div>
           </div>
           <Link to={`/project/${index}`}>
             <button className="learnMore" onClick={() => onPopUp(index)}>
