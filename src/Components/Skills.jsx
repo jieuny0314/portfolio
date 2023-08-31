@@ -23,6 +23,7 @@ const StackBox = styled.div`
   cursor: pointer;
   position: relative;
   background-color: white;
+  flex-direction: column;
 
   @keyframes move {
     0% {
@@ -61,8 +62,8 @@ const StackBox = styled.div`
   }
 
   .skill {
-    width: ${(props) => (props.$ismobile ? "100px" : "180px")};
-    height: ${(props) => (props.$ismobile ? "100px" : "180px")};
+    width: ${(props) => (props.$ismobile ? "100px" : "160px")};
+    height: ${(props) => (props.$ismobile ? "100px" : "160px")};
     position: absolute;
     top: 20%;
     left: 20%;
@@ -73,11 +74,84 @@ const StackBox = styled.div`
     z-index: -5;
     transition-property: left, top, z-index;
     transition-duration: 1s, 1s, 0.3s;
+    background-repeat: no-repeat;
+    background-size: ${(props) => (props.$ismobile ? "60%" : "75%")};
+    background-position: center;
 
-    img {
-      width: ${(props) => (props.$ismobile ? "60px" : "110px")};
-      cursor: pointer;
+    .background {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      opacity: 0;
+      background-color: white;
+      transition-property: transform, opacity;
+      transition-duration: 1s, 3s;
     }
+
+    .contents {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 20;
+      font-weight: bold;
+      transition-property: transform, opacity;
+      transition-duration: 1.5s, 1s;
+    }
+
+    .opacity {
+      opacity: 0.8;
+      transition: all 1.5s;
+    }
+
+    .rotate {
+      transform: rotateY(180deg);
+      opacity: 1;
+      transition-property: transform, opacity;
+      transition-duration: 1s, 3s;
+    }
+  }
+
+  .rotate {
+    transform: rotateY(180deg);
+    opacity: 1;
+    transition-property: transform, opacity;
+    transition-duration: 1s, 3s;
+  }
+
+  .html {
+    background-image: url("https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566995514/noticon/jufppyr8htislboas4ve.png");
+  }
+
+  .css {
+    background-image: url("https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566912109/noticon/puksfce6wca36hes1vom.png");
+  }
+
+  .javaScript {
+    background-image: url("https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1629279836/noticon/qopgwljhqw2ezqxnfjpe.png");
+  }
+
+  .react {
+    background-image: url("https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566557331/noticon/d5hqar2idkoefh6fjtpu.png");
+  }
+
+  .redux {
+    background-image: url("https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1567749614/noticon/zgdaxpaif5ojeduonygb.png");
+  }
+
+  .styledComponent {
+    background-image: url("https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1568851518/noticon/lwj3hr9v1yoheimtwc1w.png");
+  }
+
+  .git {
+    background-image: url("https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566899596/noticon/slhw4nu8hybreryigopq.png");
+  }
+
+  .figma {
+    background-image: url("https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1608448196/noticon/a0fgk99dgqtyrwwmqsbt.png");
   }
 
   .htmlMove {
@@ -85,10 +159,6 @@ const StackBox = styled.div`
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
-
-    &:hover {
-      transform: rotateY(360deg);
-    }
   }
 
   .cssMove {
@@ -96,10 +166,6 @@ const StackBox = styled.div`
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
-
-    &:hover {
-      transform: rotateY(360deg);
-    }
   }
 
   .javaScriptMove {
@@ -107,10 +173,6 @@ const StackBox = styled.div`
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
-
-    &:hover {
-      transform: rotateY(360deg);
-    }
   }
 
   .gitMove {
@@ -119,9 +181,6 @@ const StackBox = styled.div`
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
-    &:hover {
-      transform: rotateY(360deg);
-    }
   }
 
   .figmaMove {
@@ -130,10 +189,6 @@ const StackBox = styled.div`
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
-
-    &:hover {
-      transform: rotateY(360deg);
-    }
   }
 
   .reactMove {
@@ -141,10 +196,6 @@ const StackBox = styled.div`
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
-
-    &:hover {
-      transform: rotateY(360deg);
-    }
   }
 
   .reduxMove {
@@ -153,10 +204,6 @@ const StackBox = styled.div`
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
-
-    &:hover {
-      transform: rotateY(360deg);
-    }
   }
 
   .styledComponentMove {
@@ -165,21 +212,38 @@ const StackBox = styled.div`
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
-
-    &:hover {
-      transform: rotateY(360deg);
-    }
   }
 `;
 
 function Skills() {
   const [isClicked, setIsClicked] = useState(false);
+  const [skillClicked, setSkillClicked] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
   });
 
   function clickedOn() {
     setIsClicked(!isClicked);
+  }
+
+  function skillClickedOn(e) {
+    console.log(e.target.classList[e.target.classList.length - 1]);
+    console.log(e.target.classList);
+    const index = e.target.classList[e.target.classList.length - 1];
+    const copy = [...skillClicked];
+    // copy[index] = true;
+    copy[index] = !skillClicked[index];
+    setSkillClicked(copy);
+    console.log(skillClicked);
   }
 
   return (
@@ -189,63 +253,157 @@ function Skills() {
           <div onClick={clickedOn} className="text">
             Click Here!
           </div>
-          <div className={isClicked ? "htmlMove skill html" : "skill html"}>
-            <img
-              src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566995514/noticon/jufppyr8htislboas4ve.png"
-              alt="html"
-            ></img>
-          </div>
-          <div className={isClicked ? "cssMove skill html" : "skill css"}>
-            <img
-              src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566912109/noticon/puksfce6wca36hes1vom.png"
-              alt="css"
-            ></img>
-          </div>
           <div
             className={
-              isClicked ? "javaScriptMove skill html" : "skill javaScript"
+              isClicked
+                ? skillClicked[0]
+                  ? "htmlMove skill html rotate"
+                  : "htmlMove skill html"
+                : "skill html"
             }
+            onClick={(e) => skillClickedOn(e)}
           >
-            <img
-              src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1629279836/noticon/qopgwljhqw2ezqxnfjpe.png"
-              alt="javaScript"
-            ></img>
-          </div>
-          <div className={isClicked ? "gitMove skill html" : "skill git"}>
-            <img
-              src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566899596/noticon/slhw4nu8hybreryigopq.png"
-              alt="git"
-            ></img>
-          </div>
-          <div className={isClicked ? "figmaMove skill html" : "skill figma"}>
-            <img
-              src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1608448196/noticon/a0fgk99dgqtyrwwmqsbt.png"
-              alt="figma"
-            ></img>
-          </div>
-          <div className={isClicked ? "reactMove skill html" : "skill react"}>
-            <img
-              src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566557331/noticon/d5hqar2idkoefh6fjtpu.png"
-              alt="react"
-            ></img>
-          </div>
-          <div className={isClicked ? "reduxMove skill html" : "skill redux"}>
-            <img
-              src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1567749614/noticon/zgdaxpaif5ojeduonygb.png"
-              alt="redux"
-            ></img>
+            <div
+              className={skillClicked[0] ? "background opacity" : "background"}
+            ></div>
+            <div
+              className={skillClicked[0] ? "contents rotate 0" : "contents 0"}
+            >
+              안녕하세요
+            </div>
           </div>
           <div
             className={
               isClicked
-                ? "styledComponentMove skill html"
+                ? skillClicked[1]
+                  ? "cssMove skill css rotate"
+                  : "cssMove skill css"
+                : "skill css"
+            }
+            onClick={(e) => skillClickedOn(e)}
+          >
+            <div
+              className={skillClicked[1] ? "background opacity" : "background"}
+            ></div>
+            <div
+              className={skillClicked[1] ? "contents rotate 1" : "contents 1"}
+            >
+              안녕하세요
+            </div>
+          </div>
+          <div
+            className={
+              isClicked
+                ? skillClicked[2]
+                  ? "javaScriptMove skill javaScript rotate"
+                  : "javaScriptMove skill javaScript"
+                : "skill javaScript"
+            }
+            onClick={(e) => skillClickedOn(e)}
+          >
+            <div
+              className={skillClicked[2] ? "background opacity" : "background"}
+            ></div>
+            <div
+              className={skillClicked[2] ? "contents rotate 2" : "contents 2"}
+            >
+              안녕하세요
+            </div>
+          </div>
+          <div
+            className={
+              isClicked
+                ? skillClicked[3]
+                  ? "reactMove skill react rotate"
+                  : "reactMove skill react"
+                : "skill react"
+            }
+            onClick={(e) => skillClickedOn(e)}
+          >
+            <div
+              className={skillClicked[3] ? "background opacity" : "background"}
+            ></div>
+            <div
+              className={skillClicked[3] ? "contents rotate 3" : "contents 3"}
+            >
+              안녕하세요
+            </div>
+          </div>
+          <div
+            className={
+              isClicked
+                ? skillClicked[4]
+                  ? "reduxMove skill redux rotate"
+                  : "reduxMove skill redux"
+                : "skill redux"
+            }
+            onClick={(e) => skillClickedOn(e)}
+          >
+            <div
+              className={skillClicked[4] ? "background opacity" : "background"}
+            ></div>
+            <div
+              className={skillClicked[4] ? "contents rotate 4" : "contents 4"}
+            >
+              안녕하세요
+            </div>
+          </div>
+          <div
+            className={
+              isClicked
+                ? skillClicked[5]
+                  ? "styledComponentMove skill styledComponent rotate"
+                  : "styledComponentMove skill styledComponent"
                 : "skill styledComponent"
             }
+            onClick={(e) => skillClickedOn(e)}
           >
-            <img
-              src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1568851518/noticon/lwj3hr9v1yoheimtwc1w.png"
-              alt="styledComponent"
-            ></img>
+            <div
+              className={skillClicked[5] ? "background opacity" : "background"}
+            ></div>
+            <div
+              className={skillClicked[5] ? "contents rotate 5" : "contents 5"}
+            >
+              안녕하세요
+            </div>
+          </div>
+          <div
+            className={
+              isClicked
+                ? skillClicked[6]
+                  ? "gitMove skill git rotate"
+                  : "gitMove skill git"
+                : "skill git"
+            }
+            onClick={(e) => skillClickedOn(e)}
+          >
+            <div
+              className={skillClicked[6] ? "background opacity" : "background"}
+            ></div>
+            <div
+              className={skillClicked[6] ? "contents rotate 6" : "contents 6"}
+            >
+              안녕하세요
+            </div>
+          </div>
+          <div
+            className={
+              isClicked
+                ? skillClicked[7]
+                  ? "figmaMove skill figma rotate"
+                  : "figmaMove skill figma"
+                : "skill figma"
+            }
+            onClick={(e) => skillClickedOn(e)}
+          >
+            <div
+              className={skillClicked[7] ? "background opacity" : "background"}
+            ></div>
+            <div
+              className={skillClicked[7] ? "contents rotate 7" : "contents 7"}
+            >
+              안녕하세요
+            </div>
           </div>
         </StackBox>
       </SkillsContainer>
