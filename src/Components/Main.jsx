@@ -6,7 +6,7 @@ import Projects from "../Components/Projects";
 import Contact from "../Components/Contact";
 import { motion } from "framer-motion";
 
-const MainContainer = styled.div`
+const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;

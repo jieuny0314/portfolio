@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 
-const SkillsContainer = styled.div`
+const SkillsContainer = styled.section`
   width: 100vw;
   height: 100vh;
   padding-top: 140px;
@@ -95,18 +95,20 @@ const StackBox = styled.div`
       align-items: center;
       font-size: ${(props) => (props.$ismobile ? "8px" : "16px")};
       justify-content: center;
-      width: 100%;
-      height: 100%;
+      text-align: center;
+      width: 135%;
+      height: 80%;
       opacity: 0;
       z-index: 20;
+      color: #4a4a4a;
       font-weight: bold;
       transition-property: transform, opacity;
       transition-duration: 1.5s, 1s;
-      border: 1px solid black;
+      /* border: 1px solid black; */
     }
 
     .opacity {
-      opacity: 0.8;
+      opacity: 0.9;
       transition: all 1.5s;
     }
 
@@ -223,7 +225,7 @@ const ClickSkill = styled.div`
     props.$isclicked ? (props.$ismobile ? "59%" : "50%") : "0"};
   font-size: ${(props) => (props.$ismobile ? "0.5rem" : "1rem")};
   height: ${(props) => (props.$ismobile ? "8%" : "6%")};
-  transition: all 1s;
+  transition: all 1s ease-in-out;
   overflow: hidden;
 `;
 
@@ -239,6 +241,7 @@ function Skills() {
     false,
     false,
   ]);
+
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
   });
@@ -289,9 +292,8 @@ function Skills() {
             ></div>
             <div
               className={skillClicked[0] ? "contents rotate 0" : "contents 0"}
-            >
-              안녕하세요 안녕하ㅔ요 안녕하세요
-            </div>
+            ></div>
+            시멘틱
           </div>
           <div
             className={
@@ -328,7 +330,7 @@ function Skills() {
             <div
               className={skillClicked[2] ? "contents rotate 2" : "contents 2"}
             >
-              안녕하세요
+              json형태의 데이터 가공 및 활용
             </div>
           </div>
           <div
@@ -347,7 +349,11 @@ function Skills() {
             <div
               className={skillClicked[3] ? "contents rotate 3" : "contents 3"}
             >
-              안녕하세요
+              함수형 컴포넌트 사용
+              <br />
+              Hook을 통한 라이프사이클 관리
+              <br />
+              Axios를 통한 HTTP 비동기 통신
             </div>
           </div>
           <div
@@ -366,7 +372,9 @@ function Skills() {
             <div
               className={skillClicked[4] ? "contents rotate 4" : "contents 4"}
             >
-              안녕하세요
+              리액트 전역 상태 관리
+              <br />
+              Redux-toolkit 사용
             </div>
           </div>
           <div
@@ -385,7 +393,7 @@ function Skills() {
             <div
               className={skillClicked[5] ? "contents rotate 5" : "contents 5"}
             >
-              안녕하세요
+              Props를 통한 조건부 스타일링
             </div>
           </div>
           <div
@@ -404,7 +412,12 @@ function Skills() {
             <div
               className={skillClicked[6] ? "contents rotate 6" : "contents 6"}
             >
-              안녕하세요
+              레포지토리 관리
+              <br />
+              pull push commit 명령어 사용
+              <br />
+              칸반보드와 이슈를 통한 일정 관리
+              <br />
             </div>
           </div>
           <div
@@ -423,7 +436,9 @@ function Skills() {
             <div
               className={skillClicked[7] ? "contents rotate 7" : "contents 7"}
             >
-              안녕하세요
+              와이어프레임과 디자인 구현
+              <br />
+              간단한 상호작용 및 전환 효과 구현
             </div>
           </div>
         </StackBox>

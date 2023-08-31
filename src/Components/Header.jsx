@@ -3,7 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 import { Link } from "react-scroll";
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   width: 100%;
   height: 100px;
   min-width: 375px;
@@ -129,7 +129,7 @@ function Header() {
 
   return (
     <HeaderContainer $ismobile={isMobile}>
-      <ul className="navi">
+      <nav className="navi">
         <Link to="aboutMe" spy={true} smooth={true}>
           <AboutMe
             onClick={setAboutMe}
@@ -170,7 +170,7 @@ function Header() {
             <div className="lineBox"></div>
           </Contact>
         </Link>
-      </ul>
+      </nav>
     </HeaderContainer>
   );
 }

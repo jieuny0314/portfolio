@@ -4,7 +4,7 @@ import Curve from "../Images/curve.png";
 import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
 
-const AboutMeContainer = styled.div`
+const AboutMeContainer = styled.section`
   width: 100vw;
   height: 100vh;
   padding-top: 100px;
@@ -195,7 +195,7 @@ function AboutMe() {
           onClick={handleMouseOver}
           className="logoImgContainer"
         >
-          <div className="clickMe">
+          <article className="clickMe">
             {!isHover ? (
               <>
                 <img className="curveImg" src={Curve} alt="CurveImage" />
@@ -208,9 +208,9 @@ function AboutMe() {
             ) : (
               ""
             )}
-          </div>
+          </article>
           <img className="logoImg" src={Logo} alt="LogoImage" />
-          <div className="detailContainer">
+          <article className="detailContainer">
             <div className="outerBox">
               <div className="title">
                 <h2 className="text">기록하는 개발자 김지은</h2>
@@ -230,7 +230,7 @@ function AboutMe() {
                 <h2 className="text">Click Me!</h2>
               </a>
             </div>
-          </div>
+          </article>
         </div>
       </AboutMeContainer>
     </div>

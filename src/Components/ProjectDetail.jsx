@@ -20,7 +20,7 @@ const Background = styled.div`
   overflow-x: hidden;
 `;
 
-const ProjectDetailContainer = styled.div`
+const ProjectDetailContainer = styled.section`
   width: ${(props) => (props.$ismobile ? "" : "45%")};
   padding: ${(props) => (props.$ismobile ? "30px" : "10px")};
   overflow-x: hidden;
@@ -30,7 +30,7 @@ const ProjectDetailContainer = styled.div`
   .fixed {
     position: fixed;
     background-color: white;
-    top: 10px;
+    top: 0;
     left: 0;
     width: 100%;
     display: flex;
@@ -356,15 +356,15 @@ function ProjectDetail() {
       <Background>
         <ProjectDetailContainer $ismobile={isMobile}>
           <div className="fixed">
-            <div className="titleBox">
+            <header className="titleBox">
               <h2 className="title">{projectsDetail[projectNum].title}</h2>
               <MainBtn onClick={goMain}>Go Main</MainBtn>
-            </div>
+            </header>
           </div>
           {/* <div className="divisionLine" /> */}
-          <div className="previewBox">
+          <article className="previewBox">
             <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
-            <div className="imgBox">
+            <figure className="imgBox">
               {projectsDetail[projectNum].preview.map((el, i) => {
                 return (
                   <PreviewImg
@@ -375,10 +375,10 @@ function ProjectDetail() {
                   />
                 );
               })}
-            </div>
+            </figure>
             <FaAngleRight size="36" className="arrow next" onClick={next} />
-          </div>
-          <div className="roleBox">
+          </article>
+          <article className="roleBox">
             <div className="flex">
               <LiaHandPaperSolid className="icon" size="24" color="#eecb9a" />
               <h3 className="roleTitle">맡은 역할</h3>
@@ -392,8 +392,8 @@ function ProjectDetail() {
                 );
               })}
             </ul>
-          </div>
-          <div className="functionBox">
+          </article>
+          <article className="functionBox">
             <div className="flex">
               <AiOutlineFunction className="icon" size="24" />
               <h3 className="functionTitle">구현 기능 설명</h3>
@@ -407,8 +407,8 @@ function ProjectDetail() {
                 );
               })}
             </ul>
-          </div>
-          <div className="reviewBox">
+          </article>
+          <article className="reviewBox">
             <div className="flex">
               <AiOutlineBulb className="icon" size="24" color="#ffcd4a" />
               <h3 className="reviewTitle">회고</h3>
@@ -422,8 +422,8 @@ function ProjectDetail() {
                 );
               })}
             </ul>
-          </div>
-          <div className="linkBox">
+          </article>
+          <article className="linkBox">
             <div className="flex">
               <AiOutlinePaperClip className="icon" size="24" color="#b4b4b4" />
               <h3 className="linkTitle">관련 링크</h3>
@@ -439,7 +439,7 @@ function ProjectDetail() {
                 );
               })}
             </ul>
-          </div>
+          </article>
         </ProjectDetailContainer>
       </Background>
     </motion.div>

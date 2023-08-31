@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const ProjectCardContainer = styled.div`
+const ProjectCardContainer = styled.article`
   width: 22vw;
   min-width: 300px;
   min-height: 500px;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ProjectCard from "./ProjectCard";
 import { useState } from "react";
 
-const ProjectsContainer = styled.div`
+const ProjectsContainer = styled.section`
   width: 100vw;
   min-height: 100vh;
   padding-top: 100px;
