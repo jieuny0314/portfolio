@@ -26,7 +26,7 @@ const ProjectCardContainer = styled.article`
   background-image: url(${(props) => props.$backImg});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 50.5% 0%;
+  background-position: 52.5% 0%;
   position: relative;
   z-index: 2;
   overflow-y: hidden;
@@ -46,7 +46,7 @@ const ProjectCardContainer = styled.article`
   }
 
   &:hover .background {
-    opacity: 0.8;
+    opacity: 0.9;
     transition: all 0.5s;
   }
 

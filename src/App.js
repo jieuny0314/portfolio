@@ -7,7 +7,6 @@ import Header from "./Components/Header";
 function App() {
   return (
     <>
-      <Header />
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/project/:id" element={<ProjectDetail />}></Route>

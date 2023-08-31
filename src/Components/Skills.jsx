@@ -11,6 +11,7 @@ const SkillsContainer = styled.section`
   align-items: center;
   justify-content: center;
   z-index: 100;
+  scroll-snap-align: start;
 `;
 
 const StackBox = styled.div`

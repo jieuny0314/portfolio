@@ -13,9 +13,8 @@ const ProjectsContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  //place-items: center;
-  //grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   position: relative;
+  scroll-snap-align: start;
 
   @keyframes right {
     0% {
@@ -57,6 +56,12 @@ const ProjectsContainer = styled.section`
   .prev {
     animation: left 2s infinite linear;
   }
+
+  /* .notice {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  } */
 `;
 
 const ProjectSliderContainer = styled.div`
@@ -68,6 +73,7 @@ const ProjectSliderContainer = styled.div`
   overflow-x: hidden;
   margin: 0 10px;
   border-radius: 10px;
+  position: relative;
 `;
 
 function Projects() {

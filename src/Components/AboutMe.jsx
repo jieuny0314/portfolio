@@ -11,6 +11,7 @@ const AboutMeContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
+  scroll-snap-align: start;
 
   @keyframes move {
     0% {
