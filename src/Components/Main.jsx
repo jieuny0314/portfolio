@@ -4,6 +4,7 @@ import AboutMe from "../Components/AboutMe";
 import Skills from "../Components/Skills";
 import Projects from "../Components/Projects";
 import Contact from "../Components/Contact";
+import Footer from "./Footer";
 import { motion } from "framer-motion";
 
 const MainContainer = styled.main`
@@ -11,6 +12,7 @@ const MainContainer = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 `;
 
 function Main() {
@@ -26,6 +28,7 @@ function Main() {
         <Skills />
         <Projects />
         <Contact />
+        <Footer />
       </MainContainer>
     </motion.div>
   );

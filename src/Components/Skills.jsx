@@ -93,10 +93,10 @@ const StackBox = styled.div`
       position: absolute;
       display: flex;
       align-items: center;
-      font-size: ${(props) => (props.$ismobile ? "8px" : "16px")};
+      font-size: ${(props) => (props.$ismobile ? "2px" : "16px")};
       justify-content: center;
       text-align: center;
-      width: 135%;
+      width: ${(props) => (props.$ismobile ? "100%" : "135%")};
       height: 80%;
       opacity: 0;
       z-index: 20;
@@ -292,8 +292,9 @@ function Skills() {
             ></div>
             <div
               className={skillClicked[0] ? "contents rotate 0" : "contents 0"}
-            ></div>
-            시멘틱
+            >
+              시맨틱 태그를 활용한 레이아웃
+            </div>
           </div>
           <div
             className={
@@ -311,7 +312,11 @@ function Skills() {
             <div
               className={skillClicked[1] ? "contents rotate 1" : "contents 1"}
             >
-              안녕하세요
+              적절한 position 및 display 활용
+              <br />
+              키프레임을 통한 애니메이션 구현
+              <br />
+              반응형 웹사이트 구현 경험
             </div>
           </div>
           <div
