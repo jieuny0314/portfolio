@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Logo from "../Images/Logo_big.png";
 import Curve from "../Images/curve.png";
 import { useMediaQuery } from "react-responsive";
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 
 const AboutMeContainer = styled.section`
   width: 100vw;
@@ -188,53 +188,51 @@ function AboutMe() {
   };
 
   return (
-    <div id="aboutMe">
-      <AboutMeContainer $ismobile={isMobile} id="AboutMe">
-        <div
-          onMouseOver={handleMouseOver}
-          onMouseOut={handleMouseOut}
-          onClick={handleMouseOver}
-          className="logoImgContainer"
-        >
-          <article className="clickMe">
-            {!isHover ? (
-              <>
-                <img className="curveImg" src={Curve} alt="CurveImage" />
-                <p className="hoverText">
-                  {!isMobile
-                    ? "로고에 마우스를 올려보세요."
-                    : "로고를 클릭해보세요."}
-                </p>
-              </>
-            ) : (
-              ""
-            )}
-          </article>
-          <img className="logoImg" src={Logo} alt="LogoImage" />
-          <article className="detailContainer">
-            <div className="outerBox">
-              <div className="title">
-                <h2 className="text">기록하는 개발자 김지은</h2>
-                <div className="borderBox"></div>
-              </div>
-              <p className="contents">
-                알아가는 걸 기록하고,<br></br>프로젝트로 구현하고,<br></br>
-                이후 회고를 통해 내 것으로 만드는,
+    <AboutMeContainer $ismobile={isMobile} id="AboutMe">
+      <div
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+        onClick={handleMouseOver}
+        className="logoImgContainer"
+      >
+        <article className="clickMe">
+          {!isHover ? (
+            <>
+              <img className="curveImg" src={Curve} alt="CurveImage" />
+              <p className="hoverText">
+                {!isMobile
+                  ? "로고에 마우스를 올려보세요."
+                  : "로고를 클릭해보세요."}
               </p>
-              <p className="contents">
-                같은 걸 두 번 물어보는 게 아닌 기록한 걸 읽고 적용할 수 있는
-                개발자입니다.<br></br> 개인 학습 및 회고 블로그를 운영하고
-                있으며 약 330개의 포스팅을 남겼습니다.<br></br>
-              </p>
-              <p className="contents question"> 제 기록이 궁금하신가요?</p>
-              <a className="blogLink" href="https://jieunny.tistory.com/">
-                <h2 className="text">Click Me!</h2>
-              </a>
+            </>
+          ) : (
+            ""
+          )}
+        </article>
+        <img className="logoImg" src={Logo} alt="LogoImage" />
+        <article className="detailContainer">
+          <div className="outerBox">
+            <div className="title">
+              <h2 className="text">기록하는 개발자 김지은</h2>
+              <div className="borderBox"></div>
             </div>
-          </article>
-        </div>
-      </AboutMeContainer>
-    </div>
+            <p className="contents">
+              알아가는 걸 기록하고,<br></br>프로젝트로 구현하고,<br></br>
+              이후 회고를 통해 내 것으로 만드는,
+            </p>
+            <p className="contents">
+              같은 걸 두 번 물어보는 게 아닌 기록한 걸 읽고 적용할 수 있는
+              개발자입니다.<br></br> 개인 학습 및 회고 블로그를 운영하고 있으며
+              약 330개의 포스팅을 남겼습니다.<br></br>
+            </p>
+            <p className="contents question"> 제 기록이 궁금하신가요?</p>
+            <a className="blogLink" href="https://jieunny.tistory.com/">
+              <h2 className="text">Click Me!</h2>
+            </a>
+          </div>
+        </article>
+      </div>
+    </AboutMeContainer>
   );
 }
 

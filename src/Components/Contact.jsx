@@ -15,11 +15,9 @@ const ContactContainer = styled.div`
 
 function Contact() {
   return (
-    <div id="contact">
-      <ContactContainer>
-        <Footer />
-      </ContactContainer>
-    </div>
+    <ContactContainer>
+      <Footer />
+    </ContactContainer>
   );
 }
 

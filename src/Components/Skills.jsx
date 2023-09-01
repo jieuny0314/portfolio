@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 
 const SkillsContainer = styled.section`
   width: 100vw;
@@ -269,187 +269,169 @@ function Skills() {
   }
 
   return (
-    <div id="skills">
-      <SkillsContainer $ismobile={isMobile}>
-        <StackBox $ismobile={isMobile} $isclicked={isClicked}>
-          <div onClick={clickedOn} className="text">
-            Click Here!
-          </div>
-          <ClickSkill $isclicked={isClicked} $ismobile={isMobile}>
-            이미지를 클릭해보세요.
-          </ClickSkill>
+    <SkillsContainer $ismobile={isMobile}>
+      <StackBox $ismobile={isMobile} $isclicked={isClicked}>
+        <div onClick={clickedOn} className="text">
+          Click Here!
+        </div>
+        <ClickSkill $isclicked={isClicked} $ismobile={isMobile}>
+          이미지를 클릭해보세요.
+        </ClickSkill>
+        <div
+          className={
+            isClicked
+              ? skillClicked[0]
+                ? "htmlMove skill html rotate"
+                : "htmlMove skill html"
+              : "skill html"
+          }
+          onClick={(e) => skillClickedOn(e)}
+        >
           <div
-            className={
-              isClicked
-                ? skillClicked[0]
-                  ? "htmlMove skill html rotate"
-                  : "htmlMove skill html"
-                : "skill html"
-            }
-            onClick={(e) => skillClickedOn(e)}
-          >
-            <div
-              className={skillClicked[0] ? "background opacity" : "background"}
-            ></div>
-            <div
-              className={skillClicked[0] ? "contents rotate 0" : "contents 0"}
-            >
-              시맨틱 태그를 활용한 레이아웃
-            </div>
+            className={skillClicked[0] ? "background opacity" : "background"}
+          ></div>
+          <div className={skillClicked[0] ? "contents rotate 0" : "contents 0"}>
+            시맨틱 태그를 활용한 레이아웃
           </div>
+        </div>
+        <div
+          className={
+            isClicked
+              ? skillClicked[1]
+                ? "cssMove skill css rotate"
+                : "cssMove skill css"
+              : "skill css"
+          }
+          onClick={(e) => skillClickedOn(e)}
+        >
           <div
-            className={
-              isClicked
-                ? skillClicked[1]
-                  ? "cssMove skill css rotate"
-                  : "cssMove skill css"
-                : "skill css"
-            }
-            onClick={(e) => skillClickedOn(e)}
-          >
-            <div
-              className={skillClicked[1] ? "background opacity" : "background"}
-            ></div>
-            <div
-              className={skillClicked[1] ? "contents rotate 1" : "contents 1"}
-            >
-              적절한 position 및 display 활용
-              <br />
-              키프레임을 통한 애니메이션 구현
-              <br />
-              반응형 웹사이트 구현 경험
-            </div>
+            className={skillClicked[1] ? "background opacity" : "background"}
+          ></div>
+          <div className={skillClicked[1] ? "contents rotate 1" : "contents 1"}>
+            적절한 position 및 display 활용
+            <br />
+            키프레임을 통한 애니메이션 구현
+            <br />
+            반응형 웹사이트 구현 경험
           </div>
+        </div>
+        <div
+          className={
+            isClicked
+              ? skillClicked[2]
+                ? "javaScriptMove skill javaScript rotate"
+                : "javaScriptMove skill javaScript"
+              : "skill javaScript"
+          }
+          onClick={(e) => skillClickedOn(e)}
+        >
           <div
-            className={
-              isClicked
-                ? skillClicked[2]
-                  ? "javaScriptMove skill javaScript rotate"
-                  : "javaScriptMove skill javaScript"
-                : "skill javaScript"
-            }
-            onClick={(e) => skillClickedOn(e)}
-          >
-            <div
-              className={skillClicked[2] ? "background opacity" : "background"}
-            ></div>
-            <div
-              className={skillClicked[2] ? "contents rotate 2" : "contents 2"}
-            >
-              json형태의 데이터 가공 및 활용
-            </div>
+            className={skillClicked[2] ? "background opacity" : "background"}
+          ></div>
+          <div className={skillClicked[2] ? "contents rotate 2" : "contents 2"}>
+            json형태의 데이터 가공 및 활용
           </div>
+        </div>
+        <div
+          className={
+            isClicked
+              ? skillClicked[3]
+                ? "reactMove skill react rotate"
+                : "reactMove skill react"
+              : "skill react"
+          }
+          onClick={(e) => skillClickedOn(e)}
+        >
           <div
-            className={
-              isClicked
-                ? skillClicked[3]
-                  ? "reactMove skill react rotate"
-                  : "reactMove skill react"
-                : "skill react"
-            }
-            onClick={(e) => skillClickedOn(e)}
-          >
-            <div
-              className={skillClicked[3] ? "background opacity" : "background"}
-            ></div>
-            <div
-              className={skillClicked[3] ? "contents rotate 3" : "contents 3"}
-            >
-              함수형 컴포넌트 사용
-              <br />
-              Hook을 통한 라이프사이클 관리
-              <br />
-              Axios를 통한 HTTP 비동기 통신
-            </div>
+            className={skillClicked[3] ? "background opacity" : "background"}
+          ></div>
+          <div className={skillClicked[3] ? "contents rotate 3" : "contents 3"}>
+            함수형 컴포넌트 사용
+            <br />
+            Hook을 통한 라이프사이클 관리
+            <br />
+            Axios를 통한 HTTP 비동기 통신
           </div>
+        </div>
+        <div
+          className={
+            isClicked
+              ? skillClicked[4]
+                ? "reduxMove skill redux rotate"
+                : "reduxMove skill redux"
+              : "skill redux"
+          }
+          onClick={(e) => skillClickedOn(e)}
+        >
           <div
-            className={
-              isClicked
-                ? skillClicked[4]
-                  ? "reduxMove skill redux rotate"
-                  : "reduxMove skill redux"
-                : "skill redux"
-            }
-            onClick={(e) => skillClickedOn(e)}
-          >
-            <div
-              className={skillClicked[4] ? "background opacity" : "background"}
-            ></div>
-            <div
-              className={skillClicked[4] ? "contents rotate 4" : "contents 4"}
-            >
-              리액트 전역 상태 관리
-              <br />
-              Redux-toolkit 사용
-            </div>
+            className={skillClicked[4] ? "background opacity" : "background"}
+          ></div>
+          <div className={skillClicked[4] ? "contents rotate 4" : "contents 4"}>
+            리액트 전역 상태 관리
+            <br />
+            Redux-toolkit 사용
           </div>
+        </div>
+        <div
+          className={
+            isClicked
+              ? skillClicked[5]
+                ? "styledComponentMove skill styledComponent rotate"
+                : "styledComponentMove skill styledComponent"
+              : "skill styledComponent"
+          }
+          onClick={(e) => skillClickedOn(e)}
+        >
           <div
-            className={
-              isClicked
-                ? skillClicked[5]
-                  ? "styledComponentMove skill styledComponent rotate"
-                  : "styledComponentMove skill styledComponent"
-                : "skill styledComponent"
-            }
-            onClick={(e) => skillClickedOn(e)}
-          >
-            <div
-              className={skillClicked[5] ? "background opacity" : "background"}
-            ></div>
-            <div
-              className={skillClicked[5] ? "contents rotate 5" : "contents 5"}
-            >
-              Props를 통한 조건부 스타일링
-            </div>
+            className={skillClicked[5] ? "background opacity" : "background"}
+          ></div>
+          <div className={skillClicked[5] ? "contents rotate 5" : "contents 5"}>
+            Props를 통한 조건부 스타일링
           </div>
+        </div>
+        <div
+          className={
+            isClicked
+              ? skillClicked[6]
+                ? "gitMove skill git rotate"
+                : "gitMove skill git"
+              : "skill git"
+          }
+          onClick={(e) => skillClickedOn(e)}
+        >
           <div
-            className={
-              isClicked
-                ? skillClicked[6]
-                  ? "gitMove skill git rotate"
-                  : "gitMove skill git"
-                : "skill git"
-            }
-            onClick={(e) => skillClickedOn(e)}
-          >
-            <div
-              className={skillClicked[6] ? "background opacity" : "background"}
-            ></div>
-            <div
-              className={skillClicked[6] ? "contents rotate 6" : "contents 6"}
-            >
-              레포지토리 관리
-              <br />
-              pull push commit 명령어 사용
-              <br />
-              칸반보드와 이슈를 통한 일정 관리
-              <br />
-            </div>
+            className={skillClicked[6] ? "background opacity" : "background"}
+          ></div>
+          <div className={skillClicked[6] ? "contents rotate 6" : "contents 6"}>
+            레포지토리 관리
+            <br />
+            pull push commit 명령어 사용
+            <br />
+            칸반보드와 이슈를 통한 일정 관리
+            <br />
           </div>
+        </div>
+        <div
+          className={
+            isClicked
+              ? skillClicked[7]
+                ? "figmaMove skill figma rotate"
+                : "figmaMove skill figma"
+              : "skill figma"
+          }
+          onClick={(e) => skillClickedOn(e)}
+        >
           <div
-            className={
-              isClicked
-                ? skillClicked[7]
-                  ? "figmaMove skill figma rotate"
-                  : "figmaMove skill figma"
-                : "skill figma"
-            }
-            onClick={(e) => skillClickedOn(e)}
-          >
-            <div
-              className={skillClicked[7] ? "background opacity" : "background"}
-            ></div>
-            <div
-              className={skillClicked[7] ? "contents rotate 7" : "contents 7"}
-            >
-              와이어프레임과 디자인 구현
-              <br />
-              간단한 상호작용 및 전환 효과 구현
-            </div>
+            className={skillClicked[7] ? "background opacity" : "background"}
+          ></div>
+          <div className={skillClicked[7] ? "contents rotate 7" : "contents 7"}>
+            와이어프레임과 디자인 구현
+            <br />
+            간단한 상호작용 및 전환 효과 구현
           </div>
-        </StackBox>
-      </SkillsContainer>
-    </div>
+        </div>
+      </StackBox>
+    </SkillsContainer>
   );
 }
 

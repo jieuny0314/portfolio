@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { useState } from "react";
-import { Link } from "react-scroll";
+import useMoveScroll from "./useMoveScroll";
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -104,7 +104,7 @@ const Contact = styled.li`
   }
 `;
 
-function Header() {
+function Header({ aboutMeRef, skillsRef, projectsRef, contactRef }) {
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
   });
@@ -127,49 +127,62 @@ function Header() {
     setNaviValue(3);
   }
 
+  function scrollMove(element) {
+    console.log(element);
+    if (element.current) {
+      element.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
   return (
     <HeaderContainer $ismobile={isMobile}>
       <nav className="navi">
-        <Link to="aboutMe" spy={true} smooth={true}>
-          <AboutMe
-            onClick={setAboutMe}
-            $naviValue={naviValue}
-            $ismobile={isMobile}
-          >
-            About Me
-            <div className="lineBox"></div>
-          </AboutMe>
-        </Link>
-        <Link to="skills" spy={true} smooth={true}>
-          <Skills
-            onClick={setSkills}
-            $naviValue={naviValue}
-            $ismobile={isMobile}
-          >
-            Skills
-            <div className="lineBox"></div>
-          </Skills>
-        </Link>
-        <Link to="projects" spy={true} smooth={true}>
-          <Projects
-            onClick={setProjects}
-            $naviValue={naviValue}
-            $ismobile={isMobile}
-          >
-            Projects
-            <div className="lineBox"></div>
-          </Projects>
-        </Link>
-        <Link to="contact" spy={true} smooth={true}>
-          <Contact
-            onClick={setContact}
-            $naviValue={naviValue}
-            $ismobile={isMobile}
-          >
-            Contact
-            <div className="lineBox"></div>
-          </Contact>
-        </Link>
+        <AboutMe
+          onClick={() => {
+            setAboutMe();
+            scrollMove(aboutMeRef);
+          }}
+          $naviValue={naviValue}
+          $ismobile={isMobile}
+        >
+          About Me
+          <div className="lineBox"></div>
+        </AboutMe>
+        <Skills
+          onClick={() => {
+            setSkills();
+            scrollMove(skillsRef);
+          }}
+          $naviValue={naviValue}
+          $ismobile={isMobile}
+        >
+          Skills
+          <div className="lineBox"></div>
+        </Skills>
+
+        <Projects
+          onClick={() => {
+            setProjects();
+            scrollMove(projectsRef);
+          }}
+          $naviValue={naviValue}
+          $ismobile={isMobile}
+        >
+          Projects
+          <div className="lineBox"></div>
+        </Projects>
+
+        <Contact
+          onClick={() => {
+            setContact();
+            scrollMove(contactRef);
+          }}
+          $naviValue={naviValue}
+          $ismobile={isMobile}
+        >
+          Contact
+          <div className="lineBox"></div>
+        </Contact>
       </nav>
     </HeaderContainer>
   );

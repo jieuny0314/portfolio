@@ -162,6 +162,7 @@ const ProjectCardContainer = styled.article`
 
     .stackBadge {
       margin-right: 10px;
+      margin-bottom: 5px;
     }
     .stackTitle {
       display: inline-block;

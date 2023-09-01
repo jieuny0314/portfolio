@@ -220,6 +220,9 @@ function ProjectDetail() {
 
   function goMain() {
     window.history.back();
+    setTimeout(() => {
+      window.scrollTo(0, "300vh");
+    }, 0);
   }
 
   const projectsDetail = [

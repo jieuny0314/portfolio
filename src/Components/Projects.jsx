@@ -150,26 +150,24 @@ function Projects() {
   }
 
   return (
-    <div id="projects">
-      <ProjectsContainer>
-        <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
-        <ProjectSliderContainer $ismobile={isMobile}>
-          {projects.map((el, i) => {
-            return (
-              <ProjectCard
-                project={projects[i]}
-                key={el.id}
-                index={i}
-                popUp={popUp}
-                setPopUp={setPopUp}
-                currentPr={currentPr}
-              />
-            );
-          })}
-        </ProjectSliderContainer>
-        <FaAngleRight size="36" className="arrow next" onClick={next} />
-      </ProjectsContainer>
-    </div>
+    <ProjectsContainer>
+      <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
+      <ProjectSliderContainer $ismobile={isMobile}>
+        {projects.map((el, i) => {
+          return (
+            <ProjectCard
+              project={projects[i]}
+              key={el.id}
+              index={i}
+              popUp={popUp}
+              setPopUp={setPopUp}
+              currentPr={currentPr}
+            />
+          );
+        })}
+      </ProjectSliderContainer>
+      <FaAngleRight size="36" className="arrow next" onClick={next} />
+    </ProjectsContainer>
   );
 }
 

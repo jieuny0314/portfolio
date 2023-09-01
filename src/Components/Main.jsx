@@ -4,8 +4,8 @@ import AboutMe from "../Components/AboutMe";
 import Skills from "../Components/Skills";
 import Projects from "../Components/Projects";
 import Contact from "../Components/Contact";
-import Footer from "./Footer";
 import { motion } from "framer-motion";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
 const MainContainer = styled.main`
   /* display: flex;
@@ -18,9 +18,32 @@ const MainContainer = styled.main`
   overflow-y: scroll;
   overflow-x: hidden;
   position: relative;
+
+  .test {
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+  }
+
+  .test2 {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    top: 100vh;
+    border: 1px solid black;
+  }
 `;
 
 function Main() {
+  const aboutMeRef = useRef(null);
+  const skillsRef = useRef(null);
+  const projectsRef = useRef();
+  const contactRef = useRef();
+
+  useEffect(() => {}, [aboutMeRef]);
+
   return (
     <MainContainer>
       <motion.div
@@ -28,10 +51,23 @@ function Main() {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        <Header />
+        {/* <div className="test">
+          <div onClick={() => scrollMove(aboutMeRef)}>AboutMe</div>
+          <div onClick={() => scrollMove(skillsRef)}>Skills</div>
+        </div> */}
+        <Header
+          aboutMeRef={aboutMeRef}
+          skillsRef={skillsRef}
+          projectsRef={projectsRef}
+          contactRef={contactRef}
+        />
+        <div ref={aboutMeRef} className="aboutMe" />
         <AboutMe />
+        <div ref={skillsRef} className="skills" />
         <Skills />
+        <div ref={projectsRef} className="projects" />
         <Projects />
+        <div ref={contactRef} className="contact" />
         <Contact />
       </motion.div>
     </MainContainer>
