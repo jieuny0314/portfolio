@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import ProjectCard from "./ProjectCard";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
+import { useInView } from "react-intersection-observer";
+import { useDispatch } from "react-redux";
+import { setNaviValue } from "../redux/action";
 
 const ProjectsContainer = styled.section`
   width: 100vw;
@@ -81,6 +84,14 @@ function Projects() {
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
   });
+  const dispatch = useDispatch();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      dispatch(setNaviValue(2));
+    }
+  }, [inView]);
 
   const projects = [
     {
@@ -153,6 +164,7 @@ function Projects() {
     <ProjectsContainer>
       <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
       <ProjectSliderContainer $ismobile={isMobile}>
+        <div className="detective" ref={ref} />
         {projects.map((el, i) => {
           return (
             <ProjectCard

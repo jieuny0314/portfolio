@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
-import { useState, forwardRef } from "react";
+import { useState, forwardRef, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { useDispatch } from "react-redux";
+import { setNaviValue } from "../redux/action";
 
 const SkillsContainer = styled.section`
   width: 100vw;
@@ -231,6 +234,14 @@ const ClickSkill = styled.div`
 `;
 
 function Skills() {
+  const [ref, inView] = useInView();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (inView) {
+      dispatch(setNaviValue(1));
+    }
+  }, [inView]);
   const [isClicked, setIsClicked] = useState(false);
   const [skillClicked, setSkillClicked] = useState([
     false,
@@ -271,6 +282,7 @@ function Skills() {
   return (
     <SkillsContainer $ismobile={isMobile}>
       <StackBox $ismobile={isMobile} $isclicked={isClicked}>
+        <div ref={ref} className="detective" />
         <div onClick={clickedOn} className="text">
           Click Here!
         </div>

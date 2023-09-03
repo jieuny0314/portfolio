@@ -5,14 +5,24 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import ScrollToTop from "./Components/ScrollToTop";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import { persistStore } from "redux-persist"; // load
+import { PersistGate } from "redux-persist/integration/react";
+import store from "./redux/store";
+
+const persistor = persistStore(store);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Router>
-      <ScrollToTop />
-      <App />
-    </Router>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Router>
+          <ScrollToTop />
+          <App />
+        </Router>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );
 

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
-import { useState } from "react";
-import useMoveScroll from "./useMoveScroll";
+import { useSelector, useDispatch } from "react-redux";
+import { setNaviValue } from "../redux/action";
+import { useEffect } from "react";
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -108,27 +109,26 @@ function Header({ aboutMeRef, skillsRef, projectsRef, contactRef }) {
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
   });
-
-  const [naviValue, setNaviValue] = useState(0);
+  const naviValue = useSelector((state) => state.naviValue);
+  const dispatch = useDispatch();
 
   function setAboutMe() {
-    setNaviValue(0);
+    dispatch(setNaviValue(0));
   }
 
   function setSkills() {
-    setNaviValue(1);
+    dispatch(setNaviValue(1));
   }
 
   function setProjects() {
-    setNaviValue(2);
+    dispatch(setNaviValue(2));
   }
 
   function setContact() {
-    setNaviValue(3);
+    dispatch(setNaviValue(3));
   }
 
   function scrollMove(element) {
-    console.log(element);
     if (element.current) {
       element.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }

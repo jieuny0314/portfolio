@@ -2,7 +2,10 @@ import styled from "styled-components";
 import Logo from "../Images/Logo_big.png";
 import Curve from "../Images/curve.png";
 import { useMediaQuery } from "react-responsive";
-import { useState, forwardRef } from "react";
+import { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { useDispatch } from "react-redux";
+import { setNaviValue } from "../redux/action";
 
 const AboutMeContainer = styled.section`
   width: 100vw;
@@ -175,6 +178,15 @@ function AboutMe() {
     query: "(max-width:767px)",
   });
 
+  const [ref, inView] = useInView();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (inView) {
+      dispatch(setNaviValue(0));
+    }
+  }, [inView, setNaviValue]);
+
   const [isHover, setIsHover] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -209,6 +221,7 @@ function AboutMe() {
             ""
           )}
         </article>
+        <div className="detective" ref={ref} />
         <img className="logoImg" src={Logo} alt="LogoImage" />
         <article className="detailContainer">
           <div className="outerBox">
