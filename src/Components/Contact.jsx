@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { setNaviValue } from "../redux/action";
 import { useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { useMediaQuery } from "react-responsive";
 
 const ContactContainer = styled.div`
   width: 100vw;
@@ -13,30 +14,57 @@ const ContactContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid green;
+
   scroll-snap-align: start;
   position: relative;
 `;
 
 const ContentsContainer = styled.div`
-  width: 80%;
+  width: ${(props) => (props.$ismobile ? "100%" : "80%")};
   height: 80%;
-  border: 1px solid black;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: ${(props) => (props.$ismobile ? "column" : "row")};
 
   .link {
-    width: 40%;
-    border: 1px solid black;
+    width: ${(props) => (props.$ismobile ? "100%" : "40%")};
+    height: ${(props) => (props.$ismobile ? "30%" : "100%")};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .inner {
+      border: 1px solid black;
+    }
+
+    .email,
+    .github,
+    .blog {
+      display: flex;
+      flex-direction: ${(props) => (props.$ismobile ? "row" : "column")};
+
+      .linkTitle {
+        font-size: 1.2rem;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
   }
 `;
 
 const SendEmailContainer = styled.div`
-  width: 60%;
-  height: 100%;
-  border: 1px solid black;
+  width: ${(props) => (props.$ismobile ? "100%" : "60%")};
+  height: ${(props) => (props.$ismobile ? "70%" : "100%")};
+  padding: 10px;
 
   .formTitle {
     height: 10%;
@@ -46,9 +74,9 @@ const SendEmailContainer = styled.div`
   .emailForm {
     width: 100%;
     height: 90%;
-    border: 1px solid blue;
     display: flex;
     flex-direction: column;
+    align-items: end;
     justify-content: space-around;
 
     h3 {
@@ -61,19 +89,23 @@ const SendEmailContainer = styled.div`
     }
 
     textarea {
-      width: 70%;
-      height: 100%;
+      width: 100%;
+      height: 80%;
+      resize: none;
     }
 
     .nameLabel,
-    .emailLabel,
-    .messageLabel {
-      border: 1px solid black;
+    .emailLabel {
       width: 100%;
-
+      height: 20%;
       input {
-        width: 200px;
+        width: ${(props) => (props.$ismobile ? "100%" : "200px")};
       }
+    }
+
+    .messageLabel {
+      width: 100%;
+      height: 60%;
     }
 
     .text {
@@ -81,12 +113,18 @@ const SendEmailContainer = styled.div`
     }
 
     .submitBtn {
-      width: 100px;
+      width: 120px;
+      border: none;
+      background-color: white;
     }
   }
 `;
 
 function Contact() {
+  const isMobile = useMediaQuery({
+    query: "(max-width:767px)",
+  });
+
   const dispatch = useDispatch();
   const [ref, inView] = useInView();
   const form = useRef();
@@ -118,27 +156,30 @@ function Contact() {
 
   return (
     <ContactContainer>
-      <ContentsContainer>
+      <ContentsContainer $ismobile={isMobile}>
         <div className="link">
-          <div className="email">
-            <h2>이메일</h2>
-            <p>ccomo7071@gmail.com</p>
-          </div>
-          <div className="gitHub">
-            <h2>깃허브</h2>
-            <a href="https://github.com/jieuny0314">
-              https://github.com/jieuny0314
-            </a>
-          </div>
-          <div className="blog">
-            <h2>블로그</h2>
-            <a href="https://jieunny.tistory.com/">
-              https://jieunny.tistory.com/
-            </a>
+          <div className="inner">
+            <div className="email">
+              <h2 className="linkTitle">이메일</h2>
+              <p>ccomo7071@gmail.com</p>
+            </div>
+            <div className="github">
+              <h2 className="linkTitle">깃허브</h2>
+              <a href="https://github.com/jieuny0314">
+                https://github.com/jieuny0314
+              </a>
+            </div>
+            <div className="blog">
+              <h2 className="linkTitle">블로그</h2>
+              <a href="https://jieunny.tistory.com/">
+                https://jieunny.tistory.com/
+              </a>
+            </div>
           </div>
         </div>
-        <SendEmailContainer>
-          <h3 className="formTitle">이메일 보내기</h3>
+        <div className="detective" ref={ref} />
+        <SendEmailContainer $ismobile={isMobile}>
+          <h3 className="formTitle">이메일로 연락해주세요.</h3>
           <form className="emailForm" ref={form} onSubmit={sendEmail}>
             <label className="nameLabel">
               <h3 className="text">Name</h3>
@@ -170,7 +211,6 @@ function Contact() {
           </form>
         </SendEmailContainer>
       </ContentsContainer>
-      <div className="detective" ref={ref} />
       <Footer />
     </ContactContainer>
   );
