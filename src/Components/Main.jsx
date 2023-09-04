@@ -47,10 +47,6 @@ function Main() {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
       >
-        {/* <div className="test">
-          <div onClick={() => scrollMove(aboutMeRef)}>AboutMe</div>
-          <div onClick={() => scrollMove(skillsRef)}>Skills</div>
-        </div> */}
         <Header
           aboutMeRef={aboutMeRef}
           skillsRef={skillsRef}

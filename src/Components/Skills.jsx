@@ -23,6 +23,7 @@ const SkillsContainer = styled.section`
     top: 0;
     left: 0;
     z-index: -20;
+    background-color: #edcdbb;
   }
 `;
 
@@ -98,7 +99,7 @@ const StackBox = styled.div`
       height: 100%;
       border-radius: 50%;
       opacity: 0;
-      background-color: white;
+      background-color: #ecdfc8;
       transition-property: transform, opacity;
       transition-duration: 1s, 3s;
     }
@@ -241,6 +242,9 @@ const ClickSkill = styled.div`
   font-size: ${(props) => (props.$ismobile ? "0.5rem" : "1rem")};
   height: ${(props) => (props.$ismobile ? "6%" : "8%")};
   transition: all 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 `;
 

@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import { useInView } from "react-intersection-observer";
 import { useDispatch } from "react-redux";
 import { setNaviValue } from "../redux/action";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useMediaQuery } from "react-responsive";
 
@@ -74,6 +74,7 @@ const SendEmailContainer = styled.div`
       width: 100%;
       height: 20%;
       margin-bottom: 15px;
+      position: relative;
       input {
         width: 200px;
       }
@@ -82,6 +83,20 @@ const SendEmailContainer = styled.div`
     .messageLabel {
       width: 100%;
       height: 60%;
+      position: relative;
+
+      .warning {
+        left: 0;
+        bottom: -2px;
+      }
+    }
+
+    .warning {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      color: red;
+      font-size: ${(props) => (props.$ismobile ? "0.7rem" : "1rem")};
     }
 
     .text {
@@ -91,10 +106,11 @@ const SendEmailContainer = styled.div`
 
     .submitBtn {
       width: ${(props) => (props.$ismobile ? "80px" : "120px")};
-      border-radius: 0;
       background-color: white;
       cursor: pointer;
+      border: none;
       border-bottom: 2px solid #d9d9d9;
+      padding-bottom: 5px;
 
       &:hover {
         border-bottom: 2px solid black;
@@ -111,6 +127,11 @@ function Contact() {
   const dispatch = useDispatch();
   const [ref, inView] = useInView();
   const form = useRef();
+  const [emailCheck, setEmailCheck] = useState(false);
+  const [emailValue, setEmailValue] = useState("");
+  const [messageCheck, setMessageCheck] = useState(false);
+  const [messageValue, setMessageValue] = useState("");
+  const [nameValue, setNameValue] = useState("");
 
   function sendEmail(e) {
     e.preventDefault();
@@ -137,29 +158,42 @@ function Contact() {
     }
   }, [inView]);
 
+  function nameChange(e) {
+    setNameValue(e.target.value);
+  }
+
+  function emailChange(e) {
+    setEmailValue(e.target.value);
+    if (e.target.value.includes("@") && e.target.value.includes(".")) {
+      setEmailCheck(true);
+    } else if (!e.target.value.includes("@")) {
+      setEmailCheck(false);
+    }
+  }
+
+  function messageChange(e) {
+    setMessageValue(e.target.value);
+    if (e.target.value.length >= 10) {
+      setMessageCheck(true);
+    } else {
+      setMessageCheck(false);
+    }
+  }
+
+  function onSubmit(e) {
+    if (nameValue.length !== 0 && emailCheck && messageCheck) {
+      setNameValue("");
+      setEmailValue("");
+      setMessageValue("");
+    } else {
+      e.preventDefault();
+      alert("모든 내용을 작성해주세요.");
+    }
+  }
+
   return (
     <ContactContainer>
       <ContentsContainer $ismobile={isMobile}>
-        {/* <div className="link">
-          <div className="inner">
-            <div className="email">
-              <h2 className="linkTitle">이메일</h2>
-              <p>ccomo7071@gmail.com</p>
-            </div>
-            <div className="github">
-              <h2 className="linkTitle">깃허브</h2>
-              <a href="https://github.com/jieuny0314">
-                https://github.com/jieuny0314
-              </a>
-            </div>
-            <div className="blog">
-              <h2 className="linkTitle">블로그</h2>
-              <a href="https://jieunny.tistory.com/">
-                https://jieunny.tistory.com/
-              </a>
-            </div>
-          </div>
-        </div> */}
         <div className="detective" ref={ref} />
         <SendEmailContainer $ismobile={isMobile}>
           <h3 className="formTitle">궁금한 점은 이메일로 연락해주세요.</h3>
@@ -171,16 +205,27 @@ function Contact() {
                 name="user_name"
                 placeholder="이름을 입력해주세요."
                 className="nameInput"
+                onChange={(e) => nameChange(e)}
+                value={nameValue}
+                autoComplete="off"
               />
             </label>
             <label className="emailLabel">
               <h3 className="text">Email</h3>
               <input
-                type="email"
+                type="text"
                 name="user_email"
                 placeholder="이메일을 입력해주세요."
                 className="emailInput"
+                onChange={(e) => emailChange(e)}
+                autoComplete="off"
+                value={emailValue}
               />
+              {!emailCheck && emailValue.length !== 0 ? (
+                <div className="warning">이메일 형식을 지켜주세요.</div>
+              ) : (
+                ""
+              )}
             </label>
             <label className="messageLabel">
               <h3 className="text">Message</h3>
@@ -188,9 +233,23 @@ function Contact() {
                 name="message"
                 placeholder="내용을 입력해주세요."
                 className="messageInput"
+                onChange={(e) => messageChange(e)}
+                value={messageValue}
               />
+              {!messageCheck && messageValue.length !== 0 ? (
+                <div className="warning">10자 이상 입력해주세요.</div>
+              ) : (
+                ""
+              )}
             </label>
-            <input type="submit" value="Send" className="submitBtn" />
+            <button
+              type="submit"
+              value="Send"
+              className="submitBtn"
+              onClick={(e) => onSubmit(e)}
+            >
+              Send
+            </button>
           </form>
         </SendEmailContainer>
       </ContentsContainer>

@@ -15,6 +15,7 @@ const AboutMeContainer = styled.section`
   align-items: center;
   justify-content: center;
   scroll-snap-align: start;
+  background-color: #fcf8e8;
 
   @keyframes move {
     0% {
@@ -40,7 +41,6 @@ const AboutMeContainer = styled.section`
     top: ${(props) => (props.$ismobile ? "-60%" : "-80%")};
     left: 50%;
     display: flex;
-    z-index: -10;
     animation: move 2s infinite linear;
 
     .curveImg {
