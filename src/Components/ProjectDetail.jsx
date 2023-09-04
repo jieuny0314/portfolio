@@ -230,10 +230,10 @@ function ProjectDetail() {
     {
       title: "Perpett",
       preview: [
-        "/Perpett1.png",
-        "/Perpett2.png",
-        "/Perpett3.png",
-        "/Perpett4.png",
+        `${process.env.PUBLIC_URL}/Perpett1.png`,
+        `${process.env.PUBLIC_URL}/Perpett2.png`,
+        `${process.env.PUBLIC_URL}/Perpett3.png`,
+        `${process.env.PUBLIC_URL}/Perpett4.png`,
       ],
       role: [
         "[ 팀장, 프론트엔드 ]",
@@ -267,7 +267,12 @@ function ProjectDetail() {
     },
     {
       title: "Usum",
-      preview: ["/Usum1.png", "/Usum2.png", "/Usum3.png", "/Usum4.png"],
+      preview: [
+        `${process.env.PUBLIC_URL}/Usum1.png`,
+        `${process.env.PUBLIC_URL}/Usum2.png`,
+        `${process.env.PUBLIC_URL}/Usum3.png`,
+        `${process.env.PUBLIC_URL}/Usum4.png`,
+      ],
       role: [
         "[ 서비스 기획, 디자인 & UI ]",
         "각 페이지 디자인 설계 및 UI 구현",
@@ -290,10 +295,10 @@ function ProjectDetail() {
     {
       title: "TodoList",
       preview: [
-        "/TodoList1.png",
-        "/TodoList2.png",
-        "/TodoList3.png",
-        "/TodoList4.png",
+        `${process.env.PUBLIC_URL}/TodoList1.png`,
+        `${process.env.PUBLIC_URL}/TodoList2.png`,
+        `${process.env.PUBLIC_URL}/TodoList3.png`,
+        `${process.env.PUBLIC_URL}/TodoList4.png`,
       ],
       role: [
         "[ 서비스 기획 및 디자인, 프론트엔드 ]",
@@ -320,10 +325,10 @@ function ProjectDetail() {
     {
       title: "Portfolio",
       preview: [
-        "/Perpett1.png",
-        "/Perpett2.png",
-        "/Perpett3.png",
-        "/Perpett4.png",
+        `${process.env.PUBLIC_URL}/TodoList1.png`,
+        `${process.env.PUBLIC_URL}/TodoList2.png`,
+        `${process.env.PUBLIC_URL}/TodoList3.png`,
+        `${process.env.PUBLIC_URL}/TodoList4.png`,
       ],
       role: [
         "[ 서비스 기획 및 디자인, 프론트엔드 ]",
