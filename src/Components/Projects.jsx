@@ -112,7 +112,7 @@ function Projects() {
         "https://img.shields.io/badge/tailwind%20css-06B6D4?style=for-the-badge&logo=tailwind%20css&logoColor=black",
         "https://img.shields.io/badge/redux%20toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=black",
       ],
-      backgroundImg: "https://jieuny0314.github.io/portfolio/Perpett.png",
+      backgroundImg: `${process.env.PUBLIC_URL}/Perpett.png`,
     },
     {
       id: 2,
@@ -174,9 +174,9 @@ function Projects() {
           ? "프로젝트에 마우스를 올려보세요."
           : "프로젝트를 클릭해보세요."}
       </p>
+      <div className="detective" ref={ref} />
       <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
       <ProjectSliderContainer $ismobile={isMobile}>
-        <div className="detective" ref={ref} />
         {projects.map((el, i) => {
           return (
             <ProjectCard

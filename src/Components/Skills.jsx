@@ -8,7 +8,7 @@ import { setNaviValue } from "../redux/action";
 const SkillsContainer = styled.section`
   width: 100vw;
   height: 100vh;
-  padding-top: 140px;
+  padding-top: 100px;
   padding-bottom: 40px;
   display: flex;
   align-items: center;
@@ -98,7 +98,7 @@ const StackBox = styled.div`
       height: 100%;
       border-radius: 50%;
       opacity: 0;
-      background-color: #f6f6f6;
+      background-color: white;
       transition-property: transform, opacity;
       transition-duration: 1s, 3s;
     }
@@ -107,7 +107,7 @@ const StackBox = styled.div`
       position: absolute;
       display: flex;
       align-items: center;
-      font-size: ${(props) => (props.$ismobile ? "2px" : "16px")};
+      font-size: ${(props) => (props.$ismobile ? "12px" : "16px")};
       justify-content: center;
       text-align: center;
       width: ${(props) => (props.$ismobile ? "100%" : "135%")};
@@ -173,7 +173,7 @@ const StackBox = styled.div`
   }
 
   .htmlMove {
-    left: 108%;
+    left: 102%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
@@ -239,7 +239,7 @@ const ClickSkill = styled.div`
   width: ${(props) =>
     props.$isclicked ? (props.$ismobile ? "59%" : "50%") : "0"};
   font-size: ${(props) => (props.$ismobile ? "0.5rem" : "1rem")};
-  height: ${(props) => (props.$ismobile ? "8%" : "6%")};
+  height: ${(props) => (props.$ismobile ? "6%" : "8%")};
   transition: all 1s ease-in-out;
   overflow: hidden;
 `;
