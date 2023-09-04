@@ -17,7 +17,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <ScrollToTop />
           <App />
         </Router>
