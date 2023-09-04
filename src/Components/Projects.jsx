@@ -112,7 +112,7 @@ function Projects() {
         "https://img.shields.io/badge/tailwind%20css-06B6D4?style=for-the-badge&logo=tailwind%20css&logoColor=black",
         "https://img.shields.io/badge/redux%20toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=black",
       ],
-      backgroundImg: `${process.env.PUBLIC_URL}/Perpett.png`,
+      backgroundImg: "https://jieuny0314.github.io/portfolio/Perpett.png",
     },
     {
       id: 2,
