@@ -73,6 +73,7 @@ const SendEmailContainer = styled.div`
     .emailLabel {
       width: 100%;
       height: 20%;
+      margin-bottom: 15px;
       input {
         width: 200px;
       }
@@ -96,8 +97,7 @@ const SendEmailContainer = styled.div`
       border-bottom: 2px solid #d9d9d9;
 
       &:hover {
-        background-color: #d9d9d9;
-        color: white;
+        border-bottom: 2px solid black;
       }
     }
   }

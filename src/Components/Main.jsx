@@ -5,13 +5,9 @@ import Skills from "../Components/Skills";
 import Projects from "../Components/Projects";
 import Contact from "../Components/Contact";
 import { motion } from "framer-motion";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const MainContainer = styled.main`
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
   height: 100vh;
   width: 100%;
   scroll-snap-type: y mandatory;

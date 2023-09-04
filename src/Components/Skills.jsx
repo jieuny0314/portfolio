@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
-import { useState, forwardRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useDispatch } from "react-redux";
 import { setNaviValue } from "../redux/action";
@@ -13,8 +13,17 @@ const SkillsContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
   scroll-snap-align: start;
+  position: relative;
+
+  .backgroundColor {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -20;
+  }
 `;
 
 const StackBox = styled.div`
@@ -53,6 +62,7 @@ const StackBox = styled.div`
     font-family: "Sriracha", cursive;
     animation: move 2s infinite linear;
     margin-bottom: ${(props) => (props.$ismobile ? "2.5px" : "10px")};
+    margin-top: 20px;
   }
 
   .text::before {
@@ -88,7 +98,7 @@ const StackBox = styled.div`
       height: 100%;
       border-radius: 50%;
       opacity: 0;
-      background-color: white;
+      background-color: #f6f6f6;
       transition-property: transform, opacity;
       transition-duration: 1s, 3s;
     }
@@ -104,11 +114,10 @@ const StackBox = styled.div`
       height: 80%;
       opacity: 0;
       z-index: 20;
-      color: #4a4a4a;
+      color: black;
       font-weight: bold;
       transition-property: transform, opacity;
       transition-duration: 1.5s, 1s;
-      /* border: 1px solid black; */
     }
 
     .opacity {
@@ -164,7 +173,7 @@ const StackBox = styled.div`
   }
 
   .htmlMove {
-    left: 100%;
+    left: 108%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
@@ -178,7 +187,8 @@ const StackBox = styled.div`
   }
 
   .javaScriptMove {
-    top: 100%;
+    top: 110%;
+    left: 23%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
@@ -186,22 +196,23 @@ const StackBox = styled.div`
 
   .gitMove {
     top: -37%;
-    left: 78%;
+    left: 79%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
   }
 
   .figmaMove {
-    top: 77%;
-    left: 77%;
+    top: 80%;
+    left: 80%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
   }
 
   .reactMove {
-    top: -63%;
+    top: -58%;
+    left: 22%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
@@ -209,15 +220,15 @@ const StackBox = styled.div`
 
   .reduxMove {
     top: -39%;
-    left: -39%;
+    left: -35%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
   }
 
   .styledComponentMove {
-    top: 78%;
-    left: -38%;
+    top: 84%;
+    left: -40%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
@@ -281,6 +292,7 @@ function Skills() {
 
   return (
     <SkillsContainer $ismobile={isMobile}>
+      <div className="backgroundColor"></div>
       <StackBox $ismobile={isMobile} $isclicked={isClicked}>
         <div ref={ref} className="detective" />
         <div onClick={clickedOn} className="text">

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { useSelector, useDispatch } from "react-redux";
 import { setNaviValue } from "../redux/action";
-import { useEffect } from "react";
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -10,10 +9,9 @@ const HeaderContainer = styled.header`
   min-width: 375px;
   position: fixed;
   top: 0;
-  background-color: white;
+  background-color: transparent;
   z-index: 50;
   font-family: "Sriracha", cursive;
-  /* box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px; */
 
   .navi {
     height: 100px;
@@ -34,7 +32,7 @@ const AboutMe = styled.li`
     position: absolute;
     bottom: -10px;
     left: ${(props) => (props.$ismobile ? "-1px" : "-13px")};
-    height: 5px;
+    height: 3px;
     background-color: #d9d9d9;
     width: ${(props) =>
       props.$naviValue === 0 ? (props.$ismobile ? "75px" : "150px") : "0"};
@@ -54,7 +52,7 @@ const Skills = styled.li`
     position: absolute;
     bottom: -10px;
     left: ${(props) => (props.$ismobile ? "-3px" : "-24px")};
-    height: 5px;
+    height: 3px;
     background-color: #d9d9d9;
     width: ${(props) =>
       props.$naviValue === 1 ? (props.$ismobile ? "45px" : "110px") : "0"};
@@ -72,11 +70,11 @@ const Projects = styled.li`
 
   .lineBox {
     position: absolute;
-    bottom: -10px;
+    height: 3px;
     left: ${(props) => (props.$ismobile ? "-1px" : "-25px")};
     width: ${(props) =>
       props.$naviValue === 2 ? (props.$ismobile ? "65px" : "150px") : "0"};
-    height: 5px;
+    height: 3px;
     background-color: #d9d9d9;
   }
 
@@ -94,7 +92,7 @@ const Contact = styled.li`
     position: absolute;
     bottom: -10px;
     left: ${(props) => (props.$ismobile ? "-1px" : "-24px")};
-    height: 5px;
+    height: 3px;
     background-color: #d9d9d9;
     width: ${(props) =>
       props.$naviValue === 3 ? (props.$ismobile ? "65px" : "140px") : "0"};

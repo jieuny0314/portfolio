@@ -58,7 +58,6 @@ const AboutMeContainer = styled.section`
     width: ${(props) => (props.$ismobile ? "150px" : "30%")};
     position: relative;
     height: 125px;
-    /* background-color: red; */
   }
 
   .logoImg {
@@ -72,12 +71,12 @@ const AboutMeContainer = styled.section`
 
   .logoImgContainer:hover .logoImg {
     left: ${(props) => (props.$ismobile ? "0" : "-60%")};
-    top: ${(props) => (props.$ismobile ? "-150%" : "0")};
+    top: ${(props) => (props.$ismobile ? "-140%" : "0")};
     transition: all 1s ease;
   }
 
   .detailContainer {
-    width: ${(props) => (props.$ismobile ? "300px" : "160%")};
+    width: ${(props) => (props.$ismobile ? "320px" : "160%")};
     position: absolute;
     transition: all 1s;
     height: ${(props) => (props.$ismobile ? "60px" : "120%")};
@@ -127,7 +126,6 @@ const AboutMeContainer = styled.section`
 
     .contents {
       font-size: ${(props) => (props.$ismobile ? "1rem" : "1.3rem")};
-      min-width: 350px;
     }
 
     .question {
@@ -155,7 +153,7 @@ const AboutMeContainer = styled.section`
 
   .logoImgContainer:hover .detailContainer {
     left: ${(props) => (props.$ismobile ? "-50%" : "40%")};
-    top: ${(props) => (props.$ismobile ? "-100px" : "-130px")};
+    top: ${(props) => (props.$ismobile ? "-80px" : "-130px")};
     height: ${(props) => (props.$ismobile ? "400px" : "400px")};
     opacity: 1;
     transition: all 1s;
@@ -188,14 +186,13 @@ function AboutMe() {
   }, [inView, setNaviValue]);
 
   const [isHover, setIsHover] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
 
   const handleMouseOver = () => {
     setIsHover(true);
-    setIsClicked(true);
   };
 
   const handleMouseOut = () => {
+    console.log("dd");
     setIsHover(false);
   };
 
@@ -204,7 +201,6 @@ function AboutMe() {
       <div
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
-        onClick={handleMouseOver}
         className="logoImgContainer"
       >
         <article className="clickMe">
@@ -224,25 +220,23 @@ function AboutMe() {
         <div className="detective" ref={ref} />
         <img className="logoImg" src={Logo} alt="LogoImage" />
         <article className="detailContainer">
-          <div className="outerBox">
-            <div className="title">
-              <h2 className="text">기록하는 개발자 김지은</h2>
-              <div className="borderBox"></div>
-            </div>
-            <p className="contents">
-              알아가는 걸 기록하고,<br></br>프로젝트로 구현하고,<br></br>
-              이후 회고를 통해 내 것으로 만드는,
-            </p>
-            <p className="contents">
-              같은 걸 두 번 물어보는 게 아닌 기록한 걸 읽고 적용할 수 있는
-              개발자입니다.<br></br> 개인 학습 및 회고 블로그를 운영하고 있으며
-              약 330개의 포스팅을 남겼습니다.<br></br>
-            </p>
-            <p className="contents question"> 제 기록이 궁금하신가요?</p>
-            <a className="blogLink" href="https://jieunny.tistory.com/">
-              <h2 className="text">Click Me!</h2>
-            </a>
+          <div className="title">
+            <h2 className="text">기록하는 개발자 김지은</h2>
+            <div className="borderBox"></div>
           </div>
+          <p className="contents">
+            알아가는 걸 기록하고,<br></br>프로젝트로 구현하고,<br></br>
+            이후 회고를 통해 내 것으로 만드는,
+          </p>
+          <p className="contents">
+            같은 걸 두 번 물어보는 게 아닌 기록한 걸 읽고 적용할 수 있는
+            개발자입니다.<br></br> 개인 학습 및 회고 블로그를 운영하고 있으며 약
+            330개의 포스팅을 남겼습니다.<br></br>
+          </p>
+          <p className="contents question"> 제 기록이 궁금하신가요?</p>
+          <a className="blogLink" href="https://jieunny.tistory.com/">
+            <h2 className="text">Click Me!</h2>
+          </a>
         </article>
       </div>
     </AboutMeContainer>

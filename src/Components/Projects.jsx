@@ -60,11 +60,16 @@ const ProjectsContainer = styled.section`
     animation: left 2s infinite linear;
   }
 
-  /* .notice {
+  .notice {
+    width: ${(props) => (props.$ismobile ? "60%" : "57%")};
+    font-family: "Sriracha", cursive;
     position: absolute;
-    bottom: 0;
-    left: 0;
-  } */
+    top: ${(props) => (props.$ismobile ? "21%" : "13%")};
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: ${(props) => (props.$ismobile ? "0.8rem" : "1rem")};
+  }
 `;
 
 const ProjectSliderContainer = styled.div`
@@ -77,6 +82,7 @@ const ProjectSliderContainer = styled.div`
   margin: 0 10px;
   border-radius: 10px;
   position: relative;
+  min-width: 240px;
 `;
 
 function Projects() {
@@ -143,6 +149,7 @@ function Projects() {
         "https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black",
         "https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black",
         "https://img.shields.io/badge/styled%20components-DB7093?style=for-the-badge&logo=styled%20components&logoColor=black",
+        "https://img.shields.io/badge/redux%20toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=black",
       ],
       backgroundImg: "/Portfolio.png",
     },
@@ -161,7 +168,12 @@ function Projects() {
   }
 
   return (
-    <ProjectsContainer>
+    <ProjectsContainer $ismobile={isMobile}>
+      <p className="notice">
+        {!isMobile
+          ? "프로젝트에 마우스를 올려보세요."
+          : "프로젝트를 클릭해보세요."}
+      </p>
       <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
       <ProjectSliderContainer $ismobile={isMobile}>
         <div className="detective" ref={ref} />

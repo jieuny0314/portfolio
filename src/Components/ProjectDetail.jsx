@@ -10,6 +10,8 @@ import {
   AiOutlineBulb,
   AiOutlineFunction,
 } from "react-icons/ai";
+import { setNaviValue } from "../redux/action";
+import { useDispatch } from "react-redux";
 
 const Background = styled.div`
   width: 100vw;
@@ -206,6 +208,7 @@ function ProjectDetail() {
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
   });
+  const dispatch = useDispatch();
   const [currentImg, setCurrentImg] = useState(0);
 
   function next() {
@@ -219,10 +222,8 @@ function ProjectDetail() {
   }
 
   function goMain() {
+    dispatch(setNaviValue(3));
     window.history.back();
-    setTimeout(() => {
-      window.scrollTo(0, "300vh");
-    }, 0);
   }
 
   const projectsDetail = [
@@ -329,21 +330,22 @@ function ProjectDetail() {
         "각 페이지 디자인 및 구현",
       ],
       function: [
-        "JSON 서버를 사용하여 테스트 서버를 구축하였습니다.",
-        "JSON 서버에 계정을 저장하는 방법으로 회원가입 및 로그인 기능을 구현하였습니다.",
-        "combineReducers를 사용해서 할 일과 메모 두 가지의 상태를 관리했습니다.",
-        "fetch를 통한 HTTP 비동기 통신으로 기본적인 CRUD 기능을 구현했습니다.",
-        "date를 쉽게 조작할 수 있는 moment.js를 사용해서 캘린더를 구현했고, 완료한 일이 있는 날을 표시했습니다.",
+        "keyframes을 사용해서 애니메이션을 구현하였습니다.",
+        "emailjs를 사용해서 사용자가 메일을 보낼 수 있는 기능을 구현했습니다.",
+        "Redux-toolkit으로 헤더 상태를 전역으로 관리했습니다.",
+        "useMediaQuery 사용해서 반응형으로 구현했습니다.",
+        "scroll-snap 속성을 사용해서 원페이지 스크롤을 구현했습니다.",
+        "Lighthouse를 사용해서 성능을 계산하고, 최적화 과정을 거쳤습니다.",
       ],
       review: [
-        "Redux를 사용하면서 전역 상태 관리에 대해 익숙해졌습니다.",
-        "기본 CRUD를 구현하면서 HTTP 통신을 경험했습니다.",
-        "투두리스트인 만큼 할일이 남아있다는 알람 기능을 추가하고 싶었습니다. 하루가 끝나기 한시간 전에도 아직 끝내지 못한 일이 남았다면 푸시 알람을 보내주는 기능을 만들면 좋을 것 같습니다.",
-        "개선 하고싶은 부분은 리덕스 툴킷을 사용해서 좀 더 간결한 코드로 구현하고 싶습니다. 또, 완료한 일을 렌더링하는 부분의 코드가 개발한 제가 보기에도 너무 복잡해서 리팩토링이 필요할 것 같습니다.",
+        "현재까지 쌓아온 것에 대해 돌아보는 기회가 되었습니다.",
+        "원페이지 스크롤에 대해 배우고, 직접 적용해 볼 수 있었습니다.",
+        "구현을 목표로 두다보니 코드가 깨끗하지 못하고 반복되는 부분이 많습니다. 그런 코드들을 Hook으로 따로 구현하는 리팩토링을 거치면 좋을 것 같습니다.",
+        "최적화에 대해 학습하고, 직접 적용해보는 기회가 되었습니다.",
       ],
       link: [
         ["배포링크", "https://github.com/jieuny0314/TodoList_react"],
-        ["깃허브", "https://github.com/jieuny0314/TodoList_react"],
+        ["깃허브", "https://github.com/jieuny0314/Portfolio"],
       ],
     },
   ];

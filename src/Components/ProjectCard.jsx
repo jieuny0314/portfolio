@@ -61,7 +61,6 @@ const ProjectCardContainer = styled.article`
   }
 
   .contentsBox {
-    width: 100%;
     height: 100%;
     opacity: 0;
     position: relative;
@@ -79,11 +78,10 @@ const ProjectCardContainer = styled.article`
       right: -100%;
       bottom: ${(props) => (props.$ismobile ? "" : "2%")};
       top: ${(props) => (props.$ismobile ? "5%" : "")};
-      font-size: ${(props) => (props.$ismobile ? "0.6rem" : "1rem")};
+      font-size: ${(props) => (props.$ismobile ? "1rem" : "1.2rem")};
       border: none;
       background-color: transparent;
       font-family: "Sriracha", cursive;
-      font-size: 1.2rem;
       cursor: pointer;
       z-index: 20;
       &:active,
@@ -121,7 +119,16 @@ const ProjectCardContainer = styled.article`
 
   .title::before {
     content: "";
-    width: 100px;
+    width: ${(props) =>
+      props.$index === 0
+        ? "80px"
+        : (props) =>
+            props.$index === 1
+              ? "65px"
+              : (props) =>
+                  props.$index === 2
+                    ? "95px"
+                    : (props) => (props.$index === 3 ? "95px" : "")};
     height: 22%;
     background-color: ${(props) =>
       props.$index === 0
@@ -140,7 +147,7 @@ const ProjectCardContainer = styled.article`
   }
 
   .contents {
-    height: 30%;
+    height: 25%;
     flex-direction: column;
     justify-content: center;
   }
@@ -167,6 +174,7 @@ const ProjectCardContainer = styled.article`
     .stackTitle {
       display: inline-block;
       width: 100%;
+      margin-bottom: ${(props) => (props.$ismobile ? "10px" : "20px")};
     }
   }
 `;
@@ -178,7 +186,6 @@ function ProjectCard({ project, index, popUp, setPopUp, currentPr }) {
 
   function onPopUp(index) {
     const copy = [...popUp];
-    // copy[index] = true;
     copy[index] = !popUp[index];
     setPopUp(copy);
     console.log(index);
