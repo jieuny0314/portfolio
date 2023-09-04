@@ -84,6 +84,7 @@ const ProjectCardContainer = styled.article`
       font-family: "Sriracha", cursive;
       cursor: pointer;
       z-index: 20;
+      color: black;
       &:active,
       &:focus {
         outline: none;
