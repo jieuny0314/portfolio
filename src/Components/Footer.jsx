@@ -13,7 +13,7 @@ const FooterContainer = styled.footer`
   align-items: ${(props) => (props.$ismobile ? "end" : "center")};
   justify-content: space-between;
   padding: 10px;
-  color: #c9c9c9;
+  color: white;
   font-size: ${(props) => (props.$ismobile ? "0.7rem" : "1rem")};
 
   .link {
@@ -51,8 +51,12 @@ function Footer() {
   return (
     <FooterContainer $ismobile={isMobile}>
       <div className="link">
-        <img src={Tstory} alt="TstoryLogo" className="logo" />
-        <AiFillGithub color="#d9d9d9" className="logo github" />
+        <a href="https://jieunny.tistory.com/">
+          <img src={Tstory} alt="TstoryLogo" className="logo" />
+        </a>
+        <a href="https://github.com/jieuny0314">
+          <AiFillGithub color="white" className="logo github" />
+        </a>
       </div>
       <p className="copyright">Copyright 2023. Jieun. All rights reserved.</p>
     </FooterContainer>

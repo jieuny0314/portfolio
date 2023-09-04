@@ -23,7 +23,7 @@ const SkillsContainer = styled.section`
     top: 0;
     left: 0;
     z-index: -20;
-    background-color: #edcdbb;
+    background-color: #faf3f0;
   }
 `;
 
@@ -62,18 +62,18 @@ const StackBox = styled.div`
     z-index: 10;
     font-family: "Sriracha", cursive;
     animation: move 2s infinite linear;
+    margin-top: 10px;
     margin-bottom: ${(props) => (props.$ismobile ? "2.5px" : "10px")};
-    margin-top: 20px;
   }
 
   .text::before {
-    background-color: #d9d9d9;
+    background-color: #d5b4b4;
     position: absolute;
     z-index: -1;
     left: -3px;
     bottom: 10px;
     width: ${(props) => (props.$ismobile ? "90px" : "145px")};
-    height: ${(props) => (props.$ismobile ? "5px" : "10px")};
+    height: ${(props) => (props.$ismobile ? "5px" : "13px")};
     content: "";
   }
 
@@ -99,7 +99,7 @@ const StackBox = styled.div`
       height: 100%;
       border-radius: 50%;
       opacity: 0;
-      background-color: #ecdfc8;
+      background-color: #faf3f0;
       transition-property: transform, opacity;
       transition-duration: 1s, 3s;
     }
@@ -240,10 +240,10 @@ const ClickSkill = styled.div`
   width: ${(props) =>
     props.$isclicked ? (props.$ismobile ? "59%" : "50%") : "0"};
   font-size: ${(props) => (props.$ismobile ? "0.5rem" : "1rem")};
-  height: ${(props) => (props.$ismobile ? "6%" : "8%")};
+  height: ${(props) => (props.$ismobile ? "5%" : "6%")};
   transition: all 1s ease-in-out;
   display: flex;
-  align-items: center;
+  margin-top: ${(props) => (props.$ismobile ? "-5px" : "-8px")};
   justify-content: center;
   overflow: hidden;
 `;

@@ -18,7 +18,7 @@ const ProjectsContainer = styled.section`
   justify-content: center;
   position: relative;
   scroll-snap-align: start;
-  background-color: #fffafa;
+  background-color: #f7e8f6;
 
   @keyframes right {
     0% {

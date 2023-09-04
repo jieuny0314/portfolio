@@ -17,6 +17,7 @@ const ContactContainer = styled.div`
   scroll-snap-align: start;
   position: relative;
   overflow-y: scroll;
+  background-color: #daeaf1;
 `;
 
 const ContentsContainer = styled.div`
@@ -36,7 +37,7 @@ const SendEmailContainer = styled.div`
   .formTitle {
     height: 10%;
     margin: 0;
-    font-size: 1rem;
+    font-size: ${(props) => (props.$ismobile ? "1.2rem" : "1.5rem")};
   }
 
   .emailForm {
@@ -65,55 +66,67 @@ const SendEmailContainer = styled.div`
 
     textarea {
       width: 100%;
-      height: 80%;
+      height: ${(props) => (props.$ismobile ? "145px" : "85%")};
       resize: none;
+      margin-top: ${(props) => (props.$ismobile ? "" : "10px")};
     }
 
     .nameLabel,
     .emailLabel {
       width: 100%;
-      height: 20%;
+      height: 15%;
       margin-bottom: 15px;
       position: relative;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
       input {
         width: 200px;
+      }
+
+      .warning {
+        position: absolute;
+        left: 205px;
+        bottom: 0;
+        color: #e97777;
+        font-size: ${(props) => (props.$ismobile ? "0.7rem" : "1rem")};
       }
     }
 
     .messageLabel {
       width: 100%;
-      height: 60%;
+      height: ${(props) => (props.$ismobile ? "40%" : "60%")};
       position: relative;
-
       .warning {
+        position: absolute;
         left: 0;
-        bottom: -2px;
+        color: #e97777;
+        font-size: ${(props) => (props.$ismobile ? "0.7rem" : "1rem")};
       }
     }
 
-    .warning {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      color: red;
-      font-size: ${(props) => (props.$ismobile ? "0.7rem" : "1rem")};
-    }
-
     .text {
-      margin-bottom: 10px;
-      font-size: 1rem;
+      font-size: ${(props) => (props.$ismobile ? "0.9rem" : "1.2rem")};
+      margin-bottom: ${(props) => (props.$ismobile ? "10px" : "0")};
     }
 
     .submitBtn {
-      width: ${(props) => (props.$ismobile ? "80px" : "120px")};
+      width: ${(props) => (props.$ismobile ? "90px" : "160px")};
       background-color: white;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: none;
-      border-bottom: 2px solid #d9d9d9;
-      padding-bottom: 5px;
+      border: 2px solid white;
+      padding: 10px 0;
+      background-color: transparent;
+      font-size: ${(props) => (props.$ismobile ? "0.8rem" : "1.2rem")};
+      border-radius: 10px;
 
       &:hover {
-        border-bottom: 2px solid black;
+        border: 2px solid #8fbdd3;
       }
     }
   }
@@ -206,7 +219,6 @@ function Contact() {
                 placeholder="이름을 입력해주세요."
                 className="nameInput"
                 onChange={(e) => nameChange(e)}
-                value={nameValue}
                 autoComplete="off"
               />
             </label>
@@ -219,7 +231,6 @@ function Contact() {
                 className="emailInput"
                 onChange={(e) => emailChange(e)}
                 autoComplete="off"
-                value={emailValue}
               />
               {!emailCheck && emailValue.length !== 0 ? (
                 <div className="warning">이메일 형식을 지켜주세요.</div>
@@ -234,7 +245,6 @@ function Contact() {
                 placeholder="내용을 입력해주세요."
                 className="messageInput"
                 onChange={(e) => messageChange(e)}
-                value={messageValue}
               />
               {!messageCheck && messageValue.length !== 0 ? (
                 <div className="warning">10자 이상 입력해주세요.</div>

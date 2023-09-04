@@ -33,7 +33,7 @@ const AboutMe = styled.li`
     bottom: -10px;
     left: ${(props) => (props.$ismobile ? "-1px" : "-13px")};
     height: 3px;
-    background-color: #d9d9d9;
+    background-color: #f7c5a8;
     width: ${(props) =>
       props.$naviValue === 0 ? (props.$ismobile ? "75px" : "150px") : "0"};
   }
@@ -53,7 +53,7 @@ const Skills = styled.li`
     bottom: -10px;
     left: ${(props) => (props.$ismobile ? "-3px" : "-24px")};
     height: 3px;
-    background-color: #d9d9d9;
+    background-color: #d5b4b4;
     width: ${(props) =>
       props.$naviValue === 1 ? (props.$ismobile ? "45px" : "110px") : "0"};
   }
@@ -70,12 +70,13 @@ const Projects = styled.li`
 
   .lineBox {
     position: absolute;
+    bottom: -10px;
     height: 3px;
     left: ${(props) => (props.$ismobile ? "-1px" : "-25px")};
     width: ${(props) =>
       props.$naviValue === 2 ? (props.$ismobile ? "65px" : "150px") : "0"};
     height: 3px;
-    background-color: #d9d9d9;
+    background-color: #f1c6e7;
   }
 
   &:hover .lineBox {
@@ -93,7 +94,7 @@ const Contact = styled.li`
     bottom: -10px;
     left: ${(props) => (props.$ismobile ? "-1px" : "-24px")};
     height: 3px;
-    background-color: #d9d9d9;
+    background-color: #8fbdd3;
     width: ${(props) =>
       props.$naviValue === 3 ? (props.$ismobile ? "65px" : "140px") : "0"};
   }

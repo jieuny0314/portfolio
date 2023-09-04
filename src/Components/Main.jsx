@@ -14,6 +14,9 @@ const MainContainer = styled.main`
   overflow-y: scroll;
   overflow-x: hidden;
   position: relative;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .test {
     height: 100px;

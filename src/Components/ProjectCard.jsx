@@ -112,6 +112,8 @@ const ProjectCardContainer = styled.article`
     position: relative;
     z-index: 10;
     width: 100%;
+    font-family: "Sriracha", cursive;
+    font-size: 1.2rem;
 
     h2 {
       margin: 0;
@@ -122,15 +124,15 @@ const ProjectCardContainer = styled.article`
     content: "";
     width: ${(props) =>
       props.$index === 0
-        ? "80px"
+        ? "95px"
         : (props) =>
             props.$index === 1
               ? "65px"
               : (props) =>
                   props.$index === 2
-                    ? "95px"
-                    : (props) => (props.$index === 3 ? "95px" : "")};
-    height: 22%;
+                    ? "100px"
+                    : (props) => (props.$index === 3 ? "110px" : "")};
+    height: 20%;
     background-color: ${(props) =>
       props.$index === 0
         ? "#ffcd4a"
@@ -142,8 +144,8 @@ const ProjectCardContainer = styled.article`
                     ? "#f9a698"
                     : (props) => (props.$index === 3 ? "#d9d9d9" : "#fffff")};
     position: absolute;
-    top: 10px;
-    opacity: 0.8;
+    top: 20px;
+    opacity: 0.6;
     z-index: -1;
   }
 
