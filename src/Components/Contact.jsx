@@ -14,61 +14,29 @@ const ContactContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
   scroll-snap-align: start;
   position: relative;
+  overflow-y: scroll;
 `;
 
 const ContentsContainer = styled.div`
   width: ${(props) => (props.$ismobile ? "100%" : "80%")};
-  height: 80%;
-
+  height: ${(props) => (props.$ismobile ? "90%" : "80%")};
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: ${(props) => (props.$ismobile ? "column" : "row")};
-
-  .link {
-    width: ${(props) => (props.$ismobile ? "100%" : "40%")};
-    height: ${(props) => (props.$ismobile ? "30%" : "100%")};
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    .inner {
-      border: 1px solid black;
-    }
-
-    .email,
-    .github,
-    .blog {
-      display: flex;
-      flex-direction: ${(props) => (props.$ismobile ? "row" : "column")};
-
-      .linkTitle {
-        font-size: 1.2rem;
-      }
-
-      p {
-        margin: 0;
-      }
-
-      a {
-        text-decoration: none;
-        color: black;
-      }
-    }
-  }
 `;
 
 const SendEmailContainer = styled.div`
-  width: ${(props) => (props.$ismobile ? "100%" : "60%")};
-  height: ${(props) => (props.$ismobile ? "70%" : "100%")};
-  padding: 10px;
+  width: ${(props) => (props.$ismobile ? "100%" : "70%")};
+  height: 100%;
+  padding: ${(props) => (props.$ismobile ? "20px" : "0")};
 
   .formTitle {
     height: 10%;
     margin: 0;
+    font-size: 1rem;
   }
 
   .emailForm {
@@ -85,7 +53,14 @@ const SendEmailContainer = styled.div`
 
     input,
     textarea {
-      padding: 10px;
+      padding: 15px;
+      border: none;
+      background-color: aliceblue;
+      border-radius: 10px;
+      &:active,
+      &:focus {
+        outline: none;
+      }
     }
 
     textarea {
@@ -99,7 +74,7 @@ const SendEmailContainer = styled.div`
       width: 100%;
       height: 20%;
       input {
-        width: ${(props) => (props.$ismobile ? "100%" : "200px")};
+        width: 200px;
       }
     }
 
@@ -110,12 +85,20 @@ const SendEmailContainer = styled.div`
 
     .text {
       margin-bottom: 10px;
+      font-size: 1rem;
     }
 
     .submitBtn {
-      width: 120px;
-      border: none;
+      width: ${(props) => (props.$ismobile ? "80px" : "120px")};
+      border-radius: 0;
       background-color: white;
+      cursor: pointer;
+      border-bottom: 2px solid #d9d9d9;
+
+      &:hover {
+        background-color: #d9d9d9;
+        color: white;
+      }
     }
   }
 `;
@@ -157,7 +140,7 @@ function Contact() {
   return (
     <ContactContainer>
       <ContentsContainer $ismobile={isMobile}>
-        <div className="link">
+        {/* <div className="link">
           <div className="inner">
             <div className="email">
               <h2 className="linkTitle">이메일</h2>
@@ -176,10 +159,10 @@ function Contact() {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="detective" ref={ref} />
         <SendEmailContainer $ismobile={isMobile}>
-          <h3 className="formTitle">이메일로 연락해주세요.</h3>
+          <h3 className="formTitle">궁금한 점은 이메일로 연락해주세요.</h3>
           <form className="emailForm" ref={form} onSubmit={sendEmail}>
             <label className="nameLabel">
               <h3 className="text">Name</h3>

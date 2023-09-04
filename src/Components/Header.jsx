@@ -12,6 +12,7 @@ const HeaderContainer = styled.header`
   top: 0;
   background-color: white;
   z-index: 50;
+  font-family: "Sriracha", cursive;
   /* box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px; */
 
   .navi {

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 
 const FooterContainer = styled.footer`
-  border: 1px solid green;
   position: absolute;
   left: 0;
   bottom: 0;
