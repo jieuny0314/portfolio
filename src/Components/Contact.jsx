@@ -68,7 +68,6 @@ const SendEmailContainer = styled.div`
       width: 100%;
       height: ${(props) => (props.$ismobile ? "145px" : "85%")};
       resize: none;
-      margin-top: ${(props) => (props.$ismobile ? "" : "10px")};
     }
 
     .nameLabel,
@@ -78,7 +77,6 @@ const SendEmailContainer = styled.div`
       margin-bottom: 15px;
       position: relative;
       display: flex;
-      justify-content: space-between;
       flex-direction: column;
 
       input {
@@ -108,7 +106,7 @@ const SendEmailContainer = styled.div`
 
     .text {
       font-size: ${(props) => (props.$ismobile ? "0.9rem" : "1.2rem")};
-      margin-bottom: ${(props) => (props.$ismobile ? "10px" : "0")};
+      margin-bottom: 10px;
     }
 
     .submitBtn {
@@ -209,7 +207,7 @@ function Contact() {
       <ContentsContainer $ismobile={isMobile}>
         <div className="detective" ref={ref} />
         <SendEmailContainer $ismobile={isMobile}>
-          <h3 className="formTitle">궁금한 점은 이메일로 연락해주세요.</h3>
+          <h3 className="formTitle">Contact me by Email</h3>
           <form className="emailForm" ref={form} onSubmit={sendEmail}>
             <label className="nameLabel">
               <h3 className="text">Name</h3>

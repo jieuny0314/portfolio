@@ -77,7 +77,7 @@ const ProjectCardContainer = styled.article`
       position: absolute;
       right: -100%;
       bottom: ${(props) => (props.$ismobile ? "" : "2%")};
-      top: ${(props) => (props.$ismobile ? "5%" : "")};
+      top: ${(props) => (props.$ismobile ? "8%" : "")};
       font-size: ${(props) => (props.$ismobile ? "1rem" : "1.2rem")};
       border: none;
       background-color: transparent;
