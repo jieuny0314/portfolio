@@ -26,7 +26,10 @@ const ProjectCardContainer = styled.article`
   background-image: url(${(props) => props.$backImg});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 52.5% 0%;
+  background-position: ${(props) =>
+    props.$index === 2
+      ? (props) => (props.$ismobile ? "62.5% 0" : "49.5% 0")
+      : "49.5% 0"};
   position: relative;
   z-index: 2;
   overflow-y: hidden;
@@ -130,8 +133,8 @@ const ProjectCardContainer = styled.article`
               ? "65px"
               : (props) =>
                   props.$index === 2
-                    ? "100px"
-                    : (props) => (props.$index === 3 ? "110px" : "")};
+                    ? "110px"
+                    : (props) => (props.$index === 3 ? "100px" : "")};
     height: 20%;
     background-color: ${(props) =>
       props.$index === 0
@@ -141,8 +144,8 @@ const ProjectCardContainer = styled.article`
               ? "#bfb0de"
               : (props) =>
                   props.$index === 2
-                    ? "#f9a698"
-                    : (props) => (props.$index === 3 ? "#d9d9d9" : "#fffff")};
+                    ? "#e1d8d4"
+                    : (props) => (props.$index === 3 ? "#f9a698" : "#fffff")};
     position: absolute;
     top: 20px;
     opacity: 0.6;

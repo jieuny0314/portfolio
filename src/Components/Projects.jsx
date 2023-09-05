@@ -64,6 +64,8 @@ const ProjectsContainer = styled.section`
   .notice {
     width: ${(props) => (props.$ismobile ? "60%" : "57%")};
     font-family: "Sriracha", cursive;
+    color: #a4926d;
+    font-weight: bold;
     position: absolute;
     top: ${(props) => (props.$ismobile ? "21%" : "13%")};
     display: flex;
@@ -76,7 +78,8 @@ const ProjectsContainer = styled.section`
 const ProjectSliderContainer = styled.div`
   width: ${(props) => (props.$ismobile ? "100%" : "60%")};
   height: ${(props) => (props.$ismobile ? "70%" : "85%")};
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
   display: flex;
   flex-direction: row;
   overflow-x: hidden;
@@ -130,19 +133,6 @@ function Projects() {
     },
     {
       id: 3,
-      title: "TodoList",
-      service: "캘린더 및 메모 기능을 포함한 투 두 리스트 서비스",
-      period: "2023.03 - 2023.04",
-      stacks: [
-        "https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black",
-        "https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black",
-        "https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=black",
-        "https://img.shields.io/badge/styled%20components-DB7093?style=for-the-badge&logo=styled%20components&logoColor=black",
-      ],
-      backgroundImg: `${process.env.PUBLIC_URL}/TodoList.png`,
-    },
-    {
-      id: 4,
       title: "Portfolio",
       service: "프로젝트 및 프로필 소개를 위한 포트폴리오",
       period: "2023.08 - 2023.09",
@@ -153,6 +143,19 @@ function Projects() {
         "https://img.shields.io/badge/redux%20toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=black",
       ],
       backgroundImg: `${process.env.PUBLIC_URL}/Portfolio.png`,
+    },
+    {
+      id: 4,
+      title: "TodoList",
+      service: "캘린더 및 메모 기능을 포함한 투 두 리스트 서비스",
+      period: "2023.03 - 2023.04",
+      stacks: [
+        "https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black",
+        "https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black",
+        "https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=black",
+        "https://img.shields.io/badge/styled%20components-DB7093?style=for-the-badge&logo=styled%20components&logoColor=black",
+      ],
+      backgroundImg: `${process.env.PUBLIC_URL}/TodoList.png`,
     },
   ];
 

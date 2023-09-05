@@ -73,7 +73,7 @@ const StackBox = styled.div`
     left: -3px;
     bottom: 10px;
     width: ${(props) => (props.$ismobile ? "90px" : "145px")};
-    height: ${(props) => (props.$ismobile ? "5px" : "13px")};
+    height: ${(props) => (props.$ismobile ? "8px" : "15px")};
     content: "";
   }
 
@@ -91,7 +91,7 @@ const StackBox = styled.div`
     transition-property: left, top, z-index;
     transition-duration: 1s, 1s, 0.3s;
     background-repeat: no-repeat;
-    background-size: ${(props) => (props.$ismobile ? "60%" : "75%")};
+    background-size: ${(props) => (props.$ismobile ? "60%" : "70%")};
     background-position: center;
 
     .background {

@@ -293,36 +293,6 @@ function ProjectDetail() {
       ],
     },
     {
-      title: "TodoList",
-      preview: [
-        `${process.env.PUBLIC_URL}/TodoList1.png`,
-        `${process.env.PUBLIC_URL}/TodoList2.png`,
-        `${process.env.PUBLIC_URL}/TodoList3.png`,
-        `${process.env.PUBLIC_URL}/TodoList4.png`,
-      ],
-      role: [
-        "[ 서비스 기획 및 디자인, 프론트엔드 ]",
-        "각 페이지 디자인 및 구현",
-      ],
-      function: [
-        "JSON 서버를 사용하여 테스트 서버를 구축하였습니다.",
-        "JSON 서버에 계정을 저장하는 방법으로 회원가입 및 로그인 기능을 구현하였습니다.",
-        "combineReducers를 사용해서 할 일과 메모 두 가지의 상태를 관리했습니다.",
-        "fetch를 통한 HTTP 비동기 통신으로 기본적인 CRUD 기능을 구현했습니다.",
-        "date를 쉽게 조작할 수 있는 moment.js를 사용해서 캘린더를 구현했고, 완료한 일이 있는 날을 표시했습니다.",
-      ],
-      review: [
-        "Redux를 사용하면서 전역 상태 관리에 대해 익숙해졌습니다.",
-        "기본 CRUD를 구현하면서 HTTP 통신을 경험했습니다.",
-        "투두리스트인 만큼 할일이 남아있다는 알람 기능을 추가하고 싶었습니다. 하루가 끝나기 한시간 전에도 아직 끝내지 못한 일이 남았다면 푸시 알람을 보내주는 기능을 만들면 좋을 것 같습니다.",
-        "개선 하고싶은 부분은 리덕스 툴킷을 사용해서 좀 더 간결한 코드로 구현하고 싶습니다. 또, 완료한 일을 렌더링하는 부분의 코드가 개발한 제가 보기에도 너무 복잡해서 리팩토링이 필요할 것 같습니다.",
-      ],
-      link: [
-        ["깃허브", "https://github.com/jieuny0314/TodoList_react"],
-        ["시연영상", "https://www.youtube.com/watch?v=vVqeEzGQMfw"],
-      ],
-    },
-    {
       title: "Portfolio",
       preview: [
         `${process.env.PUBLIC_URL}/TodoList1.png`,
@@ -351,6 +321,36 @@ function ProjectDetail() {
       link: [
         ["배포링크", "https://github.com/jieuny0314/TodoList_react"],
         ["깃허브", "https://github.com/jieuny0314/Portfolio"],
+      ],
+    },
+    {
+      title: "TodoList",
+      preview: [
+        `${process.env.PUBLIC_URL}/TodoList1.png`,
+        `${process.env.PUBLIC_URL}/TodoList2.png`,
+        `${process.env.PUBLIC_URL}/TodoList3.png`,
+        `${process.env.PUBLIC_URL}/TodoList4.png`,
+      ],
+      role: [
+        "[ 서비스 기획 및 디자인, 프론트엔드 ]",
+        "각 페이지 디자인 및 구현",
+      ],
+      function: [
+        "JSON 서버를 사용하여 테스트 서버를 구축하였습니다.",
+        "JSON 서버에 계정을 저장하는 방법으로 회원가입 및 로그인 기능을 구현하였습니다.",
+        "combineReducers를 사용해서 할 일과 메모 두 가지의 상태를 관리했습니다.",
+        "fetch를 통한 HTTP 비동기 통신으로 기본적인 CRUD 기능을 구현했습니다.",
+        "date를 쉽게 조작할 수 있는 moment.js를 사용해서 캘린더를 구현했고, 완료한 일이 있는 날을 표시했습니다.",
+      ],
+      review: [
+        "Redux를 사용하면서 전역 상태 관리에 대해 익숙해졌습니다.",
+        "기본 CRUD를 구현하면서 HTTP 통신을 경험했습니다.",
+        "투두리스트인 만큼 할일이 남아있다는 알람 기능을 추가하고 싶었습니다. 하루가 끝나기 한시간 전에도 아직 끝내지 못한 일이 남았다면 푸시 알람을 보내주는 기능을 만들면 좋을 것 같습니다.",
+        "개선 하고싶은 부분은 리덕스 툴킷을 사용해서 좀 더 간결한 코드로 구현하고 싶습니다. 또, 완료한 일을 렌더링하는 부분의 코드가 개발한 제가 보기에도 너무 복잡해서 리팩토링이 필요할 것 같습니다.",
+      ],
+      link: [
+        ["깃허브", "https://github.com/jieuny0314/TodoList_react"],
+        ["시연영상", "https://www.youtube.com/watch?v=vVqeEzGQMfw"],
       ],
     },
   ];

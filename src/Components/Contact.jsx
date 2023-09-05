@@ -39,6 +39,8 @@ const SendEmailContainer = styled.div`
     height: 10%;
     margin: 0;
     font-size: ${(props) => (props.$ismobile ? "1.2rem" : "1.5rem")};
+    color: white;
+    font-family: "Sriracha", cursive;
   }
 
   .emailForm {
@@ -48,6 +50,7 @@ const SendEmailContainer = styled.div`
     flex-direction: column;
     align-items: end;
     justify-content: space-around;
+    font-family: "Sriracha", cursive;
 
     h3 {
       margin: 0;
@@ -88,7 +91,7 @@ const SendEmailContainer = styled.div`
         position: absolute;
         left: 205px;
         bottom: 0;
-        color: #e97777;
+        color: #da5050;
         font-size: ${(props) => (props.$ismobile ? "0.7rem" : "1rem")};
       }
     }
@@ -107,7 +110,8 @@ const SendEmailContainer = styled.div`
 
     .text {
       font-size: ${(props) => (props.$ismobile ? "0.9rem" : "1.2rem")};
-      margin-bottom: 10px;
+      /* margin-bottom: 10px; */
+      color: white;
     }
 
     .btnBackground {
@@ -136,6 +140,7 @@ const SlideText = styled.p`
   height: 20px;
   transition: all 0.8s;
   text-align: center;
+  color: white;
 `;
 
 const SubmitBtn = styled.button`
@@ -249,7 +254,7 @@ function Contact() {
       <ContentsContainer $ismobile={isMobile}>
         <div className="detective" ref={ref} />
         <SendEmailContainer $ismobile={isMobile}>
-          <h3 className="formTitle">Contact me by Email</h3>
+          <h3 className="formTitle">CONTACT ME BY EMAIL !</h3>
           <form className="emailForm" ref={form} onSubmit={sendEmail}>
             <label className="nameLabel">
               <h3 className="text">Name</h3>

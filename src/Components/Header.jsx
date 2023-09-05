@@ -76,7 +76,7 @@ const Projects = styled.li`
     width: ${(props) =>
       props.$naviValue === 2 ? (props.$ismobile ? "65px" : "150px") : "0"};
     height: 3px;
-    background-color: #ffe2ac;
+    background-color: #a4926d;
   }
 
   &:hover .lineBox {
