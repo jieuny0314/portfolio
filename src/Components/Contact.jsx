@@ -54,7 +54,7 @@ const SendEmailContainer = styled.div`
 
     input,
     textarea {
-      padding: 15px;
+      padding: 20px;
       border: none;
       background-color: aliceblue;
       border-radius: 10px;
@@ -75,7 +75,7 @@ const SendEmailContainer = styled.div`
     .emailLabel {
       width: 100%;
       height: 15%;
-      margin-bottom: 30px;
+      margin-bottom: ${(props) => (props.$ismobile ? "50px" : "30px")};
       position: relative;
       display: flex;
       flex-direction: column;
@@ -119,7 +119,7 @@ const SendEmailContainer = styled.div`
       justify-content: end;
       position: relative;
       height: 50px;
-      margin-top: ${(props) => (props.$ismobile ? "" : "15px")};
+      margin-top: 15px;
 
       .textContainer {
         display: flex;

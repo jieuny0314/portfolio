@@ -59,7 +59,7 @@ const ProjectCardContainer = styled.article`
   }
 
   &:hover .contentsBox .learnMore {
-    right: 5px;
+    right: 2px;
     transition: 0.5s all;
   }
 
