@@ -140,7 +140,7 @@ const SlideText = styled.p`
 
 const SubmitBtn = styled.button`
   width: 70px;
-  background-color: white;
+  background-color: aliceblue;
   height: 100%;
   cursor: pointer;
   display: flex;
@@ -189,21 +189,21 @@ function Contact() {
 
   function sendEmail(e) {
     e.preventDefault();
-    // emailjs
-    //   .sendForm(
-    //     "Portfolio_account",
-    //     "Portfolio_template",
-    //     form.current,
-    //     "jV3WPUcUBWCycB7V4"
-    //   )
-    //   .then(
-    //     (result) => {
-    //       alert("메일이 전송되었습니다.");
-    //     },
-    //     (error) => {
-    //       alert("메일 전송을 실패했습니다.");
-    //     }
-    //   );
+    emailjs
+      .sendForm(
+        "Portfolio_account",
+        "Portfolio_template",
+        form.current,
+        "jV3WPUcUBWCycB7V4"
+      )
+      .then(
+        (result) => {
+          alert("메일이 전송되었습니다.");
+        },
+        (error) => {
+          alert("메일 전송을 실패했습니다.");
+        }
+      );
   }
 
   useEffect(() => {
@@ -300,11 +300,11 @@ function Contact() {
                 $movesend={moveSend}
                 onClick={(e) => onSubmit(e)}
               >
-                <ImArrowRight />
+                <ImArrowRight color="#daeaf1" />
               </SubmitBtn>
               <div className="textContainer">
                 <SlideText className="slide" $movesend={moveSend}>
-                  Slide to send
+                  Click to send
                 </SlideText>
               </div>
             </div>

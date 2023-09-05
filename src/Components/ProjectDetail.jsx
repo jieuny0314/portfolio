@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { LiaHandPaperSolid } from "react-icons/lia";
@@ -10,7 +10,7 @@ import {
   AiOutlineBulb,
   AiOutlineFunction,
 } from "react-icons/ai";
-import { setNaviValue } from "../redux/action";
+import { setNaviValue, setProjectsScroll } from "../redux/action";
 import { useDispatch } from "react-redux";
 
 const Background = styled.div`
@@ -223,7 +223,7 @@ function ProjectDetail() {
 
   function goMain() {
     dispatch(setNaviValue(3));
-    window.history.back();
+    dispatch(setProjectsScroll(true));
   }
 
   const projectsDetail = [
@@ -368,7 +368,9 @@ function ProjectDetail() {
           <div className="fixed">
             <header className="titleBox">
               <h2 className="title">{projectsDetail[projectNum].title}</h2>
-              <MainBtn onClick={goMain}>Go Main</MainBtn>
+              <Link to="/">
+                <MainBtn onClick={goMain}>Go Main</MainBtn>
+              </Link>
             </header>
           </div>
           {/* <div className="divisionLine" /> */}

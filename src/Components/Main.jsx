@@ -6,6 +6,7 @@ import Projects from "../Components/Projects";
 import Contact from "../Components/Contact";
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 
 const MainContainer = styled.main`
   height: 100vh;
@@ -17,31 +18,20 @@ const MainContainer = styled.main`
   &::-webkit-scrollbar {
     display: none;
   }
-
-  .test {
-    height: 100px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-  }
-
-  .test2 {
-    width: 100%;
-    height: 50vh;
-    position: relative;
-    top: 100vh;
-    border: 1px solid black;
-  }
 `;
 
-function Main() {
-  const aboutMeRef = useRef(null);
-  const skillsRef = useRef(null);
-  const projectsRef = useRef();
-  const contactRef = useRef();
-
-  useEffect(() => {}, [aboutMeRef]);
+function Main({ aboutMeRef, skillsRef, projectsRef, contactRef }) {
+  const projectsScroll = useSelector((state) => state.projectsScroll);
+  function scrollMove(element) {
+    if (element.current) {
+      element.current.scrollIntoView();
+    }
+  }
+  useEffect(() => {
+    if (projectsScroll) {
+      scrollMove(projectsRef);
+    }
+  }, [aboutMeRef]);
 
   return (
     <MainContainer>
@@ -61,7 +51,7 @@ function Main() {
         <div ref={skillsRef} className="skills" />
         <Skills />
         <div ref={projectsRef} className="projects" />
-        <Projects />
+        <Projects projectsRef={projectsRef} />
         <div ref={contactRef} className="contact" />
         <Contact />
       </motion.div>
