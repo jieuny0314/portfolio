@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import ScrollToTop from "./Components/ScrollToTop";
 import { HashRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
-import { persistStore } from "redux-persist"; // load
+import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import store from "./redux/store";
 
