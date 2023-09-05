@@ -87,7 +87,7 @@ const SendEmailContainer = styled.div`
       .warning {
         position: absolute;
         left: 205px;
-        bottom: 0;
+        bottom: ${(props) => (props.$ismobile ? "-35px" : "-30px")};
         color: #da5050;
         font-size: ${(props) => (props.$ismobile ? "0.7rem" : "1rem")};
       }
