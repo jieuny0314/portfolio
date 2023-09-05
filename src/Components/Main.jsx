@@ -15,7 +15,7 @@ const MainContainer = styled.main`
   overflow-y: scroll;
   overflow-x: hidden;
   position: relative;
-  touch-action: pan-y;
+  touch-action: pan-x pan-y;
   &::-webkit-scrollbar {
     display: none;
   }

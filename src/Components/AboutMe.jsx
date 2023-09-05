@@ -193,7 +193,6 @@ function AboutMe() {
   };
 
   const handleMouseOut = () => {
-    console.log("dd");
     setIsHover(false);
   };
 

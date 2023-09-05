@@ -67,7 +67,7 @@ const ProjectsContainer = styled.section`
     color: #a4926d;
     font-weight: bold;
     position: absolute;
-    top: ${(props) => (props.$ismobile ? "21%" : "13%")};
+    top: ${(props) => (props.$ismobile ? "18%" : "13%")};
     display: flex;
     align-items: center;
     justify-content: start;

@@ -194,8 +194,6 @@ function ProjectCard({ project, index, popUp, setPopUp, currentPr }) {
     const copy = [...popUp];
     copy[index] = !popUp[index];
     setPopUp(copy);
-    console.log(index);
-    console.log(popUp);
   }
 
   return (

@@ -58,6 +58,7 @@ const SendEmailContainer = styled.div`
       border: none;
       background-color: aliceblue;
       border-radius: 10px;
+      font-size: ${(props) => (props.$ismobile ? "16px" : "1rem")};
       &:active,
       &:focus {
         outline: none;
@@ -105,7 +106,7 @@ const SendEmailContainer = styled.div`
     }
 
     .text {
-      font-size: ${(props) => (props.$ismobile ? "0.9rem" : "1.2rem")};
+      font-size: 1.2rem;
       color: white;
     }
 
