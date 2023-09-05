@@ -15,7 +15,7 @@ const AboutMeContainer = styled.section`
   align-items: center;
   justify-content: center;
   scroll-snap-align: start;
-  background-color: #ffeadb;
+  background-color: #faf3f0;
 
   @keyframes move {
     0% {
@@ -118,7 +118,8 @@ const AboutMeContainer = styled.section`
         position: absolute;
         bottom: 5px;
         z-index: 5;
-        background-color: #f7c5a8;
+        background-color: #d5b4b4;
+        opacity: 0.6;
         height: ${(props) => (props.$ismobile ? "13px" : "20px")};
         width: ${(props) => (props.$ismobile ? "220px" : "295px")};
       }

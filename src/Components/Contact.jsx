@@ -124,7 +124,7 @@ const SendEmailContainer = styled.div`
       border-radius: 10px;
 
       &:hover {
-        border: 2px solid #8fbdd3;
+        border: 2px solid #afccd9;
       }
     }
   }

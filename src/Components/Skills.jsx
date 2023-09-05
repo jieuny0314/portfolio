@@ -23,7 +23,7 @@ const SkillsContainer = styled.section`
     top: 0;
     left: 0;
     z-index: -20;
-    background-color: #faf3f0;
+    background-color: #eae7fb;
   }
 `;
 
@@ -67,7 +67,7 @@ const StackBox = styled.div`
   }
 
   .text::before {
-    background-color: #d5b4b4;
+    background-color: #dcd6f7;
     position: absolute;
     z-index: -1;
     left: -3px;
@@ -99,7 +99,7 @@ const StackBox = styled.div`
       height: 100%;
       border-radius: 50%;
       opacity: 0;
-      background-color: #faf3f0;
+      background-color: #eae7fb;
       transition-property: transform, opacity;
       transition-duration: 1s, 3s;
     }
