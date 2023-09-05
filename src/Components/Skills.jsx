@@ -319,7 +319,7 @@ function Skills() {
             className={skillClicked[0] ? "background opacity" : "background"}
           ></div>
           <div className={skillClicked[0] ? "contents rotate 0" : "contents 0"}>
-            시맨틱 태그를 활용한 레이아웃
+            시맨틱 코드 지향
           </div>
         </div>
         <div
@@ -340,7 +340,7 @@ function Skills() {
             <br />
             키프레임을 통한 애니메이션 구현
             <br />
-            반응형 웹사이트 구현 경험
+            반응형 웹 구현 경험
           </div>
         </div>
         <div
@@ -357,6 +357,8 @@ function Skills() {
             className={skillClicked[2] ? "background opacity" : "background"}
           ></div>
           <div className={skillClicked[2] ? "contents rotate 2" : "contents 2"}>
+            Axios를 통한 HTTP 비동기 통신
+            <br />
             json형태의 데이터 가공 및 활용
           </div>
         </div>
@@ -374,11 +376,11 @@ function Skills() {
             className={skillClicked[3] ? "background opacity" : "background"}
           ></div>
           <div className={skillClicked[3] ? "contents rotate 3" : "contents 3"}>
-            함수형 컴포넌트 사용
+            함수형 컴포넌트 지향
             <br />
             Hook을 통한 라이프사이클 관리
             <br />
-            Axios를 통한 HTTP 비동기 통신
+            router 등 라이브러리 활용 가능
           </div>
         </div>
         <div
@@ -414,6 +416,8 @@ function Skills() {
             className={skillClicked[5] ? "background opacity" : "background"}
           ></div>
           <div className={skillClicked[5] ? "contents rotate 5" : "contents 5"}>
+            css-in-js 구현
+            <br />
             Props를 통한 조건부 스타일링
           </div>
         </div>

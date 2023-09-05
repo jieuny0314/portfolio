@@ -319,7 +319,7 @@ function ProjectDetail() {
         "최적화에 대해 학습하고, 직접 적용해보는 기회가 되었습니다.",
       ],
       link: [
-        ["배포링크", "https://github.com/jieuny0314/TodoList_react"],
+        ["배포링크", "https://jieuny0314.github.io/portfolio/"],
         ["깃허브", "https://github.com/jieuny0314/Portfolio"],
       ],
     },

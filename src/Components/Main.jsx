@@ -32,7 +32,7 @@ function Main({ aboutMeRef, skillsRef, projectsRef, contactRef }) {
     if (projectsScroll) {
       scrollMove(projectsRef);
     }
-  }, [aboutMeRef]);
+  }, [projectsScroll]);
 
   return (
     <MainContainer>
