@@ -75,7 +75,7 @@ const SendEmailContainer = styled.div`
     .emailLabel {
       width: 100%;
       height: 15%;
-      margin-bottom: ${(props) => (props.$ismobile ? "50px" : "30px")};
+      margin-bottom: ${(props) => (props.$ismobile ? "50px" : "40px")};
       position: relative;
       display: flex;
       flex-direction: column;
@@ -119,7 +119,7 @@ const SendEmailContainer = styled.div`
       justify-content: end;
       position: relative;
       height: 50px;
-      margin-top: 15px;
+      margin-top: 30px;
 
       .textContainer {
         display: flex;
