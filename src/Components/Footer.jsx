@@ -4,22 +4,19 @@ import Tstory from "../Images/tstory_logo.png";
 import { AiFillGithub } from "react-icons/ai";
 
 const FooterContainer = styled.footer`
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  width: ${(props) => (props.$ismobile ? "100%" : "70%")};
   margin: 0;
   display: flex;
   align-items: ${(props) => (props.$ismobile ? "end" : "center")};
   justify-content: space-between;
-  padding: 10px;
   color: white;
   font-size: ${(props) => (props.$ismobile ? "0.7rem" : "1rem")};
+  padding: ${(props) => (props.$ismobile ? "10px" : "10px 0")};
+  border-top: 1px solid #ffffff;
 
   .link {
     display: flex;
     align-items: center;
-    margin-left: ${(props) => (props.$ismobile ? "0" : "10px")};
 
     .logo {
       width: ${(props) => (props.$ismobile ? "30px" : "35px")};

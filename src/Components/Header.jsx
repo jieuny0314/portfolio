@@ -94,7 +94,7 @@ const Contact = styled.li`
     bottom: -10px;
     left: ${(props) => (props.$ismobile ? "-1px" : "-24px")};
     height: 3px;
-    background-color: #afccd9;
+    background-color: #9eb9c5;
     width: ${(props) =>
       props.$naviValue === 3 ? (props.$ismobile ? "65px" : "140px") : "0"};
   }

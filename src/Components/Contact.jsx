@@ -14,25 +14,16 @@ const ContactContainer = styled.div`
   padding-top: 80px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: column;
   scroll-snap-align: start;
   position: relative;
-  overflow-y: scroll;
   background-color: #daeaf1;
-`;
-
-const ContentsContainer = styled.div`
-  width: ${(props) => (props.$ismobile ? "100%" : "80%")};
-  height: ${(props) => (props.$ismobile ? "90%" : "80%")};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: ${(props) => (props.$ismobile ? "column" : "row")};
 `;
 
 const SendEmailContainer = styled.div`
   width: ${(props) => (props.$ismobile ? "100%" : "70%")};
-  height: 100%;
+  height: ${(props) => (props.$ismobile ? "80%" : "85%")};
   padding: ${(props) => (props.$ismobile ? "20px" : "0")};
 
   .formTitle {
@@ -49,8 +40,13 @@ const SendEmailContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: end;
-    justify-content: space-around;
     font-family: "Sriracha", cursive;
+
+    .inputBox {
+      width: 100%;
+      height: 80%;
+      margin-bottom: 10px;
+    }
 
     h3 {
       margin: 0;
@@ -70,7 +66,7 @@ const SendEmailContainer = styled.div`
 
     textarea {
       width: 100%;
-      height: ${(props) => (props.$ismobile ? "145px" : "85%")};
+      height: ${(props) => (props.$ismobile ? "40%" : "50%")};
       resize: none;
     }
 
@@ -78,7 +74,7 @@ const SendEmailContainer = styled.div`
     .emailLabel {
       width: 100%;
       height: 15%;
-      margin-bottom: 15px;
+      margin-bottom: 30px;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -110,7 +106,6 @@ const SendEmailContainer = styled.div`
 
     .text {
       font-size: ${(props) => (props.$ismobile ? "0.9rem" : "1.2rem")};
-      /* margin-bottom: 10px; */
       color: white;
     }
 
@@ -123,6 +118,7 @@ const SendEmailContainer = styled.div`
       justify-content: end;
       position: relative;
       height: 50px;
+      margin-top: ${(props) => (props.$ismobile ? "" : "15px")};
 
       .textContainer {
         display: flex;
@@ -251,11 +247,11 @@ function Contact() {
 
   return (
     <ContactContainer>
-      <ContentsContainer $ismobile={isMobile}>
-        <div className="detective" ref={ref} />
-        <SendEmailContainer $ismobile={isMobile}>
-          <h3 className="formTitle">CONTACT ME BY EMAIL !</h3>
-          <form className="emailForm" ref={form} onSubmit={sendEmail}>
+      <div className="detective" ref={ref} />
+      <SendEmailContainer $ismobile={isMobile}>
+        <h3 className="formTitle">CONTACT ME BY EMAIL !</h3>
+        <form className="emailForm" ref={form} onSubmit={sendEmail}>
+          <div className="inputBox">
             <label className="nameLabel">
               <h3 className="text">Name</h3>
               <input
@@ -297,25 +293,25 @@ function Contact() {
                 ""
               )}
             </label>
-            <div className="btnBackground">
-              <SubmitBtn
-                type="submit"
-                value="Send"
-                className="submitBtn"
-                $movesend={moveSend}
-                onClick={(e) => onSubmit(e)}
-              >
-                <ImArrowRight color="#daeaf1" />
-              </SubmitBtn>
-              <div className="textContainer">
-                <SlideText className="slide" $movesend={moveSend}>
-                  Click to send
-                </SlideText>
-              </div>
+          </div>
+          <div className="btnBackground">
+            <SubmitBtn
+              type="submit"
+              value="Send"
+              className="submitBtn"
+              $movesend={moveSend}
+              onClick={(e) => onSubmit(e)}
+            >
+              <ImArrowRight color="#daeaf1" />
+            </SubmitBtn>
+            <div className="textContainer">
+              <SlideText className="slide" $movesend={moveSend}>
+                Click to send
+              </SlideText>
             </div>
-          </form>
-        </SendEmailContainer>
-      </ContentsContainer>
+          </div>
+        </form>
+      </SendEmailContainer>
       <Footer />
     </ContactContainer>
   );
