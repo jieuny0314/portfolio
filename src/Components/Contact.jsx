@@ -6,6 +6,7 @@ import { setNaviValue } from "../redux/action";
 import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useMediaQuery } from "react-responsive";
+import { ImArrowRight } from "react-icons/im";
 
 const ContactContainer = styled.div`
   width: 100vw;
@@ -109,24 +110,65 @@ const SendEmailContainer = styled.div`
       margin-bottom: 10px;
     }
 
-    .submitBtn {
-      width: ${(props) => (props.$ismobile ? "90px" : "160px")};
-      background-color: white;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      border: 2px solid white;
-      padding: 10px 0;
-      background-color: transparent;
-      font-size: ${(props) => (props.$ismobile ? "0.8rem" : "1.2rem")};
+    .btnBackground {
+      width: 200px;
       border-radius: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: end;
+      position: relative;
+      height: 50px;
 
-      &:hover {
-        border: 2px solid #afccd9;
+      .textContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 130px;
       }
     }
+  }
+`;
+
+const SlideText = styled.p`
+  width: ${(props) => (props.$movesend ? "0" : "140px")};
+  overflow: hidden;
+  height: 20px;
+  transition: all 0.8s;
+  text-align: center;
+`;
+
+const SubmitBtn = styled.button`
+  width: 70px;
+  background-color: white;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  padding: 10px 0;
+  font-size: ${(props) => (props.$ismobile ? "0.8rem" : "1.2rem")};
+  border-radius: 10px;
+  position: absolute;
+  left: ${(props) => (props.$movesend ? "130px" : "0")};
+  top: 0;
+  transition: all 1s;
+  animation: ${(props) => (props.$movesend ? "" : "right infinite linear 1s")};
+
+  @keyframes right {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  &:hover {
   }
 `;
 
@@ -143,24 +185,25 @@ function Contact() {
   const [messageCheck, setMessageCheck] = useState(false);
   const [messageValue, setMessageValue] = useState("");
   const [nameValue, setNameValue] = useState("");
+  const [moveSend, setMoveSend] = useState(false);
 
   function sendEmail(e) {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "Portfolio_account",
-        "Portfolio_template",
-        form.current,
-        "jV3WPUcUBWCycB7V4"
-      )
-      .then(
-        (result) => {
-          alert("메일이 전송되었습니다.");
-        },
-        (error) => {
-          alert("메일 전송을 실패했습니다.");
-        }
-      );
+    // emailjs
+    //   .sendForm(
+    //     "Portfolio_account",
+    //     "Portfolio_template",
+    //     form.current,
+    //     "jV3WPUcUBWCycB7V4"
+    //   )
+    //   .then(
+    //     (result) => {
+    //       alert("메일이 전송되었습니다.");
+    //     },
+    //     (error) => {
+    //       alert("메일 전송을 실패했습니다.");
+    //     }
+    //   );
   }
 
   useEffect(() => {
@@ -193,9 +236,8 @@ function Contact() {
 
   function onSubmit(e) {
     if (nameValue.length !== 0 && emailCheck && messageCheck) {
-      setNameValue("");
-      setEmailValue("");
-      setMessageValue("");
+      setMoveSend(true);
+      setTimeout(() => setMoveSend(false), 2000);
     } else {
       e.preventDefault();
       alert("모든 내용을 작성해주세요.");
@@ -250,14 +292,22 @@ function Contact() {
                 ""
               )}
             </label>
-            <button
-              type="submit"
-              value="Send"
-              className="submitBtn"
-              onClick={(e) => onSubmit(e)}
-            >
-              Send
-            </button>
+            <div className="btnBackground">
+              <SubmitBtn
+                type="submit"
+                value="Send"
+                className="submitBtn"
+                $movesend={moveSend}
+                onClick={(e) => onSubmit(e)}
+              >
+                <ImArrowRight />
+              </SubmitBtn>
+              <div className="textContainer">
+                <SlideText className="slide" $movesend={moveSend}>
+                  Slide to send
+                </SlideText>
+              </div>
+            </div>
           </form>
         </SendEmailContainer>
       </ContentsContainer>
