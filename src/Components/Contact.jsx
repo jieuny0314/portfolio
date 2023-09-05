@@ -100,7 +100,7 @@ const SendEmailContainer = styled.div`
       .warning {
         position: absolute;
         left: 0;
-        color: #e97777;
+        color: #e37474;
         font-size: ${(props) => (props.$ismobile ? "0.7rem" : "1rem")};
       }
     }
