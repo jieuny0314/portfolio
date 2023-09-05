@@ -10,7 +10,7 @@ import {
   AiOutlineBulb,
   AiOutlineFunction,
 } from "react-icons/ai";
-import { setNaviValue, setProjectsScroll } from "../redux/action";
+import { setNaviValue } from "../redux/action";
 import { useDispatch } from "react-redux";
 
 const Background = styled.div`
@@ -204,7 +204,7 @@ const MainBtn = styled.button`
   }
 `;
 
-function ProjectDetail() {
+function ProjectDetail({ projectsRef }) {
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
   });
@@ -222,8 +222,10 @@ function ProjectDetail() {
   }
 
   function goMain() {
-    dispatch(setNaviValue(3));
-    dispatch(setProjectsScroll(true));
+    dispatch(setNaviValue(2));
+    setTimeout(() => {
+      projectsRef.current.scrollIntoView();
+    }, 100);
   }
 
   const projectsDetail = [

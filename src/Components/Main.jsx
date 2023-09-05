@@ -5,8 +5,6 @@ import Skills from "../Components/Skills";
 import Projects from "../Components/Projects";
 import Contact from "../Components/Contact";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
 
 const MainContainer = styled.main`
   height: 100vh;
@@ -22,18 +20,6 @@ const MainContainer = styled.main`
 `;
 
 function Main({ aboutMeRef, skillsRef, projectsRef, contactRef }) {
-  const projectsScroll = useSelector((state) => state.projectsScroll);
-  function scrollMove(element) {
-    if (element.current) {
-      element.current.scrollIntoView();
-    }
-  }
-  useEffect(() => {
-    if (projectsScroll) {
-      scrollMove(projectsRef);
-    }
-  }, [projectsScroll]);
-
   return (
     <MainContainer>
       <motion.div
@@ -52,7 +38,7 @@ function Main({ aboutMeRef, skillsRef, projectsRef, contactRef }) {
         <div ref={skillsRef} className="skills" />
         <Skills />
         <div ref={projectsRef} className="projects" />
-        <Projects projectsRef={projectsRef} />
+        <Projects />
         <div ref={contactRef} className="contact" />
         <Contact />
       </motion.div>
