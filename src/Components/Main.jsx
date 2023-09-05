@@ -5,7 +5,7 @@ import Skills from "../Components/Skills";
 import Projects from "../Components/Projects";
 import Contact from "../Components/Contact";
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const MainContainer = styled.main`
@@ -15,6 +15,7 @@ const MainContainer = styled.main`
   overflow-y: scroll;
   overflow-x: hidden;
   position: relative;
+  touch-action: pan-y;
   &::-webkit-scrollbar {
     display: none;
   }

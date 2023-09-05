@@ -10,7 +10,7 @@ import { setNaviValue } from "../redux/action";
 const ProjectsContainer = styled.section`
   width: 100vw;
   height: 100vh;
-  padding-top: 100px;
+  padding-top: ${(props) => (props.$ismobile ? "80px" : "100px")};
   padding-left: 30px;
   padding-right: 30px;
   display: flex;

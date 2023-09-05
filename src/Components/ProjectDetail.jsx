@@ -295,10 +295,10 @@ function ProjectDetail() {
     {
       title: "Portfolio",
       preview: [
-        `${process.env.PUBLIC_URL}/TodoList1.png`,
-        `${process.env.PUBLIC_URL}/TodoList2.png`,
-        `${process.env.PUBLIC_URL}/TodoList3.png`,
-        `${process.env.PUBLIC_URL}/TodoList4.png`,
+        `${process.env.PUBLIC_URL}/Portfolio1.png`,
+        `${process.env.PUBLIC_URL}/Portfolio2.png`,
+        `${process.env.PUBLIC_URL}/Portfolio3.png`,
+        `${process.env.PUBLIC_URL}/Portfolio4.png`,
       ],
       role: [
         "[ 서비스 기획 및 디자인, 프론트엔드 ]",

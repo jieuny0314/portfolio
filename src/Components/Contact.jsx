@@ -11,7 +11,7 @@ import { ImArrowRight } from "react-icons/im";
 const ContactContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  padding-top: 80px;
+  padding-top: ${(props) => (props.$ismobile ? "80px" : "100px")};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -133,10 +133,11 @@ const SendEmailContainer = styled.div`
 const SlideText = styled.p`
   width: ${(props) => (props.$movesend ? "0" : "140px")};
   overflow: hidden;
-  height: 20px;
+  height: ${(props) => (props.$ismobile ? "20px" : "30px")};
   transition: all 0.8s;
-  text-align: center;
+  text-align: ${(props) => (props.$ismobile ? "center" : "right")};
   color: white;
+  font-size: ${(props) => (props.$ismobile ? "1rem" : "1.2rem")};
 `;
 
 const SubmitBtn = styled.button`

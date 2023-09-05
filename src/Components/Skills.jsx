@@ -8,7 +8,7 @@ import { setNaviValue } from "../redux/action";
 const SkillsContainer = styled.section`
   width: 100vw;
   height: 100vh;
-  padding-top: 100px;
+  padding-top: ${(props) => (props.$ismobile ? "80px" : "100px")};
   padding-bottom: 40px;
   display: flex;
   align-items: center;
@@ -174,7 +174,7 @@ const StackBox = styled.div`
   }
 
   .htmlMove {
-    left: 102%;
+    left: 105%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
@@ -188,7 +188,7 @@ const StackBox = styled.div`
   }
 
   .javaScriptMove {
-    top: 110%;
+    top: 115%;
     left: 23%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
@@ -196,23 +196,23 @@ const StackBox = styled.div`
   }
 
   .gitMove {
-    top: -37%;
-    left: 79%;
+    top: -40%;
+    left: 82%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
   }
 
   .figmaMove {
-    top: 80%;
-    left: 80%;
+    top: 83%;
+    left: 82%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
   }
 
   .reactMove {
-    top: -58%;
+    top: -62%;
     left: 22%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
@@ -220,16 +220,16 @@ const StackBox = styled.div`
   }
 
   .reduxMove {
-    top: -39%;
-    left: -35%;
+    top: -42%;
+    left: -38%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;
   }
 
   .styledComponentMove {
-    top: 84%;
-    left: -40%;
+    top: 86%;
+    left: -42%;
     z-index: 10;
     transition-property: left, top, z-index, transform;
     transition-duration: 1s, 1s, 3s, 2s;

@@ -5,7 +5,7 @@ import { setNaviValue } from "../redux/action";
 
 const HeaderContainer = styled.header`
   width: 100%;
-  height: 100px;
+  height: ${(props) => (props.$ismobile ? "80px" : "100px")};
   min-width: 375px;
   position: fixed;
   top: 0;
@@ -14,7 +14,7 @@ const HeaderContainer = styled.header`
   font-family: "Sriracha", cursive;
 
   .navi {
-    height: 100px;
+    height: ${(props) => (props.$ismobile ? "80px" : "100px")};
     display: flex;
     list-style: none;
     align-items: center;
