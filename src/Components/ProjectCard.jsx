@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setProjectsScroll } from "../redux/action";
 
 const ProjectCardContainer = styled.article`
   width: 100%;
@@ -71,7 +69,6 @@ const ProjectCardContainer = styled.article`
     position: relative;
     z-index: 5;
     padding: ${(props) => (props.$ismobile ? "10px" : "60px")};
-    font-family: "Nanum Gothic", sans-serif;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
@@ -192,12 +189,6 @@ function ProjectCard({ project, index, popUp, setPopUp, currentPr }) {
     query: "(max-width:767px)",
   });
 
-  const dispatch = useDispatch();
-
-  function setScroll() {
-    dispatch(setProjectsScroll(true));
-  }
-
   return (
     <>
       <ProjectCardContainer
@@ -235,9 +226,7 @@ function ProjectCard({ project, index, popUp, setPopUp, currentPr }) {
             </div>
           </div>
           <Link to={`/project/${index}`}>
-            <button className="learnMore" onClick={setScroll()}>
-              Learn More
-            </button>
+            <button className="learnMore">Learn More</button>
           </Link>
         </div>
       </ProjectCardContainer>
