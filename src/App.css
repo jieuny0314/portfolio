@@ -9,7 +9,6 @@
 .App {
   text-align: center;
   overflow-y: hidden;
-  touch-action: manipulation;
 }
 
 body {

@@ -12,7 +12,7 @@ const FooterContainer = styled.footer`
   color: white;
   font-size: ${(props) => (props.$ismobile ? "0.7rem" : "1rem")};
   padding: ${(props) => (props.$ismobile ? "10px" : "10px 0")};
-  border-top: 1px solid #ffffff;
+  border-top: ${(props) => (props.$ismobile ? "" : "1px solid #ffffff;")};
 
   .link {
     display: flex;
