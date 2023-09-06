@@ -32,7 +32,7 @@ const ContactContainer = styled.div`
 const SendEmailContainer = styled.div`
   width: ${(props) => (props.$ismobile ? "100%" : "70%")};
   height: ${(props) => (props.$ismobile ? "80%" : "85%")};
-  padding: ${(props) => (props.$ismobile ? "20px" : "0")};
+  padding: ${(props) => (props.$ismobile ? "0 20px" : "0")};
 
   .formTitle {
     height: 10%;
@@ -129,7 +129,7 @@ const SendEmailContainer = styled.div`
       align-items: center;
       justify-content: end;
       position: relative;
-      height: 50px;
+      height: ${(props) => (props.$ismobile ? "45px" : "50px")};
       margin-top: ${(props) => (props.$ismobile ? "45px" : "30px")};
 
       .textContainer {
