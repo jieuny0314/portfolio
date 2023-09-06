@@ -81,7 +81,7 @@ const SendEmailContainer = styled.div`
       flex-direction: column;
 
       input {
-        width: 200px;
+        width: 230px;
       }
 
       .warning {

@@ -13,7 +13,7 @@
 
 body {
   overflow-x: hidden;
-  font-family: "SUITE-Regular";
+  font-family: "SUITE-Regular", sans-serif;
 }
 
 * {

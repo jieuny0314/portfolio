@@ -1,6 +1,6 @@
 import "./App.css";
-import Main from "./Components/Main";
-import ProjectDetail from "./Components/ProjectDetail";
+import Main from "./Pages/Main";
+import ProjectDetail from "./Pages/ProjectDetail";
 import { useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 

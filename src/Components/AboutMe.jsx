@@ -38,7 +38,7 @@ const AboutMeContainer = styled.section`
   .clickMe {
     position: absolute;
     width: ${(props) => (props.$ismobile ? "160px" : "300px")};
-    top: ${(props) => (props.$ismobile ? "-60%" : "-80%")};
+    top: ${(props) => (props.$ismobile ? "-45%" : "-90%")};
     left: 50%;
     display: flex;
     animation: move 2s infinite linear;
@@ -61,17 +61,18 @@ const AboutMeContainer = styled.section`
   }
 
   .logoImg {
-    width: ${(props) => (props.$ismobile ? "150px" : "80%")};
+    width: ${(props) => (props.$ismobile ? "160px" : "90%")};
     cursor: pointer;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition: all 1s;
   }
 
   .logoImgContainer:hover .logoImg {
-    left: ${(props) => (props.$ismobile ? "0" : "-60%")};
-    top: ${(props) => (props.$ismobile ? "-140%" : "0")};
+    left: ${(props) => (props.$ismobile ? "50%" : "-30%")};
+    top: ${(props) => (props.$ismobile ? "-140%" : "35%")};
     transition: all 1s ease;
   }
 
