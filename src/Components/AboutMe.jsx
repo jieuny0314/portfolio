@@ -38,7 +38,7 @@ const AboutMeContainer = styled.section`
   .clickMe {
     position: absolute;
     width: ${(props) => (props.$ismobile ? "160px" : "300px")};
-    top: ${(props) => (props.$ismobile ? "-45%" : "-90%")};
+    top: ${(props) => (props.$ismobile ? "-60%" : "-80%")};
     left: 50%;
     display: flex;
     animation: move 2s infinite linear;
@@ -61,18 +61,17 @@ const AboutMeContainer = styled.section`
   }
 
   .logoImg {
-    width: ${(props) => (props.$ismobile ? "160px" : "90%")};
+    width: ${(props) => (props.$ismobile ? "150px" : "80%")};
     cursor: pointer;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     transition: all 1s;
   }
 
   .logoImgContainer:hover .logoImg {
-    left: ${(props) => (props.$ismobile ? "50%" : "-30%")};
-    top: ${(props) => (props.$ismobile ? "-140%" : "35%")};
+    left: ${(props) => (props.$ismobile ? "0" : "-60%")};
+    top: ${(props) => (props.$ismobile ? "-140%" : "0")};
     transition: all 1s ease;
   }
 
@@ -154,7 +153,8 @@ const AboutMeContainer = styled.section`
   }
 
   .logoImgContainer:hover .detailContainer {
-    left: ${(props) => (props.$ismobile ? "-50%" : "40%")};
+    left: ${(props) =>
+      props.$ismobile ? "-50%" : (props) => (props.$isbigpc ? "65%" : "40%")};
     top: ${(props) => (props.$ismobile ? "-80px" : "-130px")};
     height: ${(props) => (props.$ismobile ? "400px" : "400px")};
     opacity: 1;
@@ -178,6 +178,10 @@ function AboutMe() {
     query: "(max-width:767px)",
   });
 
+  const isBigPC = useMediaQuery({
+    query: "(min-width:1700px)",
+  });
+
   const [ref, inView] = useInView();
   const dispatch = useDispatch();
 
@@ -198,7 +202,7 @@ function AboutMe() {
   };
 
   return (
-    <AboutMeContainer $ismobile={isMobile} id="AboutMe">
+    <AboutMeContainer $ismobile={isMobile} $isbigpc={isBigPC} id="AboutMe">
       <div
         onMouseOver={handleMouseOver}
         onMouseOut={handleMouseOut}
