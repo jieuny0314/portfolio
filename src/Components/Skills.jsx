@@ -241,7 +241,7 @@ const ClickSkill = styled.div`
   width: ${(props) =>
     props.$isclicked ? (props.$ismobile ? "59%" : "50%") : "0"};
   font-size: ${(props) => (props.$ismobile ? "0.5rem" : "1rem")};
-  height: ${(props) => (props.$ismobile ? "7%" : "6%")};
+  height: ${(props) => (props.$ismobile ? "6%" : "6%")};
   transition: all 1s ease-in-out;
   display: flex;
   margin-top: ${(props) => (props.$ismobile ? "-5px" : "-8px")};
@@ -310,7 +310,9 @@ function Skills() {
           className={
             isClicked
               ? skillClicked[0]
-                ? "htmlMove skill html rotate"
+                ? isMobile
+                  ? "htmlMove skill html opacity"
+                  : "htmlMove skill html rotate"
                 : "htmlMove skill html"
               : "skill html"
           }
@@ -319,7 +321,15 @@ function Skills() {
           <div
             className={skillClicked[0] ? "background opacity" : "background"}
           ></div>
-          <div className={skillClicked[0] ? "contents rotate 0" : "contents 0"}>
+          <div
+            className={
+              skillClicked[0]
+                ? isMobile
+                  ? "contents opacity 0"
+                  : "contents rotate 0"
+                : "contents 0"
+            }
+          >
             시맨틱 코드 지향
           </div>
         </div>
@@ -327,7 +337,9 @@ function Skills() {
           className={
             isClicked
               ? skillClicked[1]
-                ? "cssMove skill css rotate"
+                ? isMobile
+                  ? "cssMove skill css opacity"
+                  : "cssMove skill css rotate"
                 : "cssMove skill css"
               : "skill css"
           }
@@ -336,7 +348,15 @@ function Skills() {
           <div
             className={skillClicked[1] ? "background opacity" : "background"}
           ></div>
-          <div className={skillClicked[1] ? "contents rotate 1" : "contents 1"}>
+          <div
+            className={
+              skillClicked[1]
+                ? isMobile
+                  ? "contents opacity 1"
+                  : "contents rotate 1"
+                : "contents 1"
+            }
+          >
             적절한 position 및 display 활용
             <br />
             키프레임을 통한 애니메이션 구현
@@ -348,7 +368,9 @@ function Skills() {
           className={
             isClicked
               ? skillClicked[2]
-                ? "javaScriptMove skill javaScript rotate"
+                ? isMobile
+                  ? "javaScriptMove skill javaScript opacity"
+                  : "javaScriptMove skill javaScript rotate"
                 : "javaScriptMove skill javaScript"
               : "skill javaScript"
           }
@@ -357,7 +379,15 @@ function Skills() {
           <div
             className={skillClicked[2] ? "background opacity" : "background"}
           ></div>
-          <div className={skillClicked[2] ? "contents rotate 2" : "contents 2"}>
+          <div
+            className={
+              skillClicked[2]
+                ? isMobile
+                  ? "contents opacity 2"
+                  : "contents rotate 2"
+                : "contents 2"
+            }
+          >
             Axios를 통한 HTTP 비동기 통신
             <br />
             json형태의 데이터 가공 및 활용
@@ -367,7 +397,9 @@ function Skills() {
           className={
             isClicked
               ? skillClicked[3]
-                ? "reactMove skill react rotate"
+                ? isMobile
+                  ? "reactMove skill react opacity"
+                  : "reactMove skill react rotate"
                 : "reactMove skill react"
               : "skill react"
           }
@@ -376,7 +408,15 @@ function Skills() {
           <div
             className={skillClicked[3] ? "background opacity" : "background"}
           ></div>
-          <div className={skillClicked[3] ? "contents rotate 3" : "contents 3"}>
+          <div
+            className={
+              skillClicked[3]
+                ? isMobile
+                  ? "contents opacity 3"
+                  : "contents rotate 3"
+                : "contents 3"
+            }
+          >
             함수형 컴포넌트 지향
             <br />
             Hook을 통한 라이프사이클 관리
@@ -388,7 +428,9 @@ function Skills() {
           className={
             isClicked
               ? skillClicked[4]
-                ? "reduxMove skill redux rotate"
+                ? isMobile
+                  ? "reduxMove skill redux opacity"
+                  : "reduxMove skill redux rotate"
                 : "reduxMove skill redux"
               : "skill redux"
           }
@@ -397,7 +439,15 @@ function Skills() {
           <div
             className={skillClicked[4] ? "background opacity" : "background"}
           ></div>
-          <div className={skillClicked[4] ? "contents rotate 4" : "contents 4"}>
+          <div
+            className={
+              skillClicked[4]
+                ? isMobile
+                  ? "contents opacity 4"
+                  : "contents rotate 4"
+                : "contents 4"
+            }
+          >
             리액트 전역 상태 관리
             <br />
             Redux-toolkit 사용
@@ -407,7 +457,9 @@ function Skills() {
           className={
             isClicked
               ? skillClicked[5]
-                ? "styledComponentMove skill styledComponent rotate"
+                ? isMobile
+                  ? "styledComponentMove skill styledComponent opacity"
+                  : "styledComponentMove skill styledComponent rotate"
                 : "styledComponentMove skill styledComponent"
               : "skill styledComponent"
           }
@@ -416,7 +468,15 @@ function Skills() {
           <div
             className={skillClicked[5] ? "background opacity" : "background"}
           ></div>
-          <div className={skillClicked[5] ? "contents rotate 5" : "contents 5"}>
+          <div
+            className={
+              skillClicked[5]
+                ? isMobile
+                  ? "contents opacity 5"
+                  : "contents rotate 5"
+                : "contents 5"
+            }
+          >
             css-in-js 구현
             <br />
             Props를 통한 조건부 스타일링
@@ -426,16 +486,26 @@ function Skills() {
           className={
             isClicked
               ? skillClicked[6]
-                ? "gitMove skill git rotate"
+                ? isMobile
+                  ? "gitMove skill git opacity"
+                  : "gitMove skill git rotate"
                 : "gitMove skill git"
-              : "skill git"
+              : "skill figma"
           }
           onClick={(e) => skillClickedOn(e)}
         >
           <div
             className={skillClicked[6] ? "background opacity" : "background"}
           ></div>
-          <div className={skillClicked[6] ? "contents rotate 6" : "contents 6"}>
+          <div
+            className={
+              skillClicked[6]
+                ? isMobile
+                  ? "contents opacity 6"
+                  : "contents rotate 6"
+                : "contents 6"
+            }
+          >
             레포지토리 관리
             <br />
             pull push commit 명령어 사용
@@ -448,7 +518,9 @@ function Skills() {
           className={
             isClicked
               ? skillClicked[7]
-                ? "figmaMove skill figma rotate"
+                ? isMobile
+                  ? "figmaMove skill figma opacity"
+                  : "figmaMove skill figma rotate"
                 : "figmaMove skill figma"
               : "skill figma"
           }
@@ -457,7 +529,15 @@ function Skills() {
           <div
             className={skillClicked[7] ? "background opacity" : "background"}
           ></div>
-          <div className={skillClicked[7] ? "contents rotate 7" : "contents 7"}>
+          <div
+            className={
+              skillClicked[7]
+                ? isMobile
+                  ? "contents opacity 7"
+                  : "contents rotate 7"
+                : "contents 7"
+            }
+          >
             와이어프레임과 디자인 구현
             <br />
             간단한 상호작용 및 전환 효과 구현

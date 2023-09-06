@@ -58,10 +58,14 @@ function Footer() {
   return (
     <FooterContainer $ismobile={isMobile}>
       <div className="link">
-        <a href="https://jieunny.tistory.com/">
+        <a href="https://jieunny.tistory.com/" target="_blank" rel="noreferrer">
           <img src={Tstory} alt="TstoryLogo" className="logo" />
         </a>
-        <a href="https://github.com/jieuny0314">
+        <a
+          href="https://github.com/jieuny0314"
+          target="_blank"
+          rel="noreferrer"
+        >
           <AiFillGithub color="white" className="logo github" />
         </a>
       </div>
