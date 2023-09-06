@@ -61,10 +61,9 @@ const ProjectDetailContainer = styled.section`
     align-items: end;
     justify-content: space-between;
     box-shadow: 0 4px 4px -5px #d9d9d9;
-    margin-top: 20px;
 
     .logoImg {
-      width: 120px;
+      width: ${(props) => (props.$ismobile ? "100px" : "120px")};
     }
   }
 
@@ -255,7 +254,7 @@ function ProjectDetail({ projectsRef }) {
         "axios를 통한 HTTP 비동기 통신으로 기본적인 CRUD 기능을 구현했고, 후기에 이미지를 업로드 하기 위해서 formdata 형식을 사용했습니다.",
       ],
       review: [
-        "팀장으로써 프론트엔드와 백엔드 사이에서 중간다리 역할을 하며 원활한 의사소통을 이끌어냈습니다. 또한 각 팀원의 진행사항을 파악하여 부족한 부분을 적극적으로 도와 기한 안에 프로젝트를 완성했습니다.",
+        "팀장으로써 프론트엔드와 백엔드 사이에서 중간다리 역할을 하며 원활한 의사소통을 이끌어 냈습니다. 또한 각 팀원의 진행사항을 파악하여 부족한 부분을 적극적으로 도와 기한 내에 프로젝트를 완성했습니다.",
         "지도페이지에서 상태 관련 오류를 겪었고, Redux를 사용하면서 해결했습니다. 이 경험을 통해 전역 상태관리의 대한 중요성을 느꼈습니다.",
         "처음으로 Tailwind CSS를 사용하면서 styled-component와 비교해서 각 라이브러리의 장단점을 느꼈습니다.",
         "메인 페이지의 이미지 용량이 너무 커서 로딩이 늦어진다는 걸 깨달았고, 이미지 최적화의 중요성을 깨달았습니다.",
