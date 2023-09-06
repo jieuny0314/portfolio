@@ -57,7 +57,8 @@ const ProjectCardContainer = styled.article`
   }
 
   &:hover .contentsBox .learnMore {
-    right: ${(props) => (props.$ismobile ? "2px" : "15px")};
+    right: ${(props) => (props.$ismobile ? "2px" : "")};
+    left: ${(props) => (props.$ismobile ? "" : "55px")};
     transition: 0.5s all;
   }
 
@@ -75,10 +76,11 @@ const ProjectCardContainer = styled.article`
 
     .learnMore {
       position: absolute;
-      right: -100%;
-      bottom: ${(props) => (props.$ismobile ? "" : "2%")};
+      right: ${(props) => (props.$ismobile ? "-100%" : "")};
+      left: ${(props) => (props.$ismobile ? "" : "-100%")};
+      bottom: ${(props) => (props.$ismobile ? "" : "5%")};
       top: ${(props) => (props.$ismobile ? "8%" : "")};
-      font-size: ${(props) => (props.$ismobile ? "1rem" : "1.2rem")};
+      font-size: ${(props) => (props.$ismobile ? "1rem" : "1.5rem")};
       border: none;
       background-color: transparent;
       font-family: "Sriracha", cursive;
