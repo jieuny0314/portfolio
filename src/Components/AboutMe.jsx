@@ -57,6 +57,7 @@ const AboutMeContainer = styled.section`
   .logoImgContainer {
     width: ${(props) => (props.$ismobile ? "150px" : "30%")};
     position: relative;
+    cursor: ${(props) => (props.$isclicked ? "" : "pointer")};
     height: 125px;
   }
 
@@ -71,25 +72,30 @@ const AboutMeContainer = styled.section`
     transition: all 1s;
   }
 
-  /* .logoImgContainer:hover .logoImg {
-    left: ${(props) => (props.$ismobile ? "0" : "-60%")};
-    top: ${(props) => (props.$ismobile ? "-140%" : "0")};
-    transition: all 1s ease;
-  } */
-
   .detailContainer {
     width: ${(props) => (props.$ismobile ? "320px" : "160%")};
     position: absolute;
-    transition: all 1s;
-    height: ${(props) => (props.$ismobile ? "60px" : "120%")};
+    height: ${(props) =>
+      props.$isclicked
+        ? "400px"
+        : (props) => (props.$ismobile ? "60px" : "120%")};
     overflow: hidden;
     top: ${(props) =>
       props.$isclicked
         ? (props) => (props.$ismobile ? "-80px" : "-130px")
         : "0"};
-    left: ${(props) => (props.$ismobile ? "-50%" : "0")};
+    left: ${(props) =>
+      props.$isclicked
+        ? (props) =>
+            props.$ismobile
+              ? "-50%"
+              : (props) => (props.$isbigpc ? "65%" : "40%")
+        : props.$ismobile
+        ? "-50%"
+        : "0"};
     padding: 20px;
-    opacity: 0;
+    opacity: ${(props) => (props.$isclicked ? "1" : "0")};
+    transition: all 1s;
 
     @keyframes change {
       0% {
@@ -155,15 +161,6 @@ const AboutMeContainer = styled.section`
         display: inline-block;
       }
     }
-  }
-
-  .logoImgContainer:hover .detailContainer {
-    left: ${(props) =>
-      props.$ismobile ? "-50%" : (props) => (props.$isbigpc ? "65%" : "40%")};
-    top: ${(props) => (props.$ismobile ? "-80px" : "-130px")};
-    height: ${(props) => (props.$ismobile ? "400px" : "400px")};
-    opacity: 1;
-    transition: all 1s;
   }
 
   .fold {

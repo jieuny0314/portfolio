@@ -6,7 +6,6 @@ import { setNaviValue } from "../redux/action";
 const HeaderContainer = styled.header`
   width: 100%;
   height: ${(props) => (props.$ismobile ? "80px" : "100px")};
-  min-width: 375px;
   position: fixed;
   top: 0;
   background-color: transparent;
