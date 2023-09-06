@@ -1,5 +1,5 @@
 ## 👩🏻‍💻 Portfolio
-<img width="1258" alt="스크린샷 2023-09-06 오후 12 56 53" src="https://github.com/codestates-seb/seb43_main_030/assets/77611460/dec94296-d189-4126-915a-2664be8c3f21">
+<img width="1297" alt="스크린샷 2023-09-07 오전 12 57 30" src="https://github.com/jieuny0314/portfolio/assets/77611460/a839e4d6-7879-4fef-9b6c-37da50d68a87">
 <br />
 <br />
 
