@@ -120,6 +120,7 @@ const StackBox = styled.div`
       font-weight: bold;
       transition-property: transform, opacity;
       transition-duration: 1.5s, 1s;
+      word-break: keep-all;
     }
 
     .opacity {
@@ -241,7 +242,7 @@ const ClickSkill = styled.div`
   width: ${(props) =>
     props.$isclicked ? (props.$ismobile ? "59%" : "50%") : "0"};
   font-size: ${(props) => (props.$ismobile ? "0.5rem" : "1rem")};
-  height: ${(props) => (props.$ismobile ? "6%" : "6%")};
+  height: ${(props) => (props.$ismobile ? "7%" : "6%")};
   transition: all 1s ease-in-out;
   display: flex;
   margin-top: ${(props) => (props.$ismobile ? "-5px" : "-8px")};

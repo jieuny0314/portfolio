@@ -73,6 +73,7 @@ const AboutMeContainer = styled.section`
   }
 
   .detailContainer {
+    word-break: keep-all;
     width: ${(props) => (props.$ismobile ? "320px" : "160%")};
     position: absolute;
     height: ${(props) =>

@@ -21,6 +21,24 @@ const HeaderContainer = styled.header`
     padding: 0 20px 0 20px;
     font-size: ${(props) => (props.$ismobile ? "1rem" : "1.7rem")};
     margin: ${(props) => (props.$ismobile ? "0 15px" : "0 100px")};
+
+    .lineBox {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 3px;
+      background-color: ${(props) =>
+        props.$naviValue === 0
+          ? "#d5b4b4"
+          : (props) =>
+              props.$naviValue === 1
+                ? "#dcd6f7"
+                : (props) =>
+                    props.$naviValue === 2
+                      ? "#a4926d"
+                      : (props) => (props.$naviValue === 3 ? "#9eb9c5" : "")};
+    }
   }
 `;
 
@@ -28,11 +46,6 @@ const AboutMe = styled.li`
   cursor: pointer;
   position: relative;
   .lineBox {
-    position: absolute;
-    bottom: -10px;
-    left: ${(props) => (props.$ismobile ? "-1px" : "-13px")};
-    height: 3px;
-    background-color: #d5b4b4;
     width: ${(props) =>
       props.$naviValue === 0 ? (props.$ismobile ? "75px" : "150px") : "0"};
   }
@@ -48,11 +61,6 @@ const Skills = styled.li`
   position: relative;
 
   .lineBox {
-    position: absolute;
-    bottom: -10px;
-    left: ${(props) => (props.$ismobile ? "-3px" : "-24px")};
-    height: 3px;
-    background-color: #dcd6f7;
     width: ${(props) =>
       props.$naviValue === 1 ? (props.$ismobile ? "45px" : "110px") : "0"};
   }
@@ -68,14 +76,8 @@ const Projects = styled.li`
   cursor: pointer;
 
   .lineBox {
-    position: absolute;
-    bottom: -10px;
-    height: 3px;
-    left: ${(props) => (props.$ismobile ? "-1px" : "-25px")};
     width: ${(props) =>
       props.$naviValue === 2 ? (props.$ismobile ? "65px" : "150px") : "0"};
-    height: 3px;
-    background-color: #a4926d;
   }
 
   &:hover .lineBox {
@@ -89,11 +91,6 @@ const Contact = styled.li`
   cursor: pointer;
 
   .lineBox {
-    position: absolute;
-    bottom: -10px;
-    left: ${(props) => (props.$ismobile ? "-1px" : "-24px")};
-    height: 3px;
-    background-color: #9eb9c5;
     width: ${(props) =>
       props.$naviValue === 3 ? (props.$ismobile ? "65px" : "140px") : "0"};
   }
@@ -134,7 +131,7 @@ function Header({ aboutMeRef, skillsRef, projectsRef, contactRef }) {
   }
 
   return (
-    <HeaderContainer $ismobile={isMobile}>
+    <HeaderContainer $ismobile={isMobile} $naviValue={naviValue}>
       <nav className="navi">
         <AboutMe
           onClick={() => {

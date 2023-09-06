@@ -12,6 +12,7 @@ import {
 } from "react-icons/ai";
 import { setNaviValue } from "../redux/action";
 import { useDispatch } from "react-redux";
+import LogoImg from "../Images/Logo_small.png";
 
 const Background = styled.div`
   width: 100vw;
@@ -29,6 +30,15 @@ const ProjectDetailContainer = styled.section`
   min-width: ${(props) => (props.$ismobile ? "350px" : "600px")};
   padding-top: 90px;
 
+  @font-face {
+    font-family: "SUITE-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
+      format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
+  font-family: "SUITE-Regular";
+
   .fixed {
     position: fixed;
     background-color: white;
@@ -41,9 +51,9 @@ const ProjectDetailContainer = styled.section`
     z-index: 50;
   }
 
-  .titleBox {
+  .headerBox {
     background-color: white;
-    padding: 0 15px;
+    padding: 10px;
     width: ${(props) => (props.$ismobile ? "100%" : "45%")};
     min-width: ${(props) => (props.$ismobile ? "350px" : "600px")};
     border-bottom: 0.5px solid #d9d9d9;
@@ -51,7 +61,15 @@ const ProjectDetailContainer = styled.section`
     align-items: end;
     justify-content: space-between;
     box-shadow: 0 4px 4px -5px #d9d9d9;
+    margin-top: 20px;
 
+    .logoImg {
+      width: 120px;
+    }
+  }
+
+  .titleBox {
+    margin-bottom: 30px;
     .title {
       font-size: 2rem;
       font-family: "Sriracha", cursive;
@@ -101,6 +119,7 @@ const ProjectDetailContainer = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 60px;
 
     .arrow {
       color: #7d7d7d;
@@ -190,20 +209,6 @@ const PreviewImg = styled.div`
   transition: all 1s ease-in-out;
 `;
 
-const MainBtn = styled.button`
-  border: none;
-  background-color: transparent;
-  font-size: 1rem;
-  margin-bottom: 10px;
-  padding-right: 5px;
-  color: #8f8f8f;
-  cursor: pointer;
-
-  &:hover {
-    color: black;
-  }
-`;
-
 function ProjectDetail({ projectsRef }) {
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
@@ -250,6 +255,7 @@ function ProjectDetail({ projectsRef }) {
         "axios를 통한 HTTP 비동기 통신으로 기본적인 CRUD 기능을 구현했고, 후기에 이미지를 업로드 하기 위해서 formdata 형식을 사용했습니다.",
       ],
       review: [
+        "팀장으로써 프론트엔드와 백엔드 사이에서 중간다리 역할을 하며 원활한 의사소통을 이끌어냈습니다. 또한 각 팀원의 진행사항을 파악하여 부족한 부분을 적극적으로 도와 기한 안에 프로젝트를 완성했습니다.",
         "지도페이지에서 상태 관련 오류를 겪었고, Redux를 사용하면서 해결했습니다. 이 경험을 통해 전역 상태관리의 대한 중요성을 느꼈습니다.",
         "처음으로 Tailwind CSS를 사용하면서 styled-component와 비교해서 각 라이브러리의 장단점을 느꼈습니다.",
         "메인 페이지의 이미지 용량이 너무 커서 로딩이 늦어진다는 걸 깨달았고, 이미지 최적화의 중요성을 깨달았습니다.",
@@ -310,7 +316,7 @@ function ProjectDetail({ projectsRef }) {
         "keyframes을 사용해서 애니메이션을 구현하였습니다.",
         "emailjs를 사용해서 사용자가 메일을 보낼 수 있는 기능을 구현했습니다.",
         "Redux-toolkit으로 헤더 상태를 전역으로 관리했습니다.",
-        "useMediaQuery 사용해서 반응형으로 구현했습니다.",
+        "useMediaQuery를 사용해서 반응형으로 구현했습니다.",
         "scroll-snap 속성을 사용해서 원페이지 스크롤을 구현했습니다.",
         // "Lighthouse를 사용해서 성능을 계산하고, 최적화 과정을 거쳤습니다.",
       ],
@@ -368,14 +374,17 @@ function ProjectDetail({ projectsRef }) {
       <Background>
         <ProjectDetailContainer $ismobile={isMobile}>
           <div className="fixed">
-            <header className="titleBox">
-              <h2 className="title">{projectsDetail[projectNum].title}</h2>
+            <header className="headerBox">
               <Link to="/">
-                <MainBtn onClick={goMain}>Go Main</MainBtn>
+                <img
+                  src={LogoImg}
+                  alt="logoImg"
+                  className="logoImg"
+                  onClick={goMain}
+                />
               </Link>
             </header>
           </div>
-          {/* <div className="divisionLine" /> */}
           <article className="previewBox">
             <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
             <figure className="imgBox">
@@ -392,6 +401,9 @@ function ProjectDetail({ projectsRef }) {
             </figure>
             <FaAngleRight size="36" className="arrow next" onClick={next} />
           </article>
+          <div className="titleBox">
+            <h2 className="title">{projectsDetail[projectNum].title}</h2>
+          </div>
           <article className="roleBox">
             <div className="flex">
               <LiaHandPaperSolid className="icon" size="24" color="#eecb9a" />
