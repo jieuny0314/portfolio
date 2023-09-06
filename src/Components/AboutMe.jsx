@@ -64,16 +64,18 @@ const AboutMeContainer = styled.section`
     width: ${(props) => (props.$ismobile ? "150px" : "80%")};
     cursor: pointer;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: ${(props) =>
+      props.$isclicked ? (props) => (props.$ismobile ? "-140%" : "0") : "0"};
+    left: ${(props) =>
+      props.$isclicked ? (props) => (props.$ismobile ? "0" : "-60%") : "0"};
     transition: all 1s;
   }
 
-  .logoImgContainer:hover .logoImg {
+  /* .logoImgContainer:hover .logoImg {
     left: ${(props) => (props.$ismobile ? "0" : "-60%")};
     top: ${(props) => (props.$ismobile ? "-140%" : "0")};
     transition: all 1s ease;
-  }
+  } */
 
   .detailContainer {
     width: ${(props) => (props.$ismobile ? "320px" : "160%")};
@@ -81,7 +83,10 @@ const AboutMeContainer = styled.section`
     transition: all 1s;
     height: ${(props) => (props.$ismobile ? "60px" : "120%")};
     overflow: hidden;
-    top: 0;
+    top: ${(props) =>
+      props.$isclicked
+        ? (props) => (props.$ismobile ? "-80px" : "-130px")
+        : "0"};
     left: ${(props) => (props.$ismobile ? "-50%" : "0")};
     padding: 20px;
     opacity: 0;
@@ -191,32 +196,25 @@ function AboutMe() {
     }
   }, [inView, setNaviValue]);
 
-  const [isHover, setIsHover] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
-  const handleMouseOver = () => {
-    setIsHover(true);
-  };
-
-  const handleMouseOut = () => {
-    setIsHover(false);
+  const handleMouseClicked = () => {
+    setIsClicked(!isClicked);
   };
 
   return (
-    <AboutMeContainer $ismobile={isMobile} $isbigpc={isBigPC} id="AboutMe">
-      <div
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-        className="logoImgContainer"
-      >
+    <AboutMeContainer
+      $ismobile={isMobile}
+      $isbigpc={isBigPC}
+      $isclicked={isClicked}
+      id="AboutMe"
+    >
+      <div onClick={handleMouseClicked} className="logoImgContainer">
         <article className="clickMe">
-          {!isHover ? (
+          {!isClicked ? (
             <>
               <img className="curveImg" src={Curve} alt="CurveImage" />
-              <p className="hoverText">
-                {!isMobile
-                  ? "로고에 마우스를 올려보세요."
-                  : "로고를 클릭해보세요."}
-              </p>
+              <p className="hoverText">로고를 클릭해보세요.</p>
             </>
           ) : (
             ""

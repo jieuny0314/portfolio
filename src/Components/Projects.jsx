@@ -125,7 +125,10 @@ function Projects() {
         "https://img.shields.io/badge/tailwind%20css-06B6D4?style=for-the-badge&logo=tailwind%20css&logoColor=black",
         "https://img.shields.io/badge/redux%20toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=black",
       ],
-      backgroundImg: `${process.env.PUBLIC_URL}/Perpett.png`,
+      backgroundImg: {
+        pc: `${process.env.PUBLIC_URL}/Perpett.png`,
+        mobile: `${process.env.PUBLIC_URL}/PerpettM.png`,
+      },
     },
     {
       id: 2,
@@ -138,7 +141,10 @@ function Projects() {
         "https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white",
         "https://img.shields.io/badge/chart.js-FF6384?style=for-the-badge&logo=chart.js&logoColor=black",
       ],
-      backgroundImg: `${process.env.PUBLIC_URL}/Usum.png`,
+      backgroundImg: {
+        pc: `${process.env.PUBLIC_URL}/Usum.png`,
+        mobile: `${process.env.PUBLIC_URL}/UsumM.png`,
+      },
     },
     {
       id: 3,
@@ -151,7 +157,10 @@ function Projects() {
         "https://img.shields.io/badge/styled%20components-DB7093?style=for-the-badge&logo=styled%20components&logoColor=black",
         "https://img.shields.io/badge/redux%20toolkit-764ABC?style=for-the-badge&logo=redux&logoColor=black",
       ],
-      backgroundImg: `${process.env.PUBLIC_URL}/Portfolio.png`,
+      backgroundImg: {
+        pc: `${process.env.PUBLIC_URL}/Portfolio.png`,
+        mobile: `${process.env.PUBLIC_URL}/PortfolioM.png`,
+      },
     },
     {
       id: 4,
@@ -164,7 +173,10 @@ function Projects() {
         "https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=black",
         "https://img.shields.io/badge/styled%20components-DB7093?style=for-the-badge&logo=styled%20components&logoColor=black",
       ],
-      backgroundImg: `${process.env.PUBLIC_URL}/TodoList.png`,
+      backgroundImg: {
+        pc: `${process.env.PUBLIC_URL}/TodoList.png`,
+        mobile: `${process.env.PUBLIC_URL}/TodoListM.png`,
+      },
     },
   ];
 

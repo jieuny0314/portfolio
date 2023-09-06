@@ -19,6 +19,14 @@ const ContactContainer = styled.div`
   scroll-snap-align: start;
   position: relative;
   background-color: #daeaf1;
+
+  @font-face {
+    font-family: "SUITE-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2")
+      format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
 `;
 
 const SendEmailContainer = styled.div`
@@ -59,6 +67,7 @@ const SendEmailContainer = styled.div`
       background-color: aliceblue;
       border-radius: 10px;
       font-size: ${(props) => (props.$ismobile ? "16px" : "1rem")};
+      font-family: "SUITE-Regular";
       &:active,
       &:focus {
         outline: none;
@@ -81,15 +90,16 @@ const SendEmailContainer = styled.div`
       flex-direction: column;
 
       input {
-        width: 230px;
+        width: ${(props) => (props.$ismobile ? "220px" : "230px")};
       }
 
       .warning {
         position: absolute;
-        left: 205px;
+        left: ${(props) => (props.$ismobile ? "225px" : "235px")};
         bottom: ${(props) => (props.$ismobile ? "-35px" : "-30px")};
         color: #da5050;
         font-size: ${(props) => (props.$ismobile ? "0.7rem" : "1rem")};
+        font-family: "SUITE-Regular";
       }
     }
 
@@ -100,8 +110,9 @@ const SendEmailContainer = styled.div`
       .warning {
         position: absolute;
         left: 0;
-        color: #e37474;
+        color: #da5050;
         font-size: ${(props) => (props.$ismobile ? "0.7rem" : "1rem")};
+        font-family: "SUITE-Regular";
       }
     }
 
@@ -119,7 +130,7 @@ const SendEmailContainer = styled.div`
       justify-content: end;
       position: relative;
       height: 50px;
-      margin-top: 30px;
+      margin-top: ${(props) => (props.$ismobile ? "45px" : "30px")};
 
       .textContainer {
         display: flex;

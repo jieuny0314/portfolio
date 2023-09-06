@@ -23,13 +23,10 @@ const ProjectCardContainer = styled.article`
   flex-direction: column;
   justify-content: center;
   border-radius: 10px;
-  background-image: url(${(props) => props.$backImg});
+  background-image: ${(props) =>
+    props.$ismobile ? `url(${props.$backimgm})` : `url(${props.$backimgpc})`};
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: ${(props) =>
-    props.$index === 2
-      ? (props) => (props.$ismobile ? "62.5% 0" : "49.5% 0")
-      : "49.5% 0"};
   position: relative;
   z-index: 2;
   overflow-y: hidden;
@@ -192,7 +189,8 @@ function ProjectCard({ project, index, popUp, setPopUp, currentPr }) {
   return (
     <>
       <ProjectCardContainer
-        $backImg={project.backgroundImg}
+        $backimgpc={project.backgroundImg.pc}
+        $backimgm={project.backgroundImg.mobile}
         $index={index}
         $curpr={currentPr}
         $ismobile={isMobile}
