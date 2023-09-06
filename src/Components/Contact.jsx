@@ -262,7 +262,7 @@ function Contact() {
     <ContactContainer>
       <div className="detective" ref={ref} />
       <SendEmailContainer $ismobile={isMobile}>
-        <h3 className="formTitle">CONTACT ME BY EMAIL !</h3>
+        <h3 className="formTitle">CONTACT ME BY EMAIL</h3>
         <form className="emailForm" ref={form} onSubmit={sendEmail}>
           <div className="inputBox">
             <label className="nameLabel">

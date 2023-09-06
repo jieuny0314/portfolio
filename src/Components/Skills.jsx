@@ -34,7 +34,6 @@ const StackBox = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  cursor: pointer;
   position: relative;
   background-color: white;
   flex-direction: column;
@@ -64,6 +63,7 @@ const StackBox = styled.div`
     animation: move 2s infinite linear;
     margin-top: 10px;
     margin-bottom: ${(props) => (props.$ismobile ? "2.5px" : "10px")};
+    cursor: pointer;
   }
 
   .text::before {
