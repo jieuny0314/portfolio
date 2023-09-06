@@ -26,6 +26,7 @@ const ProjectCardContainer = styled.article`
   background-image: ${(props) =>
     props.$ismobile ? `url(${props.$backimgm})` : `url(${props.$backimgpc})`};
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   position: relative;
   z-index: 2;
