@@ -118,7 +118,7 @@ const ProjectDetailContainer = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: ${(props) => (props.$ismobile ? "20px" : "40px")};
 
     .arrow {
       color: #7d7d7d;
