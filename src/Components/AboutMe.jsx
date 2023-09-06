@@ -234,7 +234,12 @@ function AboutMe() {
             330개의 포스팅을 남겼습니다.<br></br>
           </p>
           <p className="contents question"> 제 기록이 궁금하신가요?</p>
-          <a className="blogLink" href="https://jieunny.tistory.com/">
+          <a
+            className="blogLink"
+            target="_blank"
+            rel="noreferrer"
+            href="https://jieunny.tistory.com/"
+          >
             <h2 className="text">Click Me!</h2>
           </a>
         </article>
