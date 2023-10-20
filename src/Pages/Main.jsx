@@ -14,6 +14,7 @@ const MainContainer = styled.main`
   overflow-x: hidden;
   position: relative;
   touch-action: pan-x pan-y;
+
   &::-webkit-scrollbar {
     display: none;
   }

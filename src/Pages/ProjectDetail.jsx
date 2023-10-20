@@ -340,7 +340,7 @@ function ProjectDetail({ projectsRef }) {
       ],
       role: [
         "[ 서비스 기획 및 디자인, 프론트엔드 ]",
-        "각 페이지 디자인 및 구현",
+        "각 페이지 디자인 설계 및 구현",
       ],
       function: [
         "JSON 서버를 사용하여 테스트 서버를 구축하였습니다.",
@@ -457,7 +457,12 @@ function ProjectDetail({ projectsRef }) {
               {projectsDetail[projectNum].link.map((el, i) => {
                 return (
                   <li className="linkList" key={i}>
-                    <a href={el[1]} className="linkA">
+                    <a
+                      href={el[1]}
+                      className="linkA"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       {el[0]}
                     </a>
                   </li>

@@ -234,14 +234,14 @@ function AboutMe() {
             개발자입니다.<br></br> 개인 학습 및 회고 블로그를 운영하고 있으며 약
             330개의 포스팅을 남겼습니다.<br></br>
           </p>
-          <p className="contents question"> 제 기록이 궁금하신가요?</p>
+          <p className="contents question">제 기록이 궁금하신가요?</p>
           <a
             className="blogLink"
             target="_blank"
             rel="noreferrer"
             href="https://jieunny.tistory.com/"
           >
-            <h2 className="text">Click Me!</h2>
+            <h2 className="text">Blog</h2>
           </a>
         </article>
       </div>
