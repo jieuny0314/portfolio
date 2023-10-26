@@ -10,25 +10,23 @@ import {
   AiOutlineBulb,
   AiOutlineFunction,
 } from "react-icons/ai";
-import { setNaviValue } from "../redux/action";
 import { useDispatch } from "react-redux";
-import LogoImg from "../Images/Logo_small.png";
 
 const Background = styled.div`
-  width: 100vw;
+  background-color: #fcf8e8;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
+  padding: ${(props) => (props.$ismobile ? "20px 10px" : "")};
 `;
 
 const ProjectDetailContainer = styled.section`
+  display: flex;
+  flex-direction: column;
   width: ${(props) => (props.$ismobile ? "" : "45%")};
-  padding: ${(props) => (props.$ismobile ? "30px" : "10px")};
   overflow-x: hidden;
   min-width: ${(props) => (props.$ismobile ? "350px" : "600px")};
-  padding-top: 90px;
 
   @font-face {
     font-family: "SUITE-Regular";
@@ -61,12 +59,6 @@ const ProjectDetailContainer = styled.section`
     padding: 0 10px;
   }
 
-  .divisionLine {
-    width: 100%;
-    height: 0.5px;
-    background-color: #d9d9d9;
-  }
-
   .divisionLine,
   .previewBox,
   .roleBox,
@@ -81,7 +73,7 @@ const ProjectDetailContainer = styled.section`
   .flex {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .previewBox {
@@ -90,7 +82,7 @@ const ProjectDetailContainer = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: ${(props) => (props.$ismobile ? "20px" : "40px")};
+    margin-top: ${(props) => (props.$ismobile ? "40px" : "40px")};
 
     .arrow {
       color: #7d7d7d;
@@ -109,6 +101,7 @@ const ProjectDetailContainer = styled.section`
       overflow-x: hidden;
     }
   }
+
   .roleTitle,
   .functionTitle,
   .reviewTitle,
@@ -327,35 +320,33 @@ function ProjectDetail({ project }) {
     },
   ];
 
-  const projectNum = useLocation().pathname.split("/")[2];
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <Background>
+      <Background $ismobile={isMobile}>
         <ProjectDetailContainer $ismobile={isMobile}>
-          <div className="fixed">
-            <header className="headerBox"></header>
+          <div className="flexBox">
+            <article className="previewBox">
+              <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
+              <figure className="imgBox">
+                {projectsDetail[project].preview.map((el, i) => {
+                  return (
+                    <PreviewImg
+                      className="previewImg"
+                      $url={el}
+                      $curimg={currentImg}
+                      key={i}
+                    />
+                  );
+                })}
+              </figure>
+              <FaAngleRight size="36" className="arrow next" onClick={next} />
+            </article>
           </div>
-          <article className="previewBox">
-            <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
-            <figure className="imgBox">
-              {projectsDetail[project].preview.map((el, i) => {
-                return (
-                  <PreviewImg
-                    className="previewImg"
-                    $url={el}
-                    $curimg={currentImg}
-                    key={i}
-                  />
-                );
-              })}
-            </figure>
-            <FaAngleRight size="36" className="arrow next" onClick={next} />
-          </article>
+
           <div className="titleBox">
             <h2 className="title">{projectsDetail[project].title}</h2>
           </div>

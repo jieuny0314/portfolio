@@ -31,7 +31,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: "root",
   storage: storageSession,
-  whitelist: ["naviValue", "projectNum"],
+  whitelist: ["naviValue", "projectNum", "popUp"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

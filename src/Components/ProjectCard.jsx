@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
+import { CgCloseO } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setPopUp } from "../redux/action";
@@ -195,13 +196,16 @@ const PopUpContainer = styled.div`
   top: 0;
   left: 0;
   z-index: 100;
-  background-color: whitesmoke;
+  background-color: #fffbf5;
   overflow: scroll;
 
   .offButton {
-    position: fixed;
+    position: absolute;
+    background-color: transparent;
     top: 10px;
     left: 10px;
+    border: none;
+    cursor: pointer;
   }
 `;
 
@@ -265,7 +269,7 @@ function ProjectCard({ project, index, currentPr }) {
         {popUp ? (
           <PopUpContainer>
             <button className="offButton" onClick={offPopUp}>
-              X
+              <CgCloseO size="36" />
             </button>
             <ProjectDetail project={currentPr} />
           </PopUpContainer>

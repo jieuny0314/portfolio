@@ -232,7 +232,7 @@ function AboutMe() {
           <p className="contents">
             같은 걸 두 번 물어보는 게 아닌 기록한 걸 읽고 적용할 수 있는
             개발자입니다.<br></br> 개인 학습 및 회고 블로그를 운영하고 있으며 약
-            330개의 포스팅을 남겼습니다.<br></br>
+            340개의 포스팅을 남겼습니다.<br></br>
           </p>
           <p className="contents question">제 기록이 궁금하신가요?</p>
           <a
