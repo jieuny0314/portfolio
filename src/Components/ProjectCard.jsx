@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setPopUp } from "../redux/action";
+import ProjectDetail from "../Pages/ProjectDetail";
+import { useState } from "react";
 
 const ProjectCardContainer = styled.article`
   width: 100%;
@@ -184,10 +188,38 @@ const ProjectCardContainer = styled.article`
   }
 `;
 
-function ProjectCard({ project, index, popUp, setPopUp, currentPr }) {
+const PopUpContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: whitesmoke;
+  overflow: scroll;
+
+  .offButton {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+  }
+`;
+
+function ProjectCard({ project, index, currentPr }) {
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
   });
+
+  const dispatch = useDispatch();
+  const popUp = useSelector((state) => state.popUp);
+
+  const onPopUp = () => {
+    dispatch(setPopUp(true));
+  };
+
+  const offPopUp = () => {
+    dispatch(setPopUp(false));
+  };
 
   return (
     <>
@@ -226,10 +258,20 @@ function ProjectCard({ project, index, popUp, setPopUp, currentPr }) {
               })}
             </div>
           </div>
-          <Link to={`/project/${index}`}>
-            <button className="learnMore">Learn More</button>
-          </Link>
+          <button onClick={onPopUp} className="learnMore">
+            Learn More
+          </button>
         </div>
+        {popUp ? (
+          <PopUpContainer>
+            <button className="offButton" onClick={offPopUp}>
+              X
+            </button>
+            <ProjectDetail project={currentPr} />
+          </PopUpContainer>
+        ) : (
+          ""
+        )}
       </ProjectCardContainer>
     </>
   );

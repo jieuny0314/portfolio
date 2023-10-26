@@ -9,7 +9,7 @@ const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
   background-color: transparent;
-  z-index: 50;
+  z-index: ${(props) => (props.$popUp ? "0" : "80")};
   font-family: "Sriracha", cursive;
 
   .navi {
@@ -106,6 +106,7 @@ function Header({ aboutMeRef, skillsRef, projectsRef, contactRef }) {
     query: "(max-width:767px)",
   });
   const naviValue = useSelector((state) => state.naviValue);
+  const popUp = useSelector((state) => state.popUp);
   const dispatch = useDispatch();
 
   function setAboutMe() {
@@ -131,7 +132,7 @@ function Header({ aboutMeRef, skillsRef, projectsRef, contactRef }) {
   }
 
   return (
-    <HeaderContainer $ismobile={isMobile} $naviValue={naviValue}>
+    <HeaderContainer $ismobile={isMobile} $naviValue={naviValue} $popUp={popUp}>
       <nav className="navi">
         <AboutMe
           onClick={() => {

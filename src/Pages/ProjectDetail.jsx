@@ -39,34 +39,6 @@ const ProjectDetailContainer = styled.section`
   }
   font-family: "SUITE-Regular";
 
-  .fixed {
-    position: fixed;
-    background-color: white;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
-  }
-
-  .headerBox {
-    background-color: white;
-    padding: 10px;
-    width: ${(props) => (props.$ismobile ? "100%" : "45%")};
-    min-width: ${(props) => (props.$ismobile ? "350px" : "600px")};
-    border-bottom: 0.5px solid #d9d9d9;
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    box-shadow: 0 4px 4px -5px #d9d9d9;
-
-    .logoImg {
-      width: ${(props) => (props.$ismobile ? "100px" : "120px")};
-    }
-  }
-
   .titleBox {
     margin-bottom: 30px;
     .title {
@@ -208,7 +180,7 @@ const PreviewImg = styled.div`
   transition: all 1s ease-in-out;
 `;
 
-function ProjectDetail({ projectsRef }) {
+function ProjectDetail({ project }) {
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
   });
@@ -223,13 +195,6 @@ function ProjectDetail({ projectsRef }) {
     if (currentImg > 0) {
       setCurrentImg((currentImg - 1) % 4);
     }
-  }
-
-  function goMain() {
-    dispatch(setNaviValue(2));
-    setTimeout(() => {
-      projectsRef.current.scrollIntoView();
-    }, 100);
   }
 
   const projectsDetail = [
@@ -373,21 +338,12 @@ function ProjectDetail({ projectsRef }) {
       <Background>
         <ProjectDetailContainer $ismobile={isMobile}>
           <div className="fixed">
-            <header className="headerBox">
-              <Link to="/">
-                <img
-                  src={LogoImg}
-                  alt="logoImg"
-                  className="logoImg"
-                  onClick={goMain}
-                />
-              </Link>
-            </header>
+            <header className="headerBox"></header>
           </div>
           <article className="previewBox">
             <FaAngleLeft size="36" className="arrow prev" onClick={prev} />
             <figure className="imgBox">
-              {projectsDetail[projectNum].preview.map((el, i) => {
+              {projectsDetail[project].preview.map((el, i) => {
                 return (
                   <PreviewImg
                     className="previewImg"
@@ -401,7 +357,7 @@ function ProjectDetail({ projectsRef }) {
             <FaAngleRight size="36" className="arrow next" onClick={next} />
           </article>
           <div className="titleBox">
-            <h2 className="title">{projectsDetail[projectNum].title}</h2>
+            <h2 className="title">{projectsDetail[project].title}</h2>
           </div>
           <article className="roleBox">
             <div className="flex">
@@ -409,7 +365,7 @@ function ProjectDetail({ projectsRef }) {
               <h3 className="roleTitle">맡은 역할</h3>
             </div>
             <ul>
-              {projectsDetail[projectNum].role.map((el, i) => {
+              {projectsDetail[project].role.map((el, i) => {
                 return (
                   <li className="role" key={i}>
                     {el}
@@ -424,7 +380,7 @@ function ProjectDetail({ projectsRef }) {
               <h3 className="functionTitle">구현 기능 설명</h3>
             </div>
             <ul>
-              {projectsDetail[projectNum].function.map((el, i) => {
+              {projectsDetail[project].function.map((el, i) => {
                 return (
                   <li className="function" key={i}>
                     {el}
@@ -439,7 +395,7 @@ function ProjectDetail({ projectsRef }) {
               <h3 className="reviewTitle">회고</h3>
             </div>
             <ul>
-              {projectsDetail[projectNum].review.map((el, i) => {
+              {projectsDetail[project].review.map((el, i) => {
                 return (
                   <li className="review" key={i}>
                     {el}
@@ -454,7 +410,7 @@ function ProjectDetail({ projectsRef }) {
               <h3 className="linkTitle">관련 링크</h3>
             </div>
             <ul>
-              {projectsDetail[projectNum].link.map((el, i) => {
+              {projectsDetail[project].link.map((el, i) => {
                 return (
                   <li className="linkList" key={i}>
                     <a
