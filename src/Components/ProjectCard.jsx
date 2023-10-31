@@ -267,17 +267,17 @@ function ProjectCard({ project, index, currentPr }) {
             Learn More
           </button>
         </div>
-        {popUp ? (
-          <PopUpContainer>
-            <button className="offButton" onClick={offPopUp}>
-              <CgCloseO size="36" />
-            </button>
-            <ProjectDetail project={currentPr} />
-          </PopUpContainer>
-        ) : (
-          ""
-        )}
       </ProjectCardContainer>
+      {popUp ? (
+        <PopUpContainer>
+          <button className="offButton" onClick={offPopUp}>
+            <CgCloseO size="36" />
+          </button>
+          <ProjectDetail project={currentPr} />
+        </PopUpContainer>
+      ) : (
+        ""
+      )}
     </>
   );
 }
