@@ -94,7 +94,6 @@ const ProjectSliderContainer = styled.div`
   overflow-x: hidden;
   margin: 0 10px;
   border-radius: 10px;
-  position: relative;
   min-width: 240px;
 `;
 

@@ -8,7 +8,6 @@ import ProjectDetail from "../Pages/ProjectDetail";
 const ProjectCardContainer = styled.article`
   width: 100%;
   flex-shrink: 0;
-  position: absolute;
   right: ${(props) =>
     props.$curpr === 0
       ? "0%"
