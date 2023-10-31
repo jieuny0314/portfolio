@@ -1,11 +1,9 @@
 import styled from "styled-components";
 import { useMediaQuery } from "react-responsive";
 import { CgCloseO } from "react-icons/cg";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setPopUp } from "../redux/action";
 import ProjectDetail from "../Pages/ProjectDetail";
-import { useState } from "react";
 
 const ProjectCardContainer = styled.article`
   width: 100%;
@@ -198,6 +196,10 @@ const PopUpContainer = styled.div`
   z-index: 100;
   background-color: #fffbf5;
   overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .offButton {
     position: absolute;

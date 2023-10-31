@@ -207,7 +207,7 @@ function Projects() {
             <ProjectCard
               project={projects[i]}
               key={el.id}
-              index={i}
+              index={currentPr}
               popUp={popUp}
               setPopUp={setPopUp}
               currentPr={currentPr}
