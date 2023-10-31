@@ -17,7 +17,7 @@ const Background = styled.div`
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
-  padding: ${(props) => (props.$ismobile ? "20px 10px" : "")};
+  padding: ${(props) => (props.$ismobile ? "20px 15px" : "")};
 `;
 
 const ProjectDetailContainer = styled.section`

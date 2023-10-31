@@ -204,7 +204,7 @@ const PopUpContainer = styled.div`
     position: absolute;
     background-color: transparent;
     top: 10px;
-    left: 10px;
+    left: 5px;
     border: none;
     cursor: pointer;
   }
@@ -271,7 +271,7 @@ function ProjectCard({ project, index, currentPr }) {
       {popUp ? (
         <PopUpContainer>
           <button className="offButton" onClick={offPopUp}>
-            <CgCloseO size="36" />
+            <CgCloseO size="36" color="black" />
           </button>
           <ProjectDetail project={currentPr} />
         </PopUpContainer>
